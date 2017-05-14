@@ -1,6 +1,8 @@
 package com.ipn.spring.pojo;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable{
 
     private Integer uno;
     private String uname;
