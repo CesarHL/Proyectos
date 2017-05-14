@@ -3,7 +3,6 @@ package com.ipn.spring.controller;
 import com.ipn.spring.dao.UserDAO;
 import com.ipn.spring.pojo.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

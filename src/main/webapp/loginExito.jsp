@@ -1,9 +1,3 @@
-<%-- 
-    Document   : loginExito
-    Created on : 12-may-2017, 23:21:51
-    Author     : Erick
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

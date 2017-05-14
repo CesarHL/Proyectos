@@ -1,9 +1,3 @@
-<%-- 
-    Document   : pm
-    Created on : 13-may-2017, 20:57:37
-    Author     : Erick
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
