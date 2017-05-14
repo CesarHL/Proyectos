@@ -2,6 +2,7 @@ package com.ipn.spring.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Proyecto implements Serializable {
 
@@ -14,11 +15,12 @@ public class Proyecto implements Serializable {
     private String alcance;
     private Integer costoFijo;
     private Integer costoVariable;
+    private List<Modulo> hasModulos;
 
     public Proyecto() {
     }
 
-    public Proyecto(Integer idProyecto, String nombre, Date fechaInicio, Date fechaFin, String estado, String especificaciones, String alcance, Integer costoFijo, Integer costoVariable) {
+    public Proyecto(Integer idProyecto, String nombre, Date fechaInicio, Date fechaFin, String estado, String especificaciones, String alcance, Integer costoFijo, Integer costoVariable, List<Modulo> hasModulos) {
         this.idProyecto = idProyecto;
         this.nombre = nombre;
         this.fechaInicio = fechaInicio;
@@ -28,6 +30,7 @@ public class Proyecto implements Serializable {
         this.alcance = alcance;
         this.costoFijo = costoFijo;
         this.costoVariable = costoVariable;
+        this.hasModulos = hasModulos;
     }
 
     public Integer getIdProyecto() {
@@ -102,9 +105,17 @@ public class Proyecto implements Serializable {
         this.costoVariable = costoVariable;
     }
 
+    public List<Modulo> getHasModulos() {
+        return hasModulos;
+    }
+
+    public void setHasModulos(List<Modulo> hasModulos) {
+        this.hasModulos = hasModulos;
+    }
+
     @Override
     public String toString() {
-        return "Proyecto{" + "idProyecto=" + idProyecto + ", nombre=" + nombre + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", estado=" + estado + ", especificaciones=" + especificaciones + ", alcance=" + alcance + ", costoFijo=" + costoFijo + ", costoVariable=" + costoVariable + '}';
+        return "Proyecto{" + "idProyecto=" + idProyecto + ", nombre=" + nombre + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", estado=" + estado + ", especificaciones=" + especificaciones + ", alcance=" + alcance + ", costoFijo=" + costoFijo + ", costoVariable=" + costoVariable + ", hasModulos=" + hasModulos + '}';
     }
 
 }

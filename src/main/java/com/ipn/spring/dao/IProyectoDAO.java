@@ -5,13 +5,13 @@ import java.util.List;
 
 public interface IProyectoDAO {
 
-    public void crearUsuario(Proyecto proyecto);
+    public void crearProyecto(Proyecto proyecto);
 
-    public Proyecto leerUsuarioId(Integer idProyecto);
+    public Proyecto leerProyectoId(Integer idProyecto);
 
-    public List<Proyecto> leerUsuarios();
+    public List<Proyecto> leerProyectos();
 
-    public boolean actualizarUsuario(Proyecto proyecto);
+    public boolean actualizarProyectos(Proyecto proyecto);
 
-    public boolean borrarUsuario(Proyecto proyecto);
+    public boolean borrarProyectos(Proyecto proyecto);
 }
