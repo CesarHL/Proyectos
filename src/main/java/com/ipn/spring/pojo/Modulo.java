@@ -12,17 +12,19 @@ public class Modulo implements Serializable {
     private Date fechaFin;
     private String descripcion;
     private List<Actividad> hasActividades;
+    private List<Desarrollador> hasDesarrolladores;
 
     public Modulo() {
     }
 
-    public Modulo(Integer idModulo, String estado, Date fechaInicio, Date fechaFin, String descripcion, List<Actividad> hasActividades) {
+    public Modulo(Integer idModulo, String estado, Date fechaInicio, Date fechaFin, String descripcion, List<Actividad> hasActividades, List<Desarrollador> hasDesarrolladores) {
         this.idModulo = idModulo;
         this.estado = estado;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.descripcion = descripcion;
         this.hasActividades = hasActividades;
+        this.hasDesarrolladores = hasDesarrolladores;
     }
 
     public Integer getIdModulo() {
@@ -73,9 +75,17 @@ public class Modulo implements Serializable {
         this.hasActividades = hasActividades;
     }
 
+    public List<Desarrollador> getHasDesarrolladores() {
+        return hasDesarrolladores;
+    }
+
+    public void setHasDesarrolladores(List<Desarrollador> hasDesarrolladores) {
+        this.hasDesarrolladores = hasDesarrolladores;
+    }
+
     @Override
     public String toString() {
-        return "Modulo{" + "idModulo=" + idModulo + ", estado=" + estado + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", descripcion=" + descripcion + ", hasActividades=" + hasActividades + '}';
+        return "Modulo{" + "idModulo=" + idModulo + ", estado=" + estado + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", descripcion=" + descripcion + ", hasActividades=" + hasActividades + ", hasDesarrolladores=" + hasDesarrolladores + '}';
     }
 
 }

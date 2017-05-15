@@ -2,21 +2,25 @@ package com.ipn.spring.util;
 
 import com.ipn.spring.dao.UserDAO;
 import com.ipn.spring.pojo.Actividad;
+import com.ipn.spring.pojo.Desarrollador;
 import com.ipn.spring.pojo.Modulo;
 import com.ipn.spring.pojo.Proyecto;
-import com.ipn.spring.pojo.Usuario;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-import jdk.nashorn.internal.runtime.arrays.ArrayLikeIterator;
 
 public class Pruebas {
 
+    public static Proyecto pr;
+    public static ArrayList<Actividad> listaActividades;
+    public static ArrayList<Modulo> listaModulos;
+    public static ArrayList<Desarrollador> listaDesarrolladores;
+
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         UserDAO ud = new UserDAO();
-        // Usuario alexis = new Usuario(123, "Alexis", "Texas", "alexis@brazzers.com", "pornstar", "ilovenigga", "ilovenigga");
-        // ud.crearUsuario(alexis);
-        // ud.leerUsuarios();
+//        Usuario alexis = new Usuario(123, "Alexis", "Texas", "alexis@brazzers.com", "pornstar", "ilovenigga", "ilovenigga");
+//        ud.crearUsuario(alexis);
+//        ud.leerUsuarios();
 //        Usuario alexis = new Usuario(2, "Alexis", "Texas", "alexis@brazzers.com", "isc", "ilovenigga", "ilovenigga");
 //        boolean u = ud.borrarUsuario(alexis);
 //        System.out.println(u);
@@ -31,29 +35,37 @@ public class Pruebas {
 //        }
 
         Date d = new Date();
+        listaActividades = new ArrayList<>();
+        listaModulos = new ArrayList<>();
+        listaDesarrolladores = new ArrayList<>();
 
         Actividad a1 = new Actividad(1, "CrearObjetoProyecto", d, d, "Terminado");
-        Actividad a2 = new Actividad(2, "CrearInterfazParaDAOProyecto", d, d, "Terminado");
-        Actividad a3 = new Actividad(3, "CrearImplmentacionDAOProyecto", d, d, "En proceso");
-        Actividad a4 = new Actividad(3, "RelizarPruebaDAOProyecto", d, d, "En proceso");
 
-        ArrayList<Actividad> listaActividades1 = new ArrayList<>();
-        listaActividades1.add(a1);
-        listaActividades1.add(a2);
-        listaActividades1.add(a3);
-        
-        ArrayList<Actividad> listaActividades2 = new ArrayList<>();
-        listaActividades1.add(a4);
+        Desarrollador u1 = new Desarrollador(1, 15000, "Java Developer");
+        Desarrollador u2 = new Desarrollador(1, 15000, "Spring Developer");
+        Desarrollador u3 = new Desarrollador(1, 15000, "Android Developer");
 
-        Modulo persistencia = new Modulo(1, "Apunto de terminar", d, d, "modulo de desarrollo", listaActividades1);
-        Modulo pruebas = new Modulo(2, "Estancado", d, d, "modulo pruebas", listaActividades2);
+        Modulo pruebas = new Modulo(2, "Estancado", d, d, "modulo pruebas", listaActividades, listaDesarrolladores);
 
-        ArrayList<Modulo> listaModulos = new ArrayList<>();
-        listaModulos.add(persistencia);
-        listaModulos.add(pruebas);
+        pr = new Proyecto(1, "Proyecto Bancomer", d, d, "En proceso", "sin especificacion", "alcance", 15000, 2000, listaModulos);
 
-        Proyecto pr = new Proyecto(1, "Proyecto Bancomer", d, d, "En proceso", "sin especificacion", "alcance", 15000, 2000, listaModulos);
+        asignarModulo(pruebas);
+        asignarActividadModulo(a1);
+        asignarDesarrollador(u1);
+        asignarDesarrollador(u2);
+        asignarDesarrollador(u3);
         System.out.println(pr);
+    }
 
+    public static void asignarActividadModulo(Actividad actividad) {
+        listaActividades.add(actividad);
+    }
+
+    public static void asignarModulo(Modulo modulo) {
+        listaModulos.add(modulo);
+    }
+
+    private static void asignarDesarrollador(Desarrollador u) {
+        listaDesarrolladores.add(u);
     }
 }
