@@ -54,19 +54,6 @@
                 </div>
             </div>
         </section>
-        
-        <section id="segundoPaso">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Asigna tareas a tus Project Managers!</h2>
-                        <hr>
-                        <p>Para continuar asigna tareas presionando el botón</p>
-                        <a href="crearEquipo.jsp" class="btn btn-primary btn-xl page-scroll">Asignar Tareas!</a>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <section id="tercerPaso">
             <div class="container">
@@ -75,12 +62,12 @@
                         <h2 class="section-heading">Es hora de crear un proyecto!</h2>
                         <hr>
                         <p>Para continuar crea un proyecto presionando el botón</p>
-                        <a href="login.jsp" class="btn btn-primary btn-xl page-scroll">Crear proyecto!</a>
+                        <a href="crearProyecto.jsp" class="btn btn-primary btn-xl page-scroll">Crear proyecto!</a>
                     </div>
                 </div>
             </div>
         </section>
-
+        <jsp:useBean id="obj" class="com.ipn.spring.dao.ProyectoDAO" scope="page"/>
         <section  id="tablaProyecto">
             <div class="container">
                 <div class="row">
@@ -99,9 +86,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${users}" var="user">
+                            <c:forEach items="${obj.leerProyectos()}" var="pr">
                                 <tr>
-                                    <td>proyecto1</td>
+                                    <td>pr</td>
                                     <td>Juan</td>
                                     <td>1000</td>
                                     <td>04/07/1994</td>

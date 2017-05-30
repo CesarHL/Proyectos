@@ -103,7 +103,7 @@
                         </form>
                     </div>
                 </div>
-
+                <jsp:useBean id="obj" class="com.ipn.spring.dao.DesarrolladorDAO" scope="page"/>
                 <div class="container">
                     <table class="table">
                         <thead>
@@ -120,7 +120,7 @@
                                 <td>Acciones</td>
                             </tr>
                         </thead>
-                        <c:forEach items="${sessionScope.listDev}" var="deve">
+                        <c:forEach items="${obj.leerDesarrolladores()}" var="deve">
                             <tbody>
                                 <tr scope="row">
                                     <td> ${deve.idDesarrollador}</td>
