@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface IUserDAO {
 
-    public void crearUsuario(Usuario usuario);
+    public boolean crearUsuario(Usuario usuario);
 
     public Usuario leerUsuarioId(Integer idUsuario);
 

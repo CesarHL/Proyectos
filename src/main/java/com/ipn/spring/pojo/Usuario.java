@@ -2,7 +2,7 @@ package com.ipn.spring.pojo;
 
 import java.io.Serializable;
 
-public class Usuario implements Serializable{
+public class Usuario implements Serializable {
 
     private Integer uno;
     private String uname;
@@ -17,6 +17,15 @@ public class Usuario implements Serializable{
 
     public Usuario(Integer uno, String uname, String uap, String email, String job, String pass, String cpass) {
         this.uno = uno;
+        this.uname = uname;
+        this.uap = uap;
+        this.email = email;
+        this.job = job;
+        this.pass = pass;
+        this.cpass = cpass;
+    }
+
+    public Usuario(String uname, String uap, String email, String job, String pass, String cpass) {
         this.uname = uname;
         this.uap = uap;
         this.email = email;

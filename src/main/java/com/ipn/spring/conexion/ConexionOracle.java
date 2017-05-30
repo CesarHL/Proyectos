@@ -1,7 +1,5 @@
 package com.ipn.spring.conexion;
 
-import com.ipn.spring.dao.UserDAO;
-import com.ipn.spring.pojo.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,10 +15,6 @@ public class ConexionOracle {
         connection = DriverManager.getConnection(url, "topicos", "topicos");
 
         return connection;
-    }
-
-    protected void desconectar() throws SQLException {
-        connection.close();
     }
 
 }

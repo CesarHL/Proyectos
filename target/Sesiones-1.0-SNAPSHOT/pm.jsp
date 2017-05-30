@@ -6,6 +6,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hola soy el PM :)/h1>
+        <h1>Hola soy el PM: ${sessionScope.usermail} :)</h1>
+        <a href="Login">Logout</a>
     </body>
 </html>

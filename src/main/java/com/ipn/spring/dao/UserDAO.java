@@ -21,8 +21,8 @@ public class UserDAO implements IUserDAO {
     public static final String LEER_CORREO_PASS = "SELECT * FROM Usuario WHERE email=? AND pass=?";
 
     @Override
-    public void crearUsuario(Usuario usuario) {
-
+    public boolean crearUsuario(Usuario usuario) {
+        boolean creado = false;
         try {
             Connection conexion = conectar();
             PreparedStatement statement = conexion.prepareStatement(CREAR_USUARIO);
@@ -32,13 +32,16 @@ public class UserDAO implements IUserDAO {
             statement.setString(4, usuario.getJob());
             statement.setString(5, usuario.getPass());
             statement.setString(6, usuario.getCpass());
-
             statement.executeUpdate();
+
             statement.close();
             conexion.close();
+
+            return true;
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return creado;
     }
 
     @Override

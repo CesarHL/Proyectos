@@ -15,21 +15,24 @@ public class CrearUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        response.setContentType("text/html");
-        
         String nombre, ap, email, pass, cpass, job;
         nombre = request.getParameter("nombre");
         ap = request.getParameter("ap");
         email = request.getParameter("email");
         pass = request.getParameter("pass");
         cpass = request.getParameter("cpass");
-        job = request.getParameter("job");
+        job = request.getParameter("jobs");
         System.out.println(nombre + " " + ap + " " + email + " " + pass + " " + cpass + " " + job);
 
         UserDAO ud = new UserDAO();
         Usuario usuario = new Usuario(123, nombre, ap, email, job, pass, cpass);
-        ud.crearUsuario(usuario);
+
+        if (ud.crearUsuario(usuario)) {
+            request.getRequestDispatcher("registroExitoso.jsp").forward(request, response);
+        } else {
+            request.setAttribute("message2", "No se pudo crear el usuario");
+            request.getRequestDispatcher("CrearUuario.jsp").forward(request, response);
+        }
 
     }
 

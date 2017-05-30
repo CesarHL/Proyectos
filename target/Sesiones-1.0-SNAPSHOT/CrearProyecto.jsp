@@ -8,7 +8,7 @@
 
     </header>
     <body>
-        
+
         <section class="container">
             <article>
                 <header>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 </div>
-                </div>
+
             </article>
         </section>
 

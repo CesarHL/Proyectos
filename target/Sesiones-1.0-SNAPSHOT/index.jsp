@@ -3,7 +3,6 @@
 <html lang="en">
 
     <head>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +25,6 @@
 
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
@@ -36,10 +34,6 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-
-                        <li>
-                            <a class="page-scroll" href="#register">Registrate</a>
-                        </li>
                         <li>
                             <a class="page-scroll" href="#about">Home</a>
                         </li>
@@ -53,70 +47,25 @@
                             <a class="page-scroll" href="#contact">Contacto</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#login">Ingresa</a>
+                            <a class="page-scroll" href="login.jsp">Ingresa</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="crearCuenta.jsp">Registrate</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <header id="register">
+        <header>
             <div class="header-content">
-                <div class="col-md-9 col-sm-9">
+                <div class="col-md-14 col-sm-14">
                     <div class="header-content-inner">
                         <h1 id="homeHeading">Crea nuevos proyectos de forma gratuita</h1>
                         <hr>
                         <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-3">
-                    <div class="div-trans text-center">
-                        <h3>Registrate </h3>
-                        <form action="CrearUsuario" method="POST">
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input type="text" name="nombre" class="form-control"  placeholder="Nombre">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input type="text" name="ap" class="form-control"  placeholder="Apellido">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input type="email" name="email" class="form-control"  placeholder="Correo">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input type="password" name="pass" class="form-control"  placeholder="Contraseña">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input type="password" name="cpass" class="form-control"  placeholder="Verifica Contraseña">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <select class="form-control" name="jobs">
-                                        <option value="defatult">Selecciona una opción</option>
-                                        <option value="admin">Administrador</option>
-                                        <option value="pm">Project Mannager</option>
-                                        <option value="developer">Desarrollador</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input type="submit" value="Registrarse" class="btn btn-primary btn-xl page-scroll">
-                                </div>
-                            </div>
-                        </form>
-                    </div> 
-                </div>
+                </div>             
             </div>
         </header>
 
@@ -293,75 +242,14 @@
             </div>
         </section>
 
-        <section id="login">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+        <script src="js/creative.min.js"></script>
 
-                        <div class="panel-heading">
-                            <div class="col-lg-8 col-lg-offset-2 text-center">
-                                <h2 class="section-heading">Creemos nuevos proyectos</h2>
-                                <hr class="primary">
-                            </div>
-                        </div>
-
-                        <div class="panel-body" id="l">
-                            <div class="row">
-                                <div class="col-lg-12">
-
-                                    <form id="login-form" action="Login" method="POST">
-
-                                        <div class="form-group">
-                                            <input type="text" name="usermail" id="username" tabindex="1"
-                                                   class="form-control" placeholder="Nombre" value="">
-                                        </div>
-
-                                        <div class="form-group">
-                                            <input type="password" name="pass" id="password"
-                                                   tabindex="2" class="form-control" placeholder="Contraseña">
-                                        </div>
-
-                                        <div class="form-group text-center">
-                                            <input type="checkbox" tabindex="3" class="" name="remember"
-                                                   id="remember"> <label for="remember">
-                                                Recordarme</label>
-                                        </div>
-
-                                        <div class="col-lg-8 col-lg-offset-2 text-center">
-                                            <div class="form-group">
-                                                <input type="submit" value="ingresar" class="btn btn-primary btn-xl page-scroll">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="text-center">
-                                                        <a href="" tabindex="5"
-                                                           class="forgot-password">Olvidaste tu contraseña?</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>  
-    </section>
-
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
-    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="js/creative.min.js"></script>
-
-</body>
+    </body>
 
 </html>
 
