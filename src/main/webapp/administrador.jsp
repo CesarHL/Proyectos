@@ -54,8 +54,21 @@
                 </div>
             </div>
         </section>
-
+        
         <section id="segundoPaso">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Asigna tareas a tus Project Managers!</h2>
+                        <hr>
+                        <p>Para continuar asigna tareas presionando el botón</p>
+                        <a href="crearEquipo.jsp" class="btn btn-primary btn-xl page-scroll">Asignar Tareas!</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tercerPaso">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">

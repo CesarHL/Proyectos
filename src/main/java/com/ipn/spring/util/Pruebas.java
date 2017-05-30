@@ -1,5 +1,6 @@
 package com.ipn.spring.util;
 
+import com.ipn.spring.dao.ActividadesDAO;
 import com.ipn.spring.dao.DesarrolladorDAO;
 import com.ipn.spring.dao.ProyectoDAO;
 import com.ipn.spring.dao.UserDAO;
@@ -22,29 +23,19 @@ public class Pruebas {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         UserDAO ud = new UserDAO();
         Usuario alexis = new Usuario("Cesar", "Ferrara", "cecyman@brazzers.com", "pornstar", "iloveculazo", "ilovenculazo");
-//        ud.crearUsuario(alexis);
-        
-//        ud.leerUsuarios();
-//        Usuario alexis = new Usuario(2, "Alexis", "Texas", "alexis@brazzers.com", "isc", "ilovenigga", "ilovenigga");
-//        boolean u = ud.borrarUsuario(alexis);
-//        System.out.println(u);
-//        ud.leerUsuarios();
-//        ud.leerUsuarioId(0);
-//        Usuario x = ud.leerCorreoContraseña("alexis@brazzers.com", "ilovenigga");
-//        System.out.println(x);
-//        Usuario y = ud.leerCorreoContraseña("cesar@gmail.com", "admin");
-//        System.out.println(y);
-//        if (y.getJob().equals("admin")) {
-//            System.out.println("Hola Administrador");
-//        }
 
-//        Date d = new Date();
-//        listaActividades = new ArrayList<>();
-//        listaModulos = new ArrayList<>();
-//        listaDesarrolladores = new ArrayList<>();
-//
-//        Actividad a1 = new Actividad(1, "CrearObjetoProyecto", d, d, "Terminado");
-//
+        ActividadesDAO ad = new ActividadesDAO();
+
+        Date d = new Date();
+        listaActividades = new ArrayList<>();
+        listaModulos = new ArrayList<>();
+        listaDesarrolladores = new ArrayList<>();
+//String string = "January 2, 2010";
+        Actividad a1 = new Actividad(1, "CrearObjetoProyecto", d, d, "Nuevo requerimiento");
+        //ad.crearActividad(a1);
+       
+        
+
 //        Desarrollador u1 = new Desarrollador(1, 15000, "Java Developer");
 //        Desarrollador u2 = new Desarrollador(1, 15000, "Spring Developer");
 //        Desarrollador u3 = new Desarrollador(1, 15000, "Android Developer");
@@ -74,10 +65,13 @@ public class Pruebas {
 //
 //    private static void asignarDesarrollador(Desarrollador u) {
 //        listaDesarrolladores.add(u);
-        Desarrollador d = new Desarrollador("dev", "Android dev", "Alex", "Godinez", "Perez", "godinez@gmail.com", "4434431234", "6000");
-        DesarrolladorDAO dd = new DesarrolladorDAO();
-//        dd.crearDesarrollador(d);
-        
-        dd.leerDesarrolladores();
+//        Desarrollador d = new Desarrollador(3, "developer", "Anngular Dev", "Alexia", "Godinez", "Perez", "godinez@gmail.com", "4434431234", "6000");
+//        DesarrolladorDAO dd = new DesarrolladorDAO();
+        // dd.crearDesarrollador(d);
+        //dd.leerDesarrolladores();
+        // dd.actualizarDesarrollador(d);
+//        dd.leerDesarrolladores();
+        // dd.borrarDesarrollador(4);
+        //System.out.println(dd.leerDesarrolladorId(2).getNombre());
     }
 }

@@ -13,5 +13,5 @@ public interface IDesarrolladorDAO {
 
     public boolean actualizarDesarrollador(Desarrollador desarrollador);
 
-    public boolean borrarDesarrollador(Desarrollador desarrollador);
+    public boolean borrarDesarrollador(Integer desarrollador);
 }

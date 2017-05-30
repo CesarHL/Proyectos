@@ -15,15 +15,14 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
 
     public static final String CREAR_DESARROLLADOR = "insert into desarrollador(cargoDev, competencia, nomDev, apDev, amDev, mailDev, tel, salDev) \n"
             + "	values (?, ?, ?, ?, ?, ?, ?, ?)";
-    public static final String LEER_ID_DESARROLLADOR = "SELECT * FROM Usuario WHERE uno = ?";
+    public static final String LEER_ID_DESARROLLADOR = "SELECT * FROM desarrollador WHERE idDev = ?";
     public static final String LEER_TODOS_DESARROLLADOR = "SELECT * FROM desarrollador";
-    public static final String ACTUALIZAR_DESARROLLADOR = "UPDATE Usuario SET uname = ?, uap = ?, email = ?, job = ?, pass = ?, cpass = ? WHERE uno = ?";
-    public static final String BORRAR_DESARROLLADOR = "DELETE FROM Usuario WHERE uno = ?";
+    public static final String ACTUALIZAR_DESARROLLADOR = "UPDATE desarrollador SET cargoDev = ?, competencia = ?, nomDev = ?, apDev = ?, amDev = ?, mailDev = ?, tel = ?, salDev = ? WHERE idDev = ?";
+    public static final String BORRAR_DESARROLLADOR = "DELETE FROM desarrollador WHERE idDev = ?";
 
     @Override
     public boolean crearDesarrollador(Desarrollador desarrollador) {
         boolean creado = false;
-        System.out.println(desarrollador);
         try {
             Connection conexion = conectar();
             PreparedStatement statement = conexion.prepareStatement(CREAR_DESARROLLADOR);
@@ -49,24 +48,26 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
     }
 
     @Override
-    public Desarrollador leerDesarrolladorId(Integer idUsuario) {
-        Desarrollador user = null;
+    public Desarrollador leerDesarrolladorId(Integer idDesarrollador) {
+        Desarrollador dev = null;
         try {
             Connection conexion = conectar();
             PreparedStatement ps = conexion.prepareStatement(LEER_ID_DESARROLLADOR);
-            ps.setInt(1, idUsuario);
+            ps.setInt(1, idDesarrollador);
             ResultSet resultSet = ps.executeQuery();
             System.out.println(resultSet.toString());
             if (resultSet.next()) {
+                Integer idDev = resultSet.getInt("idDev");
+                String cargo = resultSet.getString("cargoDev");
+                String comp = resultSet.getString("competencia");
+                String nom = resultSet.getString("nomDev");
+                String ap = resultSet.getString("apDev");
+                String am = resultSet.getString("amDev");
+                String mail = resultSet.getString("mailDev");
+                String tel = resultSet.getString("tel");
+                String sal = resultSet.getString("salDev");
 
-//                Integer uid = resultSet.getInt("uno");
-//                String nombre = resultSet.getString("uname");
-//                String ap = resultSet.getString("uap");
-//                String email = resultSet.getString("email");
-//                String job = resultSet.getString("job");
-//                String pass = resultSet.getString("pass");
-//                String cpass = resultSet.getString("cpass");
-                // user = new Desarrollador(uid, nombre, ap, email, job, pass, cpass);
+                dev = new Desarrollador(idDev, cargo, comp, nom, ap, am, mail, tel, sal);
             }
 
             resultSet.close();
@@ -76,7 +77,7 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return user;
+        return dev;
     }
 
     @Override
@@ -100,7 +101,7 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
                 String mail = resultSet.getString("mailDev");
                 String tel = resultSet.getString("tel");
                 String sal = resultSet.getString("salDev");
-                
+
                 Desarrollador dev = new Desarrollador(idDev, cargo, comp, nom, ap, am, mail, tel, sal);
                 listaDesarrolladores.add(dev);
             }
@@ -116,19 +117,37 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
     }
 
     @Override
-    public boolean actualizarDesarrollador(Desarrollador usuario) {
+    public boolean actualizarDesarrollador(Desarrollador desarrollador) {
         boolean rowUpdated = false;
+        try {
+            Connection conexion = conectar();
+            PreparedStatement statement = conexion.prepareStatement(ACTUALIZAR_DESARROLLADOR);
+             statement.setString(1, desarrollador.getCargo());
+            statement.setString(2, desarrollador.getCompetencia());
+            statement.setString(3, desarrollador.getNombre());
+            statement.setString(4, desarrollador.getAp());
+            statement.setString(5, desarrollador.getAm());
+            statement.setString(6, desarrollador.getEmail());
+            statement.setString(7, desarrollador.getTel());
+            statement.setString(8, desarrollador.getSalario());
+            statement.setInt(9, desarrollador.getIdDesarrollador());
+            rowUpdated = statement.executeUpdate() > 0;
 
+            statement.close();
+            conexion.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return rowUpdated;
     }
 
     @Override
-    public boolean borrarDesarrollador(Desarrollador desarrollador) {
+    public boolean borrarDesarrollador(Integer idDesarrollador) {
         boolean rowUpdated = false;
         try {
             Connection conexion = conectar();
             PreparedStatement statement = conexion.prepareStatement(BORRAR_DESARROLLADOR);
-            // statement.setInt(1, usuario.getUno());
+            statement.setInt(1, idDesarrollador);
 
             rowUpdated = statement.executeUpdate() > 0;
 

@@ -13,6 +13,6 @@ public interface IUserDAO {
 
     public boolean actualizarUsuario(Usuario usuario);
 
-    public boolean borrarUsuario(Usuario usuario);
+    public boolean borrarUsuario(Integer usuario);
 
 }

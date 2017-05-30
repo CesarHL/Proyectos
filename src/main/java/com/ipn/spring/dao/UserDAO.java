@@ -155,12 +155,12 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
-    public boolean borrarUsuario(Usuario usuario) {
+    public boolean borrarUsuario(Integer idUsuario) {
         boolean rowUpdated = false;
         try {
             Connection conexion = conectar();
             PreparedStatement statement = conexion.prepareStatement(BORRAR_USUARIO);
-            statement.setInt(1, usuario.getUno());
+            statement.setInt(1, idUsuario);
 
             rowUpdated = statement.executeUpdate() > 0;
 
