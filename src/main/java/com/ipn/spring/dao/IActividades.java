@@ -13,6 +13,6 @@ public interface IActividades {
 
     public boolean actualizarActividad(Actividad actividad);
 
-    public boolean borrarActividad(Integer actividad);
+    public boolean borrarActividad(Integer idActividad);
 
 }

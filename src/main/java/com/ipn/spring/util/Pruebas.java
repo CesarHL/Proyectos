@@ -33,8 +33,6 @@ public class Pruebas {
 //String string = "January 2, 2010";
         Actividad a1 = new Actividad(1, "CrearObjetoProyecto", d, d, "Nuevo requerimiento");
         //ad.crearActividad(a1);
-       
-        
 
 //        Desarrollador u1 = new Desarrollador(1, 15000, "Java Developer");
 //        Desarrollador u2 = new Desarrollador(1, 15000, "Spring Developer");
