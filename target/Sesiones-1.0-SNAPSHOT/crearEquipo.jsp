@@ -21,15 +21,17 @@
                 </div>
             </div>
         </nav>
-        <section id="registrate">
+        <section id="altarh">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
+
                         <div class="panel-heading">
                             <div class="col-lg-8 col-lg-offset-2 text-center">
                                 <h2 class="section-heading">Alta recursos humanos</h2>
                                 <hr>
                             </div>
+
                         </div>
                         <form action="AltaEquipo" method="POST">
 
@@ -42,7 +44,7 @@
                                     </select>
                                 </div>
                             </div>
-                             <div class="col-md-12 col-sm-12">
+                            <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
                                     <input type="text" name="competencia" class="form-control"  placeholder="Competencia: Android developer, Java developer..." required>
                                 </div>
@@ -86,6 +88,50 @@
                         </form>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" name="busqueda" type="text" placeholder="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Username</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
 
