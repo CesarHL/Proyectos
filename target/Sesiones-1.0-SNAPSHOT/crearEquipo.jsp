@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +12,7 @@
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
         <link href="css/creative.min.css" rel="stylesheet">
-        <title>Inicia sesión</title>
+        <title>Administra personal</title>
     </head>
     <body>
         <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -102,38 +104,44 @@
                     </div>
                 </div>
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <div class="container">
+                    <table class="table">
+                        <thead>
+                            <tr scope="row">
+                                <td>Id Usuario</td>
+                                <td>Cargo</td>
+                                <td>Competencia</td>
+                                <td>Nombre</td>
+                                <td>Apellido Paterno</td>
+                                <td>Apellido Materno</td>
+                                <td>Email</td>
+                                <td>Telefono</td>
+                                <td>Salario</td>
+                                <td>Acciones</td>
+                            </tr>
+                        </thead>
+                        <c:forEach items="${sessionScope.listDev}" var="deve">
+                            <tbody>
+                                <tr scope="row">
+                                    <td> ${deve.idDesarrollador}</td>
+                                    <td> ${deve.cargo}</td>
+                                    <td> ${deve.competencia}</td>
+                                    <td> ${deve.nombre}</td>
+                                    <td> ${deve.ap}</td>
+                                    <td> ${deve.am}</td>
+                                    <td> ${deve.email}</td>
+                                    <td> ${deve.tel}</td>
+                                    <td> ${deve.salario}</td>
+                                    <td> <span class="glyphicon glyphicon-pencil"></span></td>
+                                    <td> <span class="glyphicon glyphicon-remove"></span></td>
+                                </tr>
+                            </tbody>
+                        </c:forEach>
+                    </table>
+                </div>
         </section>
+
+
 
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

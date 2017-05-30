@@ -13,10 +13,10 @@ import java.util.logging.Logger;
 
 public class DesarrolladorDAO implements IDesarrolladorDAO {
 
-    public static final String CREAR_DESARROLLADOR = "insert into desarrollador(cargoDev, competencia, nomDev, apDev, amDev, mailDev, tel, salDev) \n" +
-"	values (?, ?, ?, ?, ?, ?, ?, ?)";
+    public static final String CREAR_DESARROLLADOR = "insert into desarrollador(cargoDev, competencia, nomDev, apDev, amDev, mailDev, tel, salDev) \n"
+            + "	values (?, ?, ?, ?, ?, ?, ?, ?)";
     public static final String LEER_ID_DESARROLLADOR = "SELECT * FROM Usuario WHERE uno = ?";
-    public static final String LEER_TODOS_DESARROLLADOR = "SELECT * FROM Usuario";
+    public static final String LEER_TODOS_DESARROLLADOR = "SELECT * FROM desarrollador";
     public static final String ACTUALIZAR_DESARROLLADOR = "UPDATE Usuario SET uname = ?, uap = ?, email = ?, job = ?, pass = ?, cpass = ? WHERE uno = ?";
     public static final String BORRAR_DESARROLLADOR = "DELETE FROM Usuario WHERE uno = ?";
 
@@ -35,8 +35,7 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
             statement.setString(6, desarrollador.getEmail());
             statement.setString(7, desarrollador.getTel());
             statement.setString(8, desarrollador.getSalario());
-           
-            
+
             statement.executeUpdate();
 
             statement.close();
@@ -57,16 +56,16 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
             PreparedStatement ps = conexion.prepareStatement(LEER_ID_DESARROLLADOR);
             ps.setInt(1, idUsuario);
             ResultSet resultSet = ps.executeQuery();
-
+            System.out.println(resultSet.toString());
             if (resultSet.next()) {
-                Integer uid = resultSet.getInt("uno");
-                String nombre = resultSet.getString("uname");
-                String ap = resultSet.getString("uap");
-                String email = resultSet.getString("email");
-                String job = resultSet.getString("job");
-                String pass = resultSet.getString("pass");
-                String cpass = resultSet.getString("cpass");
 
+//                Integer uid = resultSet.getInt("uno");
+//                String nombre = resultSet.getString("uname");
+//                String ap = resultSet.getString("uap");
+//                String email = resultSet.getString("email");
+//                String job = resultSet.getString("job");
+//                String pass = resultSet.getString("pass");
+//                String cpass = resultSet.getString("cpass");
                 // user = new Desarrollador(uid, nombre, ap, email, job, pass, cpass);
             }
 
@@ -83,24 +82,27 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
     @Override
     public List<Desarrollador> leerDesarrolladores() {
 
-        List<Desarrollador> listaUsuarios = new ArrayList<>();
+        List<Desarrollador> listaDesarrolladores = new ArrayList<>();
 
         try {
             Connection conexion = conectar();
             PreparedStatement ps = conexion.prepareStatement(LEER_TODOS_DESARROLLADOR);
             ResultSet resultSet = ps.executeQuery();
-
+            System.out.println(resultSet.toString());
             while (resultSet.next()) {
-                Integer uid = resultSet.getInt("uno");
-                String nombre = resultSet.getString("uname");
-                String ap = resultSet.getString("uap");
-                String email = resultSet.getString("email");
-                String job = resultSet.getString("job");
-                String pass = resultSet.getString("pass");
-                String cpass = resultSet.getString("cpass");
 
-                // Desarrollador user = new Desarrollador(uid, nombre, ap, email, job, pass, cpass);
-                //listaUsuarios.add(user);
+                Integer idDev = resultSet.getInt("idDev");
+                String cargo = resultSet.getString("cargoDev");
+                String comp = resultSet.getString("competencia");
+                String nom = resultSet.getString("nomDev");
+                String ap = resultSet.getString("apDev");
+                String am = resultSet.getString("amDev");
+                String mail = resultSet.getString("mailDev");
+                String tel = resultSet.getString("tel");
+                String sal = resultSet.getString("salDev");
+                
+                Desarrollador dev = new Desarrollador(idDev, cargo, comp, nom, ap, am, mail, tel, sal);
+                listaDesarrolladores.add(dev);
             }
 
             resultSet.close();
@@ -109,14 +111,14 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(listaUsuarios);
-        return listaUsuarios;
+        System.out.println(listaDesarrolladores);
+        return listaDesarrolladores;
     }
 
     @Override
     public boolean actualizarDesarrollador(Desarrollador usuario) {
         boolean rowUpdated = false;
-        
+
         return rowUpdated;
     }
 
@@ -126,7 +128,7 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
         try {
             Connection conexion = conectar();
             PreparedStatement statement = conexion.prepareStatement(BORRAR_DESARROLLADOR);
-           // statement.setInt(1, usuario.getUno());
+            // statement.setInt(1, usuario.getUno());
 
             rowUpdated = statement.executeUpdate() > 0;
 

@@ -22,8 +22,8 @@ public class Pruebas {
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         UserDAO ud = new UserDAO();
         Usuario alexis = new Usuario("Cesar", "Ferrara", "cecyman@brazzers.com", "pornstar", "iloveculazo", "ilovenculazo");
-        ud.crearUsuario(alexis);
-        System.out.println("CREADO");
+//        ud.crearUsuario(alexis);
+        
 //        ud.leerUsuarios();
 //        Usuario alexis = new Usuario(2, "Alexis", "Texas", "alexis@brazzers.com", "isc", "ilovenigga", "ilovenigga");
 //        boolean u = ud.borrarUsuario(alexis);
@@ -76,6 +76,8 @@ public class Pruebas {
 //        listaDesarrolladores.add(u);
         Desarrollador d = new Desarrollador("dev", "Android dev", "Alex", "Godinez", "Perez", "godinez@gmail.com", "4434431234", "6000");
         DesarrolladorDAO dd = new DesarrolladorDAO();
-        dd.crearDesarrollador(d);
+//        dd.crearDesarrollador(d);
+        
+        dd.leerDesarrolladores();
     }
 }
