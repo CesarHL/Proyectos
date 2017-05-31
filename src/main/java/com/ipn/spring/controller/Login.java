@@ -1,7 +1,7 @@
 package com.ipn.spring.controller;
 
 import com.ipn.spring.dao.UserDAO;
-import com.ipn.spring.pojo.Usuario;
+import com.ipn.spring.pojo.Administrador;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
         String pass = request.getParameter("pass");
         //TODO hacer match con la base de datos
         UserDAO ud = new UserDAO();
-        Usuario usuario = null;
+        Administrador usuario = null;
         HttpSession session = null;
 
         try {
@@ -44,7 +44,7 @@ public class Login extends HttpServlet {
                     session = request.getSession();
                     session.setAttribute("usermail", email);
                     response.sendRedirect("pm.jsp");
-                } else if (usuario.getJob().equals("developer")) {
+                } else if (usuario.getJob().equals("dev")) {
                     session = request.getSession();
                     session.setAttribute("usermail", email);
                     response.sendRedirect("desarrollador.jsp");

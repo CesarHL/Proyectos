@@ -4,7 +4,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE>
 <html>
     <head>
@@ -25,7 +24,7 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only"></span> Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">Bienvenido</a>
+                    <a class="navbar-brand page-scroll" href="administrador.jsp">Bienvenido</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -106,8 +105,8 @@
                                                     <small id="fileHelp" class="form-text text-muted">Ingrese un archivo de requerimientos para que el equipo pueda visualizarlo.</small>
                                                 </div>
                                             </div>	
-                                            <div class="form-group">
-                                                <button type="button" class="btn btn-success">Crear</button>
+                                            <div class="col-lg-12 text-center">
+                                                <a href="crearProyecto.jsp" class="btn btn-primary btn-xl page-scroll">Volver</a>
                                             </div>
                                         </form>
                                     </div>					
@@ -119,20 +118,6 @@
                 </div>
             </article>
         </section>
-
-        <section id="segundoPaso">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Asigna tareas a tus Project Managers!</h2>
-                        <hr>
-                        <p>Para continuar asigna tareas presionando el botón</p>
-                        <a href="crearEquipo.jsp" class="btn btn-primary btn-xl page-scroll">Asignar Tareas!</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

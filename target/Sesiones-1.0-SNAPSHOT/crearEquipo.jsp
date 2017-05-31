@@ -19,10 +19,58 @@
             <div class="container-fluid">
                 <div class="navbar-header">
 
-                    <a class="navbar-brand page-scroll" href="index.jsp">Home</a>
+                    <a class="navbar-brand page-scroll" href="administrador.jsp">Home</a>
                 </div>
             </div>
         </nav>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" name="busqueda" type="text" placeholder="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </div>
+                <jsp:useBean id="obj" class="com.ipn.spring.dao.DesarrolladorDAO" scope="page"/>
+                <div class="container">
+                    <table class="table">
+                        <thead>
+                            <tr scope="row">
+                                <td>Id Usuario</td>
+                                <td>Cargo</td>
+                                <td>Competencia</td>
+                                <td>Nombre</td>
+                                <td>Apellido Paterno</td>
+                                <td>Apellido Materno</td>
+                                <td>Email</td>
+                                <td>Telefono</td>
+                                <td>Salario</td>
+                                <td>Acciones</td>
+                            </tr>
+                        </thead>
+                        <c:forEach items="${obj.leerDesarrolladores()}" var="deve">
+                            <tbody>
+                                <tr scope="row">
+                                    <td> ${deve.idDesarrollador}</td>
+                                    <td> ${deve.cargo}</td>
+                                    <td> ${deve.competencia}</td>
+                                    <td> ${deve.nombre}</td>
+                                    <td> ${deve.ap}</td>
+                                    <td> ${deve.am}</td>
+                                    <td> ${deve.email}</td>
+                                    <td> ${deve.tel}</td>
+                                    <td> ${deve.salario}</td>
+                                    <td> <span class="glyphicon glyphicon-pencil"></span></td>
+                                    <td> <span class="glyphicon glyphicon-remove"></span></td>
+                                </tr>
+                            </tbody>
+                        </c:forEach>
+                    </table>
+                </div>
+        </section>
         <section id="altarh">
             <div class="container">
                 <div class="row">
@@ -92,56 +140,6 @@
                 </div>
             </div>
         </section>
-
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" name="busqueda" type="text" placeholder="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </div>
-                </div>
-                <jsp:useBean id="obj" class="com.ipn.spring.dao.DesarrolladorDAO" scope="page"/>
-                <div class="container">
-                    <table class="table">
-                        <thead>
-                            <tr scope="row">
-                                <td>Id Usuario</td>
-                                <td>Cargo</td>
-                                <td>Competencia</td>
-                                <td>Nombre</td>
-                                <td>Apellido Paterno</td>
-                                <td>Apellido Materno</td>
-                                <td>Email</td>
-                                <td>Telefono</td>
-                                <td>Salario</td>
-                                <td>Acciones</td>
-                            </tr>
-                        </thead>
-                        <c:forEach items="${obj.leerDesarrolladores()}" var="deve">
-                            <tbody>
-                                <tr scope="row">
-                                    <td> ${deve.idDesarrollador}</td>
-                                    <td> ${deve.cargo}</td>
-                                    <td> ${deve.competencia}</td>
-                                    <td> ${deve.nombre}</td>
-                                    <td> ${deve.ap}</td>
-                                    <td> ${deve.am}</td>
-                                    <td> ${deve.email}</td>
-                                    <td> ${deve.tel}</td>
-                                    <td> ${deve.salario}</td>
-                                    <td> <span class="glyphicon glyphicon-pencil"></span></td>
-                                    <td> <span class="glyphicon glyphicon-remove"></span></td>
-                                </tr>
-                            </tbody>
-                        </c:forEach>
-                    </table>
-                </div>
-        </section>
-
-
 
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>

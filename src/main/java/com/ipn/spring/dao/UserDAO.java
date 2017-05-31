@@ -1,7 +1,7 @@
 package com.ipn.spring.dao;
 
 import static com.ipn.spring.conexion.ConexionOracle.conectar;
-import com.ipn.spring.pojo.Usuario;
+import com.ipn.spring.pojo.Administrador;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,25 +13,25 @@ import java.util.logging.Logger;
 
 public class UserDAO implements IUserDAO {
 
-    public static final String CREAR_USUARIO = "INSERT INTO Usuario (uname, uap, email, job, pass, cpass) VALUES (?, ?, ?, ?, ?, ?)";
-    public static final String LEER_ID = "SELECT * FROM Usuario WHERE uno = ?";
-    public static final String LEER_TODOS = "SELECT * FROM Usuario";
-    public static final String ACTUALIZAR_USUARIO = "UPDATE Usuario SET uname = ?, uap = ?, email = ?, job = ?, pass = ?, cpass = ? WHERE uno = ?";
-    public static final String BORRAR_USUARIO = "DELETE FROM Usuario WHERE uno = ?";
-    public static final String LEER_CORREO_PASS = "SELECT * FROM Usuario WHERE email=? AND pass=?";
+    public static final String CREAR_USUARIO = "INSERT INTO admin(uname, uap, email, job, pass, cpass) VALUES (?, ?, ?, ?, ?, ?)";
+    public static final String LEER_ID = "SELECT * FROM admin WHERE uno = ?";
+    public static final String LEER_TODOS = "SELECT * FROM admin";
+    public static final String ACTUALIZAR_USUARIO = "UPDATE admin SET uname = ?, uap = ?, email = ?, job = ?, pass = ?, cpass = ? WHERE uno = ?";
+    public static final String BORRAR_USUARIO = "DELETE FROM admin WHERE uno = ?";
+    public static final String LEER_CORREO_PASS = "SELECT * FROM admin WHERE email=? AND pass=?";
 
     @Override
-    public boolean crearUsuario(Usuario usuario) {
+    public boolean crearUsuario(Administrador admin) {
         boolean creado = false;
         try {
             Connection conexion = conectar();
             PreparedStatement statement = conexion.prepareStatement(CREAR_USUARIO);
-            statement.setString(1, usuario.getUname());
-            statement.setString(2, usuario.getUap());
-            statement.setString(3, usuario.getEmail());
-            statement.setString(4, usuario.getJob());
-            statement.setString(5, usuario.getPass());
-            statement.setString(6, usuario.getCpass());
+            statement.setString(1, admin.getUname());
+            statement.setString(2, admin.getUap());
+            statement.setString(3, admin.getEmail());
+            statement.setString(4, admin.getJob());
+            statement.setString(5, admin.getPass());
+            statement.setString(6, admin.getCpass());
             statement.executeUpdate();
 
             statement.close();
@@ -45,8 +45,8 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
-    public Usuario leerUsuarioId(Integer idUsuario) {
-        Usuario user = null;
+    public Administrador leerUsuarioId(Integer idUsuario) {
+        Administrador user = null;
         try {
             Connection conexion = conectar();
             PreparedStatement ps = conexion.prepareStatement(LEER_ID);
@@ -62,7 +62,7 @@ public class UserDAO implements IUserDAO {
                 String pass = resultSet.getString("pass");
                 String cpass = resultSet.getString("cpass");
 
-                user = new Usuario(uid, nombre, ap, email, job, pass, cpass);
+                user = new Administrador(uid, nombre, ap, email, job, pass, cpass);
             }
 
             resultSet.close();
@@ -75,8 +75,8 @@ public class UserDAO implements IUserDAO {
         return user;
     }
 
-    public Usuario leerCorreoContraseña(String mail, String pass) throws SQLException, ClassNotFoundException {
-        Usuario user = null;
+    public Administrador leerCorreoContraseña(String mail, String pass) throws SQLException, ClassNotFoundException {
+        Administrador user = null;
         Connection conexion = conectar();
         PreparedStatement ps = conexion.prepareStatement(LEER_CORREO_PASS);
         ps.setString(1, mail);
@@ -88,7 +88,7 @@ public class UserDAO implements IUserDAO {
             String pas = resultSet.getString("pass");
             String job = resultSet.getString("job");
 
-            user = new Usuario(email, job, pass);
+            user = new Administrador(email, job, pass);
             System.out.println(email + pas);
         } else {
             System.out.println("No encontrado");
@@ -99,9 +99,9 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
-    public List<Usuario> leerUsuarios() {
+    public List<Administrador> leerUsuarios() {
 
-        List<Usuario> listaUsuarios = new ArrayList<>();
+        List<Administrador> listaUsuarios = new ArrayList<>();
 
         try {
             Connection conexion = conectar();
@@ -117,7 +117,7 @@ public class UserDAO implements IUserDAO {
                 String pass = resultSet.getString("pass");
                 String cpass = resultSet.getString("cpass");
 
-                Usuario user = new Usuario(uid, nombre, ap, email, job, pass, cpass);
+                Administrador user = new Administrador(uid, nombre, ap, email, job, pass, cpass);
                 listaUsuarios.add(user);
             }
 
@@ -132,18 +132,18 @@ public class UserDAO implements IUserDAO {
     }
 
     @Override
-    public boolean actualizarUsuario(Usuario usuario) {
+    public boolean actualizarUsuario(Administrador admin) {
         boolean rowUpdated = false;
         try {
             Connection conexion = conectar();
             PreparedStatement statement = conexion.prepareStatement(ACTUALIZAR_USUARIO);
-            statement.setString(1, usuario.getUname());
-            statement.setString(2, usuario.getUap());
-            statement.setString(3, usuario.getEmail());
-            statement.setString(4, usuario.getJob());
-            statement.setString(5, usuario.getPass());
-            statement.setString(6, usuario.getCpass());
-            statement.setInt(7, usuario.getUno());
+            statement.setString(1, admin.getUname());
+            statement.setString(2, admin.getUap());
+            statement.setString(3, admin.getEmail());
+            statement.setString(4, admin.getJob());
+            statement.setString(5, admin.getPass());
+            statement.setString(6, admin.getCpass());
+            statement.setInt(7, admin.getUno());
             rowUpdated = statement.executeUpdate() > 0;
 
             statement.close();

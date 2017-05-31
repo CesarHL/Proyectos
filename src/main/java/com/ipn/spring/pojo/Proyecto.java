@@ -2,35 +2,37 @@ package com.ipn.spring.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 public class Proyecto implements Serializable {
 
     private Integer idProyecto;
-    private String nombre;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private Integer idAdmin;
+    private String nombrePr;
+    private Date fIni;
+    private Date fFin;
     private String estado;
-    private String especificaciones;
-    private String alcance;
-    private Integer costoFijo;
-    private Integer costoVariable;
-    private List<Modulo> hasModulos;
+    private String especific;
 
     public Proyecto() {
     }
 
-    public Proyecto(Integer idProyecto, String nombre, Date fechaInicio, Date fechaFin, String estado, String especificaciones, String alcance, Integer costoFijo, Integer costoVariable, List<Modulo> hasModulos) {
+    public Proyecto(Integer idProyecto, Integer idAdmin, String nombrePr, Date fIni, Date fFin, String estado, String especific) {
         this.idProyecto = idProyecto;
-        this.nombre = nombre;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
+        this.idAdmin = idAdmin;
+        this.nombrePr = nombrePr;
+        this.fIni = fIni;
+        this.fFin = fFin;
         this.estado = estado;
-        this.especificaciones = especificaciones;
-        this.alcance = alcance;
-        this.costoFijo = costoFijo;
-        this.costoVariable = costoVariable;
-        this.hasModulos = hasModulos;
+        this.especific = especific;
+    }
+
+    public Proyecto(Integer idAdmin, String nombrePr, Date fIni, Date fFin, String estado, String especific) {
+        this.idAdmin = idAdmin;
+        this.nombrePr = nombrePr;
+        this.fIni = fIni;
+        this.fFin = fFin;
+        this.estado = estado;
+        this.especific = especific;
     }
 
     public Integer getIdProyecto() {
@@ -41,28 +43,36 @@ public class Proyecto implements Serializable {
         this.idProyecto = idProyecto;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Integer getIdAdmin() {
+        return idAdmin;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setIdAdmin(Integer idAdmin) {
+        this.idAdmin = idAdmin;
     }
 
-    public Date getFechaInicio() {
-        return fechaInicio;
+    public String getNombrePr() {
+        return nombrePr;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setNombrePr(String nombrePr) {
+        this.nombrePr = nombrePr;
     }
 
-    public Date getFechaFin() {
-        return fechaFin;
+    public Date getfIni() {
+        return fIni;
     }
 
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setfIni(Date fIni) {
+        this.fIni = fIni;
+    }
+
+    public Date getfFin() {
+        return fFin;
+    }
+
+    public void setfFin(Date fFin) {
+        this.fFin = fFin;
     }
 
     public String getEstado() {
@@ -73,49 +83,17 @@ public class Proyecto implements Serializable {
         this.estado = estado;
     }
 
-    public String getEspecificaciones() {
-        return especificaciones;
+    public String getEspecific() {
+        return especific;
     }
 
-    public void setEspecificaciones(String especificaciones) {
-        this.especificaciones = especificaciones;
-    }
-
-    public String getAlcance() {
-        return alcance;
-    }
-
-    public void setAlcance(String alcance) {
-        this.alcance = alcance;
-    }
-
-    public Integer getCostoFijo() {
-        return costoFijo;
-    }
-
-    public void setCostoFijo(Integer costoFijo) {
-        this.costoFijo = costoFijo;
-    }
-
-    public Integer getCostoVariable() {
-        return costoVariable;
-    }
-
-    public void setCostoVariable(Integer costoVariable) {
-        this.costoVariable = costoVariable;
-    }
-
-    public List<Modulo> getHasModulos() {
-        return hasModulos;
-    }
-
-    public void setHasModulos(List<Modulo> hasModulos) {
-        this.hasModulos = hasModulos;
+    public void setEspecific(String especific) {
+        this.especific = especific;
     }
 
     @Override
     public String toString() {
-        return "Proyecto{" + "idProyecto=" + idProyecto + ", nombre=" + nombre + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", estado=" + estado + ", especificaciones=" + especificaciones + ", alcance=" + alcance + ", costoFijo=" + costoFijo + ", costoVariable=" + costoVariable + ", hasModulos=" + hasModulos + '}';
+        return "Proyecto{" + "idProyecto=" + idProyecto + ", idAdmin=" + idAdmin + ", nombrePr=" + nombrePr + ", fIni=" + fIni + ", fFin=" + fFin + ", estado=" + estado + ", especific=" + especific + '}';
     }
 
 }

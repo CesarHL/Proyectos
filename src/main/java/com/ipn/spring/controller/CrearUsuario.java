@@ -1,7 +1,7 @@
 package com.ipn.spring.controller;
 
 import com.ipn.spring.dao.UserDAO;
-import com.ipn.spring.pojo.Usuario;
+import com.ipn.spring.pojo.Administrador;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,7 +25,7 @@ public class CrearUsuario extends HttpServlet {
         System.out.println(nombre + " " + ap + " " + email + " " + pass + " " + cpass + " " + job);
 
         UserDAO ud = new UserDAO();
-        Usuario usuario = new Usuario(123, nombre, ap, email, job, pass, cpass);
+        Administrador usuario = new Administrador(123, nombre, ap, email, job, pass, cpass);
 
         if (ud.crearUsuario(usuario)) {
             request.getRequestDispatcher("registroExitoso.jsp").forward(request, response);

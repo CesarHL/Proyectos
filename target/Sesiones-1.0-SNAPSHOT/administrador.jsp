@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,13 +28,13 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         <li>
-                            <a class="page-scroll" href="#services">Servicios</a>
+                            <a class="page-scroll" href="#services">Administrar Personal</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#services">Servicios</a>
+                            <a class="page-scroll" href="#services">Crear Proyecto</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#services">Servicios</a>
+                            <a class="page-scroll" href="#services">Administrar Proyectos</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#services">Servicios</a>
@@ -42,14 +44,64 @@
             </div>
         </nav>
 
+        <jsp:useBean id="obj" class="com.ipn.spring.dao.ProyectoDAO" scope="page"/>
+        <section  id="tablaProyecto">
+            <div class="container">
+                <div class="row">
+                    <div class="text-center">
+                        <h2 class="section-heading">Estos son tus proyectos!</h2>
+                        <hr>
+                        <table class ="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id Proyecto</th>
+                                    <th>Dueño</th>
+                                    <th>Nombre Proyecto</th>
+                                    <th>Lider</th>
+                                    <th>Fecha Inicio</th>
+                                    <th>Fecha Limite</th>
+                                    <th>Presupuesto Asignado</th>
+                                    <th>Estado</th>
+                                    <th>Especificación</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <c:forEach items="${obj.leerProyectos()}" var="pr">
+                                <tbody>
+                                    <tr>
+                                        <td>${pr.idProyecto}</td>
+                                        <td>${pr.idAdmin}</td>
+                                        <td>${pr.nombrePr}</td>
+                                        <td>pm asignado</td>
+                                        <td>${pr.fIni}</td>
+                                        <td>${pr.fFin}</td>
+                                        <td>$1000000</td>
+                                        <td>${pr.estado}</td>
+                                        <td>${pr.especific}</td>
+                                        <td><a href="actualizarPr.jsp"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                        <td><a href=""><span class="glyphicon glyphicon-remove"></span></a></td>
+                                        <td><a href=""><span class="glyphicon glyphicon-envelope"></span></a></td>
+                                        <td><a href=""><span class="glyphicon glyphicon-tasks">Nuevo modulo</span></a></td>
+                                        <td><a href=""><span class="glyphicon glyphicon-tasks">Modificar Est</span></a></td>
+                                        <td><a href=""><span class="glyphicon glyphicon-tasks">Acerca</span></a></td>
+                                    </tr>
+                                </tbody>
+                            </c:forEach>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <section class="bg-primary" id="primerPaso">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">El primer paso es crear un equipo!</h2>
+                        <h2 class="section-heading">Administra tu personal!</h2>
                         <hr class="light">
                         <p class="text-faded">Para continuar crea un equipo presionando el botón</p>
-                        <a href="crearEquipo.jsp" class="page-scroll btn btn-default btn-xl sr-button">Crear equipo!</a>
+                        <a href="crearEquipo.jsp" class="page-scroll btn btn-default btn-xl sr-button">Administrar RH!</a>
                     </div>
                 </div>
             </div>
@@ -67,48 +119,19 @@
                 </div>
             </div>
         </section>
-        <jsp:useBean id="obj" class="com.ipn.spring.dao.ProyectoDAO" scope="page"/>
-        <section  id="tablaProyecto">
+
+        <section id="segundoPaso">
             <div class="container">
                 <div class="row">
-                    <div class="text-center">
-                        <h2 class="section-heading">Estos son tus proyectos!</h2>
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading">Asigna tareas a tus Project Managers!</h2>
                         <hr>
-                        <table class ="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Nombre Proyecto</th>
-                                    <th>Lider</th>
-                                    <th>Presupuesto Asignado</th>
-                                    <th>Fecha Inicio</th>
-                                    <th>Fecha Limite</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <c:forEach items="${obj.leerProyectos()}" var="pr">
-                                <tr>
-                                    <td>pr</td>
-                                    <td>Juan</td>
-                                    <td>1000</td>
-                                    <td>04/07/1994</td>
-                                    <td>04/07/1994</td>
-                                    <td><a href=""><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                    <td><a href=""><span class="glyphicon glyphicon-remove"></span></a></td>
-                                    <td><a href=""><span class="glyphicon glyphicon-envelope"></span></a></td>
-                                    <td><a href=""><span class="glyphicon glyphicon-tasks">Administrar</span></a></td>
-                                    <td><a href=""><span class="glyphicon glyphicon-tasks">Estado</span></a></td>
-                                    <td><a href=""><span class="glyphicon glyphicon-tasks">Acerca</span></a></td>
-                                </tr>
-                            </c:forEach>
-                            </tbody>
-                        </table>
+                        <p>Para continuar asigna tareas presionando el botón</p>
+                        <a href="asignarTareasPM.jsp" class="btn btn-primary btn-xl page-scroll">Asignar Tareas!</a>
                     </div>
                 </div>
             </div>
         </section>
-
-
 
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
