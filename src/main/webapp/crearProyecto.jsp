@@ -91,6 +91,16 @@
                                             </div>
 
                                             <div class="form-group row">
+                                                <label for="example-search-input" class="col-2 col-form-label">Estado</label>	
+                                                <select class="form-control">
+                                                    <option value="">Selecciona una opción</option>
+                                                    <option value="">En proceso</option>
+                                                    <option value="">Pospuesto</option>
+                                                    <option value="">Terminado</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group row">
                                                 <label for="example-search-input" class="col-2 col-form-label">Objetivo</label>
                                                 <div class="col-10">
                                                     <textarea class="form-control" name="objetivoProyecto" placeholer="ingrese objetivo">
@@ -106,7 +116,7 @@
                                                 </div>
                                             </div>	
                                             <div class="col-lg-12 text-center">
-                                                <a href="crearProyecto.jsp" class="btn btn-primary btn-xl page-scroll">Volver</a>
+                                                <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">Crear</a>
                                             </div>
                                         </form>
                                     </div>					

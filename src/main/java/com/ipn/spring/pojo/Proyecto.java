@@ -7,30 +7,36 @@ public class Proyecto implements Serializable {
 
     private Integer idProyecto;
     private Integer idAdmin;
+    private Integer idPm;
     private String nombrePr;
     private Date fIni;
     private Date fFin;
+    private String presup;
     private String estado;
     private String especific;
 
     public Proyecto() {
     }
 
-    public Proyecto(Integer idProyecto, Integer idAdmin, String nombrePr, Date fIni, Date fFin, String estado, String especific) {
+    public Proyecto(Integer idProyecto, Integer idAdmin, Integer idPm, String nombrePr, Date fIni, Date fFin, String presup, String estado, String especific) {
         this.idProyecto = idProyecto;
         this.idAdmin = idAdmin;
+        this.idPm = idPm;
         this.nombrePr = nombrePr;
         this.fIni = fIni;
         this.fFin = fFin;
+        this.presup = presup;
         this.estado = estado;
         this.especific = especific;
     }
 
-    public Proyecto(Integer idAdmin, String nombrePr, Date fIni, Date fFin, String estado, String especific) {
+    public Proyecto(Integer idAdmin, Integer idPm, String nombrePr, Date fIni, Date fFin, String presup, String estado, String especific) {
         this.idAdmin = idAdmin;
+        this.idPm = idPm;
         this.nombrePr = nombrePr;
         this.fIni = fIni;
         this.fFin = fFin;
+        this.presup = presup;
         this.estado = estado;
         this.especific = especific;
     }
@@ -49,6 +55,14 @@ public class Proyecto implements Serializable {
 
     public void setIdAdmin(Integer idAdmin) {
         this.idAdmin = idAdmin;
+    }
+
+    public Integer getIdPm() {
+        return idPm;
+    }
+
+    public void setIdPm(Integer idPm) {
+        this.idPm = idPm;
     }
 
     public String getNombrePr() {
@@ -75,6 +89,14 @@ public class Proyecto implements Serializable {
         this.fFin = fFin;
     }
 
+    public String getPresup() {
+        return presup;
+    }
+
+    public void setPresup(String presup) {
+        this.presup = presup;
+    }
+
     public String getEstado() {
         return estado;
     }
@@ -93,7 +115,7 @@ public class Proyecto implements Serializable {
 
     @Override
     public String toString() {
-        return "Proyecto{" + "idProyecto=" + idProyecto + ", idAdmin=" + idAdmin + ", nombrePr=" + nombrePr + ", fIni=" + fIni + ", fFin=" + fFin + ", estado=" + estado + ", especific=" + especific + '}';
+        return "Proyecto{" + "idProyecto=" + idProyecto + ", idAdmin=" + idAdmin + ", idPm=" + idPm + ", nombrePr=" + nombrePr + ", fIni=" + fIni + ", fFin=" + fFin + ", presup=" + presup + ", estado=" + estado + ", especific=" + especific + '}';
     }
 
 }

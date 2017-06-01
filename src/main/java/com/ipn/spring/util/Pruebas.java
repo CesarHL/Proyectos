@@ -1,14 +1,10 @@
 package com.ipn.spring.util;
 
-import com.ipn.spring.dao.ActividadesDAO;
-import com.ipn.spring.dao.DesarrolladorDAO;
 import com.ipn.spring.dao.ProyectoDAO;
-import com.ipn.spring.dao.UserDAO;
 import com.ipn.spring.pojo.Actividad;
 import com.ipn.spring.pojo.Desarrollador;
 import com.ipn.spring.pojo.Modulo;
 import com.ipn.spring.pojo.Proyecto;
-import com.ipn.spring.pojo.Administrador;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -38,10 +34,10 @@ public class Pruebas {
 
 //        Modulo pruebas = new Modulo(2, "Estancado", d, d, "modulo pruebas", listaActividades, listaDesarrolladores);
 //
-        pr = new Proyecto(1, "Proyecto Bancomer", d, d, "En proceso", "sin especificacion");
+        
 
         ProyectoDAO pd = new ProyectoDAO();
-        System.out.println(pd.leerProyectos());
+        System.out.println(pd.leerPm(2));
         
         
 

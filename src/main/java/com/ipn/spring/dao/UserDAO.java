@@ -84,11 +84,12 @@ public class UserDAO implements IUserDAO {
         ResultSet resultSet = ps.executeQuery();
 
         if (resultSet.next()) {
+            int idAdmin = resultSet.getInt("idAdmin");
             String email = resultSet.getString("email");
             String pas = resultSet.getString("pass");
             String job = resultSet.getString("job");
 
-            user = new Administrador(email, job, pass);
+            user = new Administrador(idAdmin, email, job, pass);
             System.out.println(email + pas);
         } else {
             System.out.println("No encontrado");

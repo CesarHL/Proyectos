@@ -9,7 +9,7 @@ public interface IProyectoDAO {
 
     public Proyecto leerProyectoId(Integer idProyecto);
 
-    public List<Proyecto> leerProyectos();
+    public List<Proyecto> leerProyectos(Integer idAdm);
 
     public boolean actualizarProyectos(Proyecto proyecto);
 

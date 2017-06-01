@@ -12,11 +12,11 @@
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
         <link href="css/creative.min.css" rel="stylesheet">
-        <title>Inicia sesión</title>
+        <title>Bienvenido</title>
     </head>
     <body>
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
+            <div class="bg-primary" class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
@@ -54,28 +54,29 @@
                         <table class ="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Id Proyecto</th>
+                                    <th>Id</th>
                                     <th>Dueño</th>
-                                    <th>Nombre Proyecto</th>
                                     <th>Lider</th>
+                                    <th>Nombre</th>
                                     <th>Fecha Inicio</th>
                                     <th>Fecha Limite</th>
-                                    <th>Presupuesto Asignado</th>
+                                    <th>Presupuesto</th>
                                     <th>Estado</th>
-                                    <th>Especificación</th>
+                                    <th>Objetivo</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <c:forEach items="${obj.leerProyectos()}" var="pr">
+                           
+                            <c:forEach items="${obj.leerProyectos(userId)}" var="pr">
                                 <tbody>
                                     <tr>
                                         <td>${pr.idProyecto}</td>
-                                        <td>${pr.idAdmin}</td>
+                                        <td>${obj.leerAdmin(userId)}</td>
+                                        <td>${obj.leerPm(pr.idPm)}</td>
                                         <td>${pr.nombrePr}</td>
-                                        <td>pm asignado</td>
                                         <td>${pr.fIni}</td>
                                         <td>${pr.fFin}</td>
-                                        <td>$1000000</td>
+                                        <td>${pr.presup}</td>
                                         <td>${pr.estado}</td>
                                         <td>${pr.especific}</td>
                                         <td><a href="actualizarPr.jsp"><span class="glyphicon glyphicon-pencil"></span></a></td>

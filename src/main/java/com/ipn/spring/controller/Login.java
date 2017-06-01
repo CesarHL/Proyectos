@@ -51,6 +51,8 @@ public class Login extends HttpServlet {
                 } else if (usuario.getJob().equals("admin")) {
                     session = request.getSession();
                     session.setAttribute("usermail", email);
+                    session.setAttribute("userId", usuario.getUno());
+                    System.out.println(email + "" + usuario.getUno());
                     response.sendRedirect("administrador.jsp");
                 } else {
                     request.setAttribute("message", "Usuario y/o contraseña invalidos");
