@@ -3,7 +3,6 @@ package com.ipn.spring.controller;
 import com.ipn.spring.dao.DesarrolladorDAO;
 import com.ipn.spring.pojo.Desarrollador;
 import java.io.IOException;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

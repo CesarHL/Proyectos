@@ -81,7 +81,7 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
     }
 
     @Override
-    public List<Desarrollador> leerDesarrolladores() {
+    public List<Desarrollador> leerDesarrolladores() {  // Debe ser lista de desarrolladores Y PM osea de empleados
 
         List<Desarrollador> listaDesarrolladores = new ArrayList<>();
 
