@@ -13,6 +13,10 @@ public class PM {
     public PM() {
     }
 
+    public PM(String nombre) {
+        this.nombre = nombre;
+    }
+
     public PM(Integer idPM, String nombre, String ap, String am, String email, String tel, String salario) {
         this.idPM = idPM;
         this.nombre = nombre;

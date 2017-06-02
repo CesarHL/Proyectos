@@ -21,7 +21,7 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">Bienvenido</a>
+                    <a class="navbar-brand page-scroll" href="#page-top">Bienvenido ${usermail}</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -38,6 +38,9 @@
                         </li>
                         <li>
                             <a class="page-scroll" href="#services">Servicios</a>
+                        </li>
+                        <li>
+                            <a href="Login">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>

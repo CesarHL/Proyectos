@@ -36,7 +36,7 @@ public class Login extends HttpServlet {
         HttpSession session = null;
 
         try {
-            usuario = ud.leerCorreoContraseña(email, pass);
+            usuario = ud.leerCorreoContraseña(email, pass);//
 
             System.out.println(usuario);
             if (usuario != null) {

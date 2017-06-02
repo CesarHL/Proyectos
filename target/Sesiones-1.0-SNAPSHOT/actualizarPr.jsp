@@ -50,15 +50,15 @@
                                         <hr>
 
                                         <form id="login-form" action="CrearProyecto" method="post" role="form" style="display: block;">
-
-                                            <jsp:useBean id="obj" class="com.ipn.spring.dao.DesarrolladorDAO" scope="page"/> <%--leer pmdao--%>
+                                            <jsp:useBean id="obj" class="com.ipn.spring.dao.PMDAO" scope="page"/>
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-2 col-form-label">Lider</label>	
                                                 <select class="form-control">
-                                                    <c:forEach var="dev" items="${obj.leerDesarrolladores()}">
-
-                                                        <option>${dev.nombre}</option>
-
+                                                    <c:forEach items="${obj.leerPms(userId)}" var="prs">
+                                                        <option>Selecciona una opción</option>
+                                                        <option>${prs.nombre}</option>
+                                                        <option>${obj.leerPms(userId)}</option>
+                                                       
                                                     </c:forEach>
                                                 </select>
                                             </div>
