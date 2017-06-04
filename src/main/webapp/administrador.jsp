@@ -26,18 +26,17 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-
                         <li>
-                            <a class="page-scroll" href="#services">Administrar Personal</a>
+                            <a class="page-scroll" href="#tablaProyecto">Proyectos</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#services">Crear Proyecto</a>
+                            <a class="page-scroll" href="#primerPaso">Administrar Personal</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#services">Administrar Proyectos</a>
+                            <a class="page-scroll" href="#tercerPaso">Crear Proyecto</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#services">Servicios</a>
+                            <a class="page-scroll" href="#adminManagers">Administrar Managers</a>
                         </li>
                         <li>
                             <a href="Login">Cerrar Sesión</a>
@@ -49,6 +48,7 @@
 
         <jsp:useBean id="obj" class="com.ipn.spring.dao.ProyectoDAO" scope="page"/>
         <section  id="tablaProyecto">
+
             <div class="container">
                 <div class="row">
                     <div class="text-center">
@@ -66,10 +66,13 @@
                                     <th>Presupuesto</th>
                                     <th>Estado</th>
                                     <th>Objetivo</th>
-                                    <th>Action</th>
+                                    <th>Edita</th>
+                                    <th>Borra</th>
+                                    <th>Crea Módulo</th>
+                                    <th>Visualiza</th>
                                 </tr>
                             </thead>
-                           
+
                             <c:forEach items="${obj.leerProyectos(userId)}" var="pr">
                                 <tbody>
                                     <tr>
@@ -84,10 +87,8 @@
                                         <td>${pr.especific}</td>
                                         <td><a href="actualizarPr.jsp"><span class="glyphicon glyphicon-pencil"></span></a></td>
                                         <td><a href=""><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-envelope"></span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-tasks">Nuevo modulo</span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-tasks">Modificar Est</span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-tasks">Acerca</span></a></td>
+                                        <td><a href=""><span class="glyphicon glyphicon-plus-sign"></span></a></td>
+                                        <td><a href=""><span class="glyphicon glyphicon-eye-open"></span></a></td>
                                     </tr>
                                 </tbody>
                             </c:forEach>
@@ -104,8 +105,9 @@
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">Administra tu personal!</h2>
                         <hr class="light">
-                        <p class="text-faded">Para continuar crea un equipo presionando el botón</p>
-                        <a href="crearEquipo.jsp" class="page-scroll btn btn-default btn-xl sr-button">Administrar RH!</a>
+                        <p class="text-faded">El primer paso para crear tu proyecto es contratar personal
+                            puedes darlos de alta en esta sección presionando el botón</p>
+                        <a href="crearEquipo.jsp" class="page-scroll btn btn-default btn-xl sr-button">Administrar RH <span class="glyphicon glyphicon-user"></span></a>
                     </div>
                 </div>
             </div>
@@ -117,21 +119,21 @@
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">Es hora de crear un proyecto!</h2>
                         <hr>
-                        <p>Para continuar crea un proyecto presionando el botón</p>
+                        <p>En esta sección puedes crear un proyecto nuevo y asignarles un lider presionando el botón</p>
                         <a href="crearProyecto.jsp" class="btn btn-primary btn-xl page-scroll">Crear proyecto!</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="segundoPaso">
+        <section class="bg-primary" id="adminManagers">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Asigna tareas a tus Project Managers!</h2>
-                        <hr>
-                        <p>Para continuar asigna tareas presionando el botón</p>
-                        <a href="asignarTareasPM.jsp" class="btn btn-primary btn-xl page-scroll">Asignar Tareas!</a>
+                        <h2 class="section-heading">Administra a tus Managers!</h2>
+                        <hr class="light">
+                        <p class="text-faded">En esta sección puedes asignarles tareas a tus project managers presionando el botón</p>
+                        <a href="crearEquipo.jsp" class="page-scroll btn btn-default btn-xl sr-button">Administrar PM!</a>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 package com.ipn.spring.controller;
 
 import com.ipn.spring.dao.DesarrolladorDAO;
+import com.ipn.spring.dao.PMDAO;
 import com.ipn.spring.pojo.Desarrollador;
 import com.ipn.spring.pojo.PM;
 import java.io.IOException;
@@ -24,29 +25,31 @@ public class AltaEquipo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        Desarrollador d = new Desarrollador("dev", "Android dev", "Alex", "Godinez", "Perez", "godinez@gmail.com", "4434431234", "6000");
         DesarrolladorDAO dd = new DesarrolladorDAO();
-        //    List listaDesarrolladores = dd.leerDesarrolladores();
+        PMDAO pmd = new PMDAO();
 
-        String cargo = request.getParameter("jobs");
+        String cargo = request.getParameter("cargo");
         String competencia = request.getParameter("competencia");
-        String nombre = request.getParameter("nombre");
+        String nombre = request.getParameter("nom");
+        String pass = request.getParameter("pass");
         String ap = request.getParameter("ap");
         String am = request.getParameter("am");
-        String mail = request.getParameter("correo");
-        String tel = request.getParameter("telefono");
-        String salario = request.getParameter("salario");
+        String mail = request.getParameter("mail");
+        String tel = request.getParameter("tel");
+        String salario = request.getParameter("sal");
 
-        System.out.println(cargo);
+        
         if (cargo.equals("pm")) {
-            desarrollador = new Desarrollador(cargo, competencia, nombre, ap, am, mail, tel, salario);
-            System.out.println(desarrollador);
-        } else {
-            pm = new PM(nombre, ap, am, mail, tel, salario);
+            pm = new PM(Integer.SIZE, cargo, competencia, nombre, pass, mail, ap, am, mail, tel);
             System.out.println(pm);
+            pmd.crearPM(pm);
+            System.out.println(pm);
+        } else if (cargo.equals("dev")){
+            desarrollador = new Desarrollador(cargo, competencia, nombre, ap, am, mail, tel, salario);
+            dd.crearDesarrollador(desarrollador);
+            System.out.println(desarrollador);
         }
 
-        dd.crearDesarrollador(desarrollador);
         request.getRequestDispatcher("crearEquipo.jsp").forward(request, response);
 
     }

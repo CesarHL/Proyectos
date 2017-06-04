@@ -1,11 +1,8 @@
 package com.ipn.spring.controller;
 
 import com.ipn.spring.dao.UserDAO;
-import com.ipn.spring.pojo.Administrador;
+import com.ipn.spring.pojo.Empleado;
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,42 +27,40 @@ public class Login extends HttpServlet {
 
         String email = request.getParameter("usermail");
         String pass = request.getParameter("pass");
-        //TODO hacer match con la base de datos
+        
         UserDAO ud = new UserDAO();
-        Administrador usuario = null;
-        HttpSession session = null;
+        Empleado usuario;
+        HttpSession session;
 
-        try {
-            usuario = ud.leerCorreoContraseña(email, pass);//
+        usuario = ud.leerEmpleados(email, pass);
 
-            System.out.println(usuario);
-            if (usuario != null) {
-                if (usuario.getJob().equals("pm")) {
+        if (usuario != null) {
+            switch (usuario.getCargo()) {
+                case "pm":
                     session = request.getSession();
-                    session.setAttribute("usermail", email);
+                    session.setAttribute("usermail", usuario.getNom());
                     response.sendRedirect("pm.jsp");
-                } else if (usuario.getJob().equals("dev")) {
+                    break;
+                case "dev":
                     session = request.getSession();
-                    session.setAttribute("usermail", email);
+                    session.setAttribute("usermail", usuario.getNom());
                     response.sendRedirect("desarrollador.jsp");
-                } else if (usuario.getJob().equals("admin")) {
+                    break;
+                case "admin":
                     session = request.getSession();
-                    session.setAttribute("usermail", email);
-                    session.setAttribute("userId", usuario.getUno());
-                    System.out.println(email + "" + usuario.getUno());
+                    session.setAttribute("usermail", usuario.getNom());
+                    session.setAttribute("userId", usuario.getIdAdmin());
                     response.sendRedirect("administrador.jsp");
-                } else {
+                    break;
+                default:
                     request.setAttribute("message", "Usuario y/o contraseña invalidos");
                     request.getRequestDispatcher("login.jsp").forward(request, response);
-                }
-            } else {
-                request.setAttribute("message", "Usuario y/o contraseña invalidos");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                    break;
             }
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } else {
+            request.setAttribute("message", "Usuario y/o contraseña invalidos");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
-
     }
 
 }

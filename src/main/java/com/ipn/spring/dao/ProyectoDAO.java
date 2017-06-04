@@ -20,8 +20,8 @@ public class ProyectoDAO implements IProyectoDAO {
     public static final String LEER_TODOS_PROYECTO = "SELECT * FROM Proyecto where idAdmin = ?";
     public static final String ACTUALIZAR_PROYECTO = "UPDATE Proyecto SET nPr=?, fini=?, ffin=?, edo=?, espe=?, alcance=?, cfijo=?, cvar=? WHERE idPr=?";
     public static final String BORRAR_PROYECTO = "DELETE FROM Proyecto WHERE idPr=?";
-    public static final String LEER_PROYECTO_DIRI_AD = "SELECT a.uname, a.idAdmin FROM proyecto p INNER JOIN admin a ON  p.idAdmin = a.idAdmin WHERE a.idAdmin = ?";
-    public static final String LEER_PROYECTO_DIRI_PM = "select p.nomPm  FROM pm p INNER JOIN proyecto pr ON  p.idPm = pr.idPm WHERE p.idPm = ?";
+    public static final String LEER_PROYECTO_DIRI_AD = "SELECT a.nom, a.idAdmin FROM proyecto p INNER JOIN admin a ON  p.idAdmin = a.idAdmin WHERE a.idAdmin = ?";
+    public static final String LEER_PROYECTO_DIRI_PM = "select p.nom  FROM pm p INNER JOIN proyecto pr ON  p.idPm = pr.idPm WHERE p.idPm = ?";
    
     @Override
     public void crearProyecto(Proyecto proyecto) {
@@ -106,7 +106,7 @@ public class ProyectoDAO implements IProyectoDAO {
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
-                nomAdmin = resultSet.getString("uname");
+                nomAdmin = resultSet.getString("nom");
             }
 
             resultSet.close();
@@ -128,7 +128,7 @@ public class ProyectoDAO implements IProyectoDAO {
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
-                nomPm = resultSet.getString("nomPm");
+                nomPm = resultSet.getString("nom");
             }
 
             resultSet.close();

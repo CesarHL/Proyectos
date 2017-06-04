@@ -12,7 +12,7 @@ public class ConexionOracle {
     public static Connection conectar() throws SQLException, ClassNotFoundException {
         Class.forName("oracle.jdbc.driver.OracleDriver");
 
-        connection = DriverManager.getConnection(url, "top", "top");
+        connection = DriverManager.getConnection(url, "topiccs", "topiccs");
 
         return connection;
     }

@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a class="page-scroll" href="#about">Home</a>
+                            <a class="page-scroll" href="#about">Acerca</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#services">Servicios</a>
@@ -63,7 +63,8 @@
                     <div class="header-content-inner">
                         <h1 id="homeHeading">Crea nuevos proyectos de forma gratuita</h1>
                         <hr>
-                        <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
+                        <p>Es muy fácil crear proyectos sólo tienes que registrarte para empezar a crear proyectos sin ningún costo 
+                            y estarás listo para administrarlos todos!  </p>
                     </div>
                 </div>             
             </div>
@@ -75,8 +76,11 @@
                     <div class="col-lg-12 text-center">
                         <h2 class="section-heading">Tenemos exactamente lo que necesitas!</h2>
                         <hr class="light">
-                        <p class="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
-                        <a href="#services" class="page-scroll btn btn-default btn-xl sr-button">Empecemos!</a>
+                        <p class="text-faded">Una vez que te registras puedes contratar personal que serás capaz de gestionar de una forma simple
+                           e intuitiva, puedes contratar Project Managers y Desarrolladores, una vez que los contrates podras empezar a crear proyectos
+                           
+                       </p>
+                        <a href="crearCuenta.jsp" class="page-scroll btn btn-default btn-xl sr-button">Empecemos!</a>
                     </div>
                 </div>
             </div>
@@ -96,29 +100,29 @@
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="service-box">
                             <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                            <h3>Sturdy Templates</h3>
-                            <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                            <h3>Administra Personal</h3>
+                            <p class="text-muted">Puedes invitar a todos tus amigos a participar en tu proyecto.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="service-box">
                             <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-                            <h3>Ready to Ship</h3>
-                            <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                            <h3>Gestiona tus proyectos</h3>
+                            <p class="text-muted">Puedes dar de alta tus nuevos proyectos y almacernarlos!</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="service-box">
                             <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-                            <h3>Up to Date</h3>
-                            <p class="text-muted">We update dependencies to keep things fresh.</p>
+                            <h3>Entrega a tiempo</h3>
+                            <p class="text-muted">Todo tu equipo será capaz de saber el estado de tu proyecto.</p>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6 text-center">
                         <div class="service-box">
                             <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-                            <h3>Made with Love</h3>
-                            <p class="text-muted">You have to make your websites with love these days!</p>
+                            <h3>APSI es muy amigable contigo</h3>
+                            <p class="text-muted">No tienes que aprender cosas complicadas para usarlo!</p>
                         </div>
                     </div>
                 </div>
@@ -133,11 +137,9 @@
                             <img src="img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
                             <div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
+                                    
                                     <div class="project-name">
-                                        Project Name
+                                        Emprende
                                     </div>
                                 </div>
                             </div>
@@ -148,11 +150,9 @@
                             <img src="img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
                             <div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
+                                    
                                     <div class="project-name">
-                                        Project Name
+                                        Diviértete
                                     </div>
                                 </div>
                             </div>
@@ -163,11 +163,9 @@
                             <img src="img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
                             <div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
+                                    
                                     <div class="project-name">
-                                        Project Name
+                                        Aprende algo nuevo
                                     </div>
                                 </div>
                             </div>
@@ -178,11 +176,9 @@
                             <img src="img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
                             <div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
+                                    
                                     <div class="project-name">
-                                        Project Name
+                                        Cuéntale a tus amigos
                                     </div>
                                 </div>
                             </div>
@@ -193,11 +189,9 @@
                             <img src="img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
                             <div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
+                                  
                                     <div class="project-name">
-                                        Project Name
+                                        Comparte
                                     </div>
                                 </div>
                             </div>
@@ -208,11 +202,9 @@
                             <img src="img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
                             <div class="portfolio-box-caption">
                                 <div class="portfolio-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        Category
-                                    </div>
+                                    
                                     <div class="project-name">
-                                        Project Name
+                                        Disfruta
                                     </div>
                                 </div>
                             </div>
@@ -228,7 +220,7 @@
                     <div class="col-lg-8 col-lg-offset-2 text-center">
                         <h2 class="section-heading">Ponte en contacto!</h2>
                         <hr class="primary">
-                        <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                        <p>Estás listo para empezar un nuevo proyecto? Es genial! Ponte en contacto estaremos muy pronto contigo!</p>
                     </div>
                     <div class="col-lg-4 col-lg-offset-2 text-center">
                         <i class="fa fa-phone fa-3x sr-contact"></i>

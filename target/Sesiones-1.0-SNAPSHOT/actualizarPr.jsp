@@ -1,5 +1,7 @@
+
 <%@page import="java.util.List"%>
 <%@page import="com.ipn.spring.dao.PMDAO"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE>
@@ -46,30 +48,26 @@
                                 <div class="row">
                                     <div class="col-lg-12">
 
-                                        <h2 class="section-heading">Aquí Puedes Modificar Tu Proyecto!</h2>
+                                        <h2 class="section-heading">Aquí puedes crear tu proyecto!</h2>
                                         <hr>
-
                                         <form id="login-form" action="CrearProyecto" method="post" role="form" style="display: block;">
-                                            <jsp:useBean id="obj" class="com.ipn.spring.dao.PMDAO" scope="page"/>
-                                            <div class="form-group row">
-                                                <label for="example-search-input" class="col-2 col-form-label">Lider</label>	
-                                                <select class="form-control">
-                                                    <c:forEach items="${obj.leerPms(userId)}" var="prs">
-                                                        <option>Selecciona una opción</option>
-                                                        <option>${prs.nombre}</option>
-                                                        <option>${obj.leerPms(userId)}</option>
-                                                       
-                                                    </c:forEach>
-                                                </select>
-                                            </div>
-
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-2 col-form-label">Nombre</label>
                                                 <div class="col-10">
                                                     <input class="form-control" name="nombreProyecto" type="search" placeholder="ingrese nombre" value="" id="example-search-input">
                                                 </div>
                                             </div>
-
+                                            <jsp:useBean id="obj" class="com.ipn.spring.dao.PMDAO" scope="page"/>
+                                            <div class="form-group row">
+                                                <label for="example-search-input" class="col-2 col-form-label">Lider</label>	
+                                                <select class="form-control">
+                                                    <c:forEach var="dev" items="${obj.leerPms(userId)}">
+                                                        
+                                                            <option>${dev.nombre}</option>
+                                                      
+                                                    </c:forEach>
+                                                </select>
+                                            </div>
 
                                             <div class="form-group row">
                                                 <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha Inicial</label>
@@ -110,8 +108,16 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group row">
+                                                <div class="form-group">
+                                                    <label for="exampleInputFile">Archivo requerimientos</label>
+                                                    <input type="file" name="archivoReq" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+                                                    <small id="fileHelp" class="form-text text-muted">Ingrese un archivo de requerimientos para que el equipo pueda visualizarlo.</small>
+                                                </div>
+                                            </div>	
                                             <div class="col-lg-12 text-center">
-                                                <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">Modificar</a>
+                                                <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">Crear</a>
+                                                <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
                                             </div>
                                         </form>
                                     </div>					

@@ -15,31 +15,50 @@
         <title>Administra personal</title>
     </head>
     <body>
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-            <div class="container-fluid">
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="bg-primary" class="container-fluid">
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">Bienvenido ${usermail}</a>
+                </div>
 
-                    <a class="navbar-brand page-scroll" href="administrador.jsp">Home</a>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="page-scroll" href="#emp">Empleados</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#altarh">Contratar</a>
+                        </li>
+                        <li>
+                            <a href="Login">Cerrar Sesión</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
 
-        <section>
+        <section id="emp">          
             <div class="container">
+
+                <h2 class="section-heading">Estos son tus empleados</h2>
+                <hr>
                 <div class="row">
-                    <div class="col-md-6 ">
+                    <div class="col-md-6">
                         <form action="Busquedas" method="post"class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" name="busqueda" type="text" placeholder="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            <input class="form-control mr-sm-2" name="busqueda" type="text" placeholder="Ingresa nombre">
+                            <input type="submit" value="Buscar" class="btn btn-primary btn-sm page-scroll">
                         </form>
                     </div>
                 </div>
-                <jsp:useBean id="obj" class="com.ipn.spring.dao.DesarrolladorDAO" scope="page"/>
+                <jsp:useBean id="obj" class="com.ipn.spring.dao.UserDAO" scope="page"/> 
                 <div class="container">
                     <table class="table">
                         <thead>
                             <tr scope="row">
-                                <td>Id Usuario</td>
+                                <td>Director</td>
                                 <td>Cargo</td>
                                 <td>Competencia</td>
                                 <td>Nombre</td>
@@ -51,25 +70,26 @@
                                 <td>Acciones</td>
                             </tr>
                         </thead>
-                        <c:forEach items="${obj.leerDesarrolladores()}" var="deve">
+                        <c:forEach items="${obj.leerEmpleados(userId)}" var="deve">
                             <tbody>
                                 <tr scope="row">
-                                    <td> ${deve.idDesarrollador}</td>
-                                    <td> ${deve.cargo}</td>
+                                    <td> ${usermail}</td>
                                     <td> ${deve.competencia}</td>
-                                    <td> ${deve.nombre}</td>
+                                    <td> ${deve.nom}</td>
+                                    <td> ${deve.pass}</td>
                                     <td> ${deve.ap}</td>
                                     <td> ${deve.am}</td>
-                                    <td> ${deve.email}</td>
+                                    <td> ${deve.mail}</td>
                                     <td> ${deve.tel}</td>
-                                    <td> ${deve.salario}</td>
-                                    <td> <span class="glyphicon glyphicon-pencil"></span></td>
-                                    <td> <span class="glyphicon glyphicon-remove"></span></td>
+                                    <td> ${deve.sal}</td>
+                                    <td><a href="actualizarEmp.jsp"> <span class="glyphicon glyphicon-pencil"></span></a></td>
+                                    <td><a href=""> <span href="" class="glyphicon glyphicon-remove"></span></a></td>
                                 </tr>
                             </tbody>
                         </c:forEach>
                     </table>
                 </div>
+            </div>
         </section>
         <section id="altarh">
             <div class="container">
@@ -78,7 +98,7 @@
 
                         <div class="panel-heading">
                             <div class="col-lg-8 col-lg-offset-2 text-center">
-                                <h2 class="section-heading">Alta recursos humanos</h2>
+                                <h2 class="section-heading">Contratar</h2>
                                 <hr>
                             </div>
 
@@ -87,7 +107,7 @@
 
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <select class="form-control" name="jobs">
+                                    <select class="form-control" name="cargo">
                                         <option value="defatult">Selecciona una opción</option>
                                         <option value="pm">Project Mannager</option>
                                         <option value="dev">Desarrollador</option>
@@ -101,7 +121,12 @@
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="nombre" class="form-control"  placeholder="Nombre" required>
+                                    <input type="text" name="nom" class="form-control"  placeholder="Nombre" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" name="pass" class="form-control"  placeholder="Asignale permisos" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
@@ -116,23 +141,24 @@
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="mail" name="correo" class="form-control"  placeholder="Correo" required>
+                                    <input type="email" name="mail" class="form-control"  placeholder="Correo" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="tel" name="telefono" class="form-control"  placeholder="Telefono" required>
+                                    <input type="tel" name="tel" class="form-control"  placeholder="Telefono" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="salario" class="form-control"  placeholder="Salario" required>
+                                    <input type="text" name="sal" class="form-control"  placeholder="Salario" required>
                                 </div>
                             </div>
 
                             <div class="col-lg-8 col-lg-offset-2 text-center">
                                 <div class="form-group">
                                     <input type="submit" value="Registrar" class="btn btn-primary btn-xl page-scroll">
+                                    <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
                                 </div>
                             </div>
                         </form>

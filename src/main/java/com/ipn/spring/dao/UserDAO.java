@@ -2,6 +2,7 @@ package com.ipn.spring.dao;
 
 import static com.ipn.spring.conexion.ConexionOracle.conectar;
 import com.ipn.spring.pojo.Administrador;
+import com.ipn.spring.pojo.Empleado;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,30 +14,37 @@ import java.util.logging.Logger;
 
 public class UserDAO implements IUserDAO {
 
-    public static final String CREAR_USUARIO = "INSERT INTO admin(uname, uap, email, job, pass, cpass) VALUES (?, ?, ?, ?, ?, ?)";
-    public static final String LEER_ID = "SELECT * FROM admin WHERE uno = ?";
+    public static final String CREAR_ADMIN = "insert into admin(cargo, competencia, nom, pass, ap, am, mail, tel, sal)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public static final String CREAR_PM = "insert into admin(cargo, competencia, nom, pass, ap, am, mail, tel, sal)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public static final String CREAR_DEV = "insert into admin(cargo, competencia, nom, pass, ap, am, mail, tel, sal)  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    public static final String LEER_ID = "SELECT * FROM admin WHERE idAdmin = ?";
     public static final String LEER_TODOS = "SELECT * FROM admin";
     public static final String ACTUALIZAR_USUARIO = "UPDATE admin SET uname = ?, uap = ?, email = ?, job = ?, pass = ?, cpass = ? WHERE uno = ?";
     public static final String BORRAR_USUARIO = "DELETE FROM admin WHERE uno = ?";
-    public static final String LEER_CORREO_PASS = "SELECT * FROM admin WHERE email=? AND pass=?";
+    public static final String LEER_EMP = "SELECT * FROM emp where mail=? AND pass=?";
+    public static final String LEER_TODOS_EMP = "SELECT * FROM emp where idAdmin=?";
 
     @Override
     public boolean crearUsuario(Administrador admin) {
         boolean creado = false;
         try {
-            Connection conexion = conectar();
-            PreparedStatement statement = conexion.prepareStatement(CREAR_USUARIO);
-            statement.setString(1, admin.getUname());
-            statement.setString(2, admin.getUap());
-            statement.setString(3, admin.getEmail());
-            statement.setString(4, admin.getJob());
-            statement.setString(5, admin.getPass());
-            statement.setString(6, admin.getCpass());
-            statement.executeUpdate();
-
-            statement.close();
-            conexion.close();
-
+            if (admin.getCargo().equals("admin")) {
+                Connection conexion = conectar();
+                PreparedStatement statement = conexion.prepareStatement(CREAR_ADMIN);
+                statement.setString(1, admin.getCargo());
+                statement.setString(2, admin.getCompetencia());
+                statement.setString(3, admin.getNom());
+                statement.setString(4, admin.getPass());
+                statement.setString(5, admin.getAp());
+                statement.setString(6, admin.getAm());
+                statement.setString(7, admin.getMail());
+                statement.setString(8, admin.getTel());
+                statement.setString(9, admin.getSal());
+                
+                statement.executeUpdate();
+                statement.close();
+                conexion.close();
+            } 
             return true;
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -46,113 +54,18 @@ public class UserDAO implements IUserDAO {
 
     @Override
     public Administrador leerUsuarioId(Integer idUsuario) {
-        Administrador user = null;
-        try {
-            Connection conexion = conectar();
-            PreparedStatement ps = conexion.prepareStatement(LEER_ID);
-            ps.setInt(1, idUsuario);
-            ResultSet resultSet = ps.executeQuery();
 
-            if (resultSet.next()) {
-                Integer uid = resultSet.getInt("uno");
-                String nombre = resultSet.getString("uname");
-                String ap = resultSet.getString("uap");
-                String email = resultSet.getString("email");
-                String job = resultSet.getString("job");
-                String pass = resultSet.getString("pass");
-                String cpass = resultSet.getString("cpass");
-
-                user = new Administrador(uid, nombre, ap, email, job, pass, cpass);
-            }
-
-            resultSet.close();
-            ps.close();
-            conexion.close();
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return user;
-    }
-
-    public Administrador leerCorreoContraseña(String mail, String pass) throws SQLException, ClassNotFoundException {
-        Administrador user = null;
-        Connection conexion = conectar();
-        PreparedStatement ps = conexion.prepareStatement(LEER_CORREO_PASS);
-        ps.setString(1, mail);
-        ps.setString(2, pass);
-        ResultSet resultSet = ps.executeQuery();
-
-        if (resultSet.next()) {
-            int idAdmin = resultSet.getInt("idAdmin");
-            String email = resultSet.getString("email");
-            String pas = resultSet.getString("pass");
-            String job = resultSet.getString("job");
-
-            user = new Administrador(idAdmin, email, job, pass);
-            System.out.println(email + pas);
-        } else {
-            System.out.println("No encontrado");
-        }
-
-        return user;
-
+        return null;
     }
 
     @Override
     public List<Administrador> leerUsuarios() {
-
-        List<Administrador> listaUsuarios = new ArrayList<>();
-
-        try {
-            Connection conexion = conectar();
-            PreparedStatement ps = conexion.prepareStatement(LEER_TODOS);
-            ResultSet resultSet = ps.executeQuery();
-
-            while (resultSet.next()) {
-                Integer uid = resultSet.getInt("uno");
-                String nombre = resultSet.getString("uname");
-                String ap = resultSet.getString("uap");
-                String email = resultSet.getString("email");
-                String job = resultSet.getString("job");
-                String pass = resultSet.getString("pass");
-                String cpass = resultSet.getString("cpass");
-
-                Administrador user = new Administrador(uid, nombre, ap, email, job, pass, cpass);
-                listaUsuarios.add(user);
-            }
-
-            resultSet.close();
-            ps.close();
-            conexion.close();
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.out.println(listaUsuarios);
-        return listaUsuarios;
+        return null;
     }
 
     @Override
     public boolean actualizarUsuario(Administrador admin) {
-        boolean rowUpdated = false;
-        try {
-            Connection conexion = conectar();
-            PreparedStatement statement = conexion.prepareStatement(ACTUALIZAR_USUARIO);
-            statement.setString(1, admin.getUname());
-            statement.setString(2, admin.getUap());
-            statement.setString(3, admin.getEmail());
-            statement.setString(4, admin.getJob());
-            statement.setString(5, admin.getPass());
-            statement.setString(6, admin.getCpass());
-            statement.setInt(7, admin.getUno());
-            rowUpdated = statement.executeUpdate() > 0;
-
-            statement.close();
-            conexion.close();
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return rowUpdated;
+        return false;
     }
 
     @Override
@@ -172,6 +85,76 @@ public class UserDAO implements IUserDAO {
         }
 
         return rowUpdated;
+    }
+
+    public Empleado leerEmpleados(String correou, String passu) {
+        Empleado user = null;
+        try {
+            Connection conexion = conectar();
+            PreparedStatement ps = conexion.prepareStatement(LEER_EMP);
+            ps.setString(1, correou);
+            ps.setString(2, passu);
+
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                Integer idAdmin = resultSet.getInt("idAdmin");
+                String cargo = resultSet.getString("cargo");
+                String competencia = resultSet.getString("competencia");
+                String nom = resultSet.getString("nom");
+                String pass = resultSet.getString("pass");
+                String ap = resultSet.getString("ap");
+                String am = resultSet.getString("am");
+                String mail = resultSet.getString("mail");
+                String tel = resultSet.getString("tel");
+                String sal = resultSet.getString("sal");
+
+                user = new Empleado(idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal);
+            }
+
+            resultSet.close();
+            ps.close();
+            conexion.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return user;
+    }
+    
+    public List<Empleado> leerEmpleados(Integer idAdm) {
+      List<Empleado> listaEmpleados = new ArrayList<>();
+
+        try {
+            Connection conexion = conectar();
+            PreparedStatement ps = conexion.prepareStatement(LEER_TODOS_EMP);
+            ps.setInt(1, idAdm);
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+
+                Integer idAdmin = resultSet.getInt("idAdmin");
+                String cargo = resultSet.getString("cargo");
+                String competencia = resultSet.getString("competencia");
+                String nom = resultSet.getString("nom");
+                String pass = resultSet.getString("pass");
+                String ap = resultSet.getString("ap");
+                String am = resultSet.getString("am");
+                String mail = resultSet.getString("mail");
+                String tel = resultSet.getString("tel");
+                String sal = resultSet.getString("sal");
+
+                Empleado emp = new Empleado(idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal);
+                listaEmpleados.add(emp);
+            }
+
+            resultSet.close();
+            ps.close();
+            conexion.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaEmpleados;
     }
 
 }

@@ -4,81 +4,53 @@ import java.io.Serializable;
 
 public class Administrador implements Serializable {
 
-    private Integer uno;
-    private String uname;
-    private String uap;
-    private String email;
-    private String job;
+    private String cargo;
+    private String competencia;
+    private String nom;
     private String pass;
-    private String cpass;
+    private String ap;
+    private String am;
+    private String mail;
+    private String tel;
+    private String sal;
 
     public Administrador() {
     }
 
-    public Administrador(Integer uno, String uname, String uap, String email, String job, String pass, String cpass) {
-        this.uno = uno;
-        this.uname = uname;
-        this.uap = uap;
-        this.email = email;
-        this.job = job;
+    public Administrador(String cargo, String competencia, String nom, String pass, String ap, String am, String mail, String tel, String sal) {
+        this.cargo = cargo;
+        this.competencia = competencia;
+        this.nom = nom;
         this.pass = pass;
-        this.cpass = cpass;
+        this.ap = ap;
+        this.am = am;
+        this.mail = mail;
+        this.tel = tel;
+        this.sal = sal;
     }
 
-    public Administrador(String uname, String uap, String email, String job, String pass, String cpass) {
-        this.uname = uname;
-        this.uap = uap;
-        this.email = email;
-        this.job = job;
-        this.pass = pass;
-        this.cpass = cpass;
+    public String getCargo() {
+        return cargo;
     }
 
-    public Administrador(int uno, String email, String job, String pass) {
-        this.uno = uno;
-        this.email = email;
-        this.job = job;
-        this.pass = pass;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
-    public Integer getUno() {
-        return uno;
+    public String getCompetencia() {
+        return competencia;
     }
 
-    public void setUno(Integer uno) {
-        this.uno = uno;
+    public void setCompetencia(String competencia) {
+        this.competencia = competencia;
     }
 
-    public String getUname() {
-        return uname;
+    public String getNom() {
+        return nom;
     }
 
-    public void setUname(String uname) {
-        this.uname = uname;
-    }
-
-    public String getUap() {
-        return uap;
-    }
-
-    public void setUap(String uap) {
-        this.uap = uap;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getJob() {
-        return job;
-    }
-
-    public void setJob(String job) {
-        this.job = job;
+    public void setNom(String nom) {
+        this.nom = nom;
     }
 
     public String getPass() {
@@ -89,17 +61,49 @@ public class Administrador implements Serializable {
         this.pass = pass;
     }
 
-    public String getCpass() {
-        return cpass;
+    public String getAp() {
+        return ap;
     }
 
-    public void setCpass(String cpass) {
-        this.cpass = cpass;
+    public void setAp(String ap) {
+        this.ap = ap;
+    }
+
+    public String getAm() {
+        return am;
+    }
+
+    public void setAm(String am) {
+        this.am = am;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+
+    public String getSal() {
+        return sal;
+    }
+
+    public void setSal(String sal) {
+        this.sal = sal;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "uno=" + uno + ", uname=" + uname + ", uap=" + uap + ", email=" + email + ", job=" + job + ", pass=" + pass + ", cpass=" + cpass + '}';
+        return "Administrador{" + "cargo=" + cargo + ", competencia=" + competencia + ", nom=" + nom + ", pass=" + pass + ", ap=" + ap + ", am=" + am + ", mail=" + mail + ", tel=" + tel + ", sal=" + sal + '}';
     }
 
 }

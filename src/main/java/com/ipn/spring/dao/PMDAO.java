@@ -14,10 +14,36 @@ import java.util.logging.Logger;
 public class PMDAO implements IPMDAO {
 
     public static final String LEER_PM_DIRI_AD = "SELECT nomPm FROM pm where idAdmin=?";
+    public static final String CREAR_PM = "insert into pm(idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal) values (?, ?, ?, ?, ?, ?, ?, ?, ? ,?)";
 
     @Override
     public boolean crearPM(PM pm) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean creado = false;
+        try {
+            Connection conexion = conectar();
+            PreparedStatement statement = conexion.prepareStatement(CREAR_PM);
+             
+            statement.setInt(1, pm.getIdAdmin());
+            statement.setString(2, pm.getCargo());
+            statement.setString(3, pm.getCompetencia());
+            statement.setString(4, pm.getNombre());
+            statement.setString(5, pm.getPass());
+            statement.setString(6, pm.getAp());
+            statement.setString(7, pm.getAm());
+            statement.setString(8, pm.getMail());
+            statement.setString(9, pm.getTel());
+            statement.setString(10, pm.getSal());
+
+            statement.executeUpdate();
+
+            statement.close();
+            conexion.close();
+
+            return true;
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return creado;
     }
 
     @Override

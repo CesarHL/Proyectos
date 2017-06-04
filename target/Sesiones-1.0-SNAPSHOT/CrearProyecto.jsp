@@ -57,14 +57,14 @@
                                                     <input class="form-control" name="nombreProyecto" type="search" placeholder="ingrese nombre" value="" id="example-search-input">
                                                 </div>
                                             </div>
-                                            <jsp:useBean id="obj" class="com.ipn.spring.dao.DesarrolladorDAO" scope="page"/>
+                                            <jsp:useBean id="obj" class="com.ipn.spring.dao.PMDAO" scope="page"/>
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-2 col-form-label">Lider</label>	
                                                 <select class="form-control">
-                                                    <c:forEach var="dev" items="${obj.leerDesarrolladores()}">
-                                                        <c:if test = "${dev.cargo == 'pm'}">
-                                                            <option>${dev.nombre}</option>
-                                                        </c:if>
+                                                    <c:forEach var="dev" items="${obj.leerPms(userId)}">
+
+                                                        <option>${dev.nombre}</option>
+
                                                     </c:forEach>
                                                 </select>
                                             </div>
@@ -93,10 +93,9 @@
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-2 col-form-label">Estado</label>	
                                                 <select class="form-control">
-                                                    <option value="">Selecciona una opción</option>
-                                                    <option value="">En proceso</option>
-                                                    <option value="">Pospuesto</option>
-                                                    <option value="">Terminado</option>
+
+                                                    <option value="">En está seccion el estado debe ser nuevo en cuanto lo cree</option>
+
                                                 </select>
                                             </div>
 
@@ -117,6 +116,7 @@
                                             </div>	
                                             <div class="col-lg-12 text-center">
                                                 <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">Crear</a>
+                                                <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
                                             </div>
                                         </form>
                                     </div>					

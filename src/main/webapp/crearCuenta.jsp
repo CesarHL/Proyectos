@@ -13,17 +13,20 @@
         <title>Inicia sesión</title>
     </head>
     <body>
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-            <div class="container-fluid">
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="bg-primary" class="container-fluid">
                 <div class="navbar-header">
-
-                    <a class="navbar-brand page-scroll" href="index.jsp">Home</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="index.jsp">Bienvenido</a>
                 </div>
+
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a class="page-scroll" href="login.jsp">Login</a>
-                        </li>
+                        </li>                        
                     </ul>
                 </div>
             </div>
@@ -42,41 +45,53 @@
                             ${message2}
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="nombre" class="form-control"  placeholder="Nombre" required>
+                                    <input type="text" name="competencia" class="form-control"  placeholder="Competencia" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="ap" class="form-control"  placeholder="Apellido" required>
+                                    <input type="text" name="nom" class="form-control"  placeholder="Nombre" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control"  placeholder="Correo" required>
+                                    <input type="text" name="ap" class="form-control"  placeholder="Apellido paterno" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="password" name="pass" class="form-control"  placeholder="Contraseña" required>
+                                    <input type="text" name="am" class="form-control"  placeholder="Apellido materno" required>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <input type="email" name="mail" class="form-control"  placeholder="Correo" autocomplete="false" required>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <input type="password" name="pass" class="form-control"  placeholder="Contraseña" autocomplete="false" required>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" name="tel" class="form-control"  placeholder="Teléfono" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="password" name="cpass" class="form-control"  placeholder="Verifica Contraseña" required>
+                                    <input type="text" name="sal" class="form-control"  placeholder="Asignate un salario" required>
                                 </div>
                             </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <select class="form-control" name="jobs">
-                                        <option value="defatult">Selecciona una opción</option>
-                                        <option value="admin">Administrador</option>
-                                    </select>
-                                </div>
-                            </div>
+                            
 
                             <div class="col-lg-8 col-lg-offset-2 text-center">
                                 <div class="form-group">
                                     <input type="submit" value="Registrarse" class="btn btn-primary btn-xl page-scroll">
+                                    <a href="index.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
                                 </div>
                             </div>
                         </form>

@@ -13,21 +13,31 @@
         <title>Inicia sesión</title>
     </head>
     <body>
-        <nav >
-            <div >
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="bg-primary" class="container-fluid">
                 <div class="navbar-header">
-
-                    <a  href="index.jsp">Home</a>
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">Bienvenido</a>
                 </div>
+
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a class="page-scroll" href="crearCuenta.jsp">Registrate</a>
-                        </li>
+                        </li>                        
                     </ul>
                 </div>
             </div>
         </nav>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
         <section id="login">
             <div class="container">
                 <div class="row">
@@ -35,7 +45,7 @@
 
                         <div class="panel-heading">
                             <div class="col-lg-8 col-lg-offset-2 text-center">
-                                <h2 class="section-heading">Creemos nuevos proyectos</h2>
+                                <h2 class="section-heading">Crea nuevos proyectos</h2>
                                 <hr class="primary">
                             </div>
                         </div>
@@ -68,6 +78,8 @@
                                                     <div class="text-center">
                                                         <a href="crearCuenta.jsp" tabindex="5"
                                                            class="forgot-password">No tienes una cuenta?</a>
+                                                           <a href="index.jsp" tabindex="5"
+                                                           class="forgot-password">regresar menú principal</a>
                                                     </div>
                                                 </div>
                                             </div>

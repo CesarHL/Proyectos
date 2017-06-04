@@ -15,17 +15,19 @@ public class CrearUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nombre, ap, email, pass, cpass, job;
-        nombre = request.getParameter("nombre");
-        ap = request.getParameter("ap");
-        email = request.getParameter("email");
-        pass = request.getParameter("pass");
-        cpass = request.getParameter("cpass");
-        job = request.getParameter("jobs");
-        System.out.println(nombre + " " + ap + " " + email + " " + pass + " " + cpass + " " + job);
+
+        String competencia = request.getParameter("competencia");
+        String nom = request.getParameter("nom");
+        String pass = request.getParameter("pass");
+        String ap = request.getParameter("ap");
+        String am = request.getParameter("am");
+        String mail = request.getParameter("mail");
+        String tel = request.getParameter("tel");
+        String sal = request.getParameter("sal");
 
         UserDAO ud = new UserDAO();
-        Administrador usuario = new Administrador(123, nombre, ap, email, job, pass, cpass);
+
+        Administrador usuario = new Administrador("admin", competencia, nom, pass, ap, am, mail, tel, sal);
 
         if (ud.crearUsuario(usuario)) {
             request.getRequestDispatcher("registroExitoso.jsp").forward(request, response);
