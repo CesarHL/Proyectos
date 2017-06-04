@@ -30,9 +30,6 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li>
-                            <a class="page-scroll" href="#services">Servicios</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -54,15 +51,16 @@
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-2 col-form-label">Nombre</label>
                                                 <div class="col-10">
-                                                    <input class="form-control" name="nombreProyecto" type="search" placeholder="ingrese nombre" value="" id="example-search-input">
+                                                    <input class="form-control" name="nombre" type="search" placeholder="ingrese nombre" value="" id="example-search-input">
                                                 </div>
                                             </div>
                                             <jsp:useBean id="obj" class="com.ipn.spring.dao.PMDAO" scope="page"/>
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-2 col-form-label">Lider</label>	
                                                 <select class="form-control">
+                                                    <option>Selecciona un lider</option>
                                                     <c:forEach var="dev" items="${obj.leerPms(userId)}">
-
+                                                       
                                                         <option>${dev.nombre}</option>
 
                                                     </c:forEach>
@@ -72,48 +70,38 @@
                                             <div class="form-group row">
                                                 <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha Inicial</label>
                                                 <div class="col-10">
-                                                    <input class="form-control" name="fechaInicialProyecto" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                                    <input class="form-control" name="fini" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha final</label>
                                                 <div class="col-10">
-                                                    <input class="form-control" name="fechaFinalProyecto" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                                    <input class="form-control" name="ffin" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-2 col-form-label">Presupuesto</label>
                                                 <div class="col-10">
-                                                    <input class="form-control" name="presupuestoProyecto" type="search" placeholder="$ ingrese presupuesto" value="" id="example-search-input">
+                                                    <input class="form-control" name="costo" type="search" placeholder="$ ingrese presupuesto" value="" id="example-search-input">
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-2 col-form-label">Estado</label>	
                                                 <select class="form-control">
-
-                                                    <option value="">En está seccion el estado debe ser nuevo en cuanto lo cree</option>
-
+                                                    <option value="nuevo">Nuevo</option>
                                                 </select>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-2 col-form-label">Objetivo</label>
                                                 <div class="col-10">
-                                                    <textarea class="form-control" name="objetivoProyecto" placeholer="ingrese objetivo">
+                                                    <textarea class="form-control" name="objetivo" placeholer="ingrese objetivo">
                                                     </textarea>
                                                 </div>
                                             </div>
-
-                                            <div class="form-group row">
-                                                <div class="form-group">
-                                                    <label for="exampleInputFile">Archivo requerimientos</label>
-                                                    <input type="file" name="archivoReq" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                                                    <small id="fileHelp" class="form-text text-muted">Ingrese un archivo de requerimientos para que el equipo pueda visualizarlo.</small>
-                                                </div>
-                                            </div>	
                                             <div class="col-lg-12 text-center">
                                                 <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">Crear</a>
                                                 <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>

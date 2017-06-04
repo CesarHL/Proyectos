@@ -15,14 +15,14 @@ import java.util.logging.Logger;
 
 public class ProyectoDAO implements IProyectoDAO {
 
-    public static final String CREAR_PROYECTO = "INSERT INTO Proyecto(idAdmin, idPm, nPr, fini, ffin, costo, edo, especific) VALUES (?, ?, ?, ?, ?, ?)";
+    public static final String CREAR_PROYECTO = "INSERT INTO Proyecto(idAdmin, idPm, nPr, fini, ffin, costo, edo, especific)  VALUES (?, ?, ?, ?, ?, ?,?,?)";
     public static final String LEER_IDPROYECTO = "SELECT * FROM Proyecto WHERE idPr = ?";
-    public static final String LEER_TODOS_PROYECTO = "SELECT * FROM Proyecto where idAdmin = ?";
+    public static final String LEER_TODOS_PROYECTO = "select * FROM pm p INNER JOIN proyecto pr ON  p.idPm = pr.idPm WHERE p.idPm = ?";
     public static final String ACTUALIZAR_PROYECTO = "UPDATE Proyecto SET nPr=?, fini=?, ffin=?, edo=?, espe=?, alcance=?, cfijo=?, cvar=? WHERE idPr=?";
     public static final String BORRAR_PROYECTO = "DELETE FROM Proyecto WHERE idPr=?";
     public static final String LEER_PROYECTO_DIRI_AD = "SELECT a.nom, a.idAdmin FROM proyecto p INNER JOIN admin a ON  p.idAdmin = a.idAdmin WHERE a.idAdmin = ?";
     public static final String LEER_PROYECTO_DIRI_PM = "select p.nom  FROM pm p INNER JOIN proyecto pr ON  p.idPm = pr.idPm WHERE p.idPm = ?";
-   
+
     @Override
     public void crearProyecto(Proyecto proyecto) {
         try {
@@ -30,11 +30,11 @@ public class ProyectoDAO implements IProyectoDAO {
             PreparedStatement statement = conexion.prepareStatement(CREAR_PROYECTO);
 
             statement.setInt(1, proyecto.getIdAdmin());
-            statement.setInt(2, proyecto.getIdAdmin());
+            statement.setInt(2, proyecto.getIdPm());
             statement.setString(3, proyecto.getNombrePr());
             statement.setDate(4, new java.sql.Date(proyecto.getfIni().getTime()));
             statement.setDate(5, new java.sql.Date(proyecto.getfFin().getTime()));
-            statement.setString(6, proyecto.getPresup());
+            statement.setString(6, proyecto.getCosto());
             statement.setString(7, proyecto.getEstado());
             statement.setString(8, proyecto.getEspecific());
 
@@ -64,7 +64,6 @@ public class ProyectoDAO implements IProyectoDAO {
 
             while (resultSet.next()) {
 
-                Integer idPr = resultSet.getInt("idPr");
                 Integer idAdmin = resultSet.getInt("idAdmin");
                 Integer idPm = resultSet.getInt("idPm");
                 String npr = resultSet.getString("nPr");
@@ -74,7 +73,7 @@ public class ProyectoDAO implements IProyectoDAO {
                 String edo = resultSet.getString("edo");
                 String especific = resultSet.getString("especific");
 
-                Proyecto pr = new Proyecto(idPr, idAdmin, idPm, npr, fini, ffin, costo, edo, especific);
+                Proyecto pr = new Proyecto(idAdmin, idPm, npr, fini, ffin, costo, edo, especific);
                 listaProyectos.add(pr);
             }
 

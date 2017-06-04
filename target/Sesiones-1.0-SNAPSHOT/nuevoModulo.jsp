@@ -15,7 +15,7 @@
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
         <link href="css/creative.min.css" rel="stylesheet">
-        <title>Crea un proyecto</title>
+        <title>Crea un modulo</title>
     </head>
     <body>
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -30,9 +30,6 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li>
-                            <a class="page-scroll" href="#services">Servicios</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -52,65 +49,47 @@
                                         <hr>
                                         <form id="login-form" action="CrearProyecto" method="post" role="form" style="display: block;">
                                             <div class="form-group row">
-                                                <label for="example-search-input" class="col-2 col-form-label">Nombre</label>
+                                                <label for="example-search-input" class="col-2 col-form-label">Descripción</label>
                                                 <div class="col-10">
-                                                    <input class="form-control" name="nombreProyecto" type="search" placeholder="ingrese nombre" value="" id="example-search-input">
-                                                </div>
-                                            </div>
-                                            <jsp:useBean id="obj" class="com.ipn.spring.dao.PMDAO" scope="page"/>
-                                            <div class="form-group row">
-                                                <label for="example-search-input" class="col-2 col-form-label">Lider</label>	
-                                                <select class="form-control">
-                                                    <c:forEach var="dev" items="${obj.leerPms(userId)}">
-                                                        
-                                                            <option>${dev.nombre}</option>
-                                                      
-                                                    </c:forEach>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha Inicial</label>
-                                                <div class="col-10">
-                                                    <input class="form-control" name="fechaInicialProyecto" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha final</label>
-                                                <div class="col-10">
-                                                    <input class="form-control" name="fechaFinalProyecto" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="example-search-input" class="col-2 col-form-label">Presupuesto</label>
-                                                <div class="col-10">
-                                                    <input class="form-control" name="presupuestoProyecto" type="search" placeholder="$ ingrese presupuesto" value="" id="example-search-input">
+                                                    <textarea class="form-control" name="descripcion" placeholer="ingrese una descripción">
+                                                    </textarea>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
                                                 <label for="example-search-input" class="col-2 col-form-label">Estado</label>	
                                                 <select class="form-control">
-                                                    <option value="">Selecciona una opción</option>
-                                                    <option value="">En proceso</option>
-                                                    <option value="">Pospuesto</option>
-                                                    <option value="">Terminado</option>
+                                                    <option value="nuevo">Nuevo</option>
+                                                    <option value="nuevo">En proceso</option>
+                                                    <option value="nuevo">En espera</option>
+                                                    <option value="nuevo">Terminado</option>
                                                 </select>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha Inicial</label>
+                                                <div class="col-10">
+                                                    <input class="form-control" name="fini" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                                </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label for="example-search-input" class="col-2 col-form-label">Objetivo</label>
+                                                <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha final</label>
                                                 <div class="col-10">
-                                                    <textarea class="form-control" name="objetivoProyecto" placeholer="ingrese objetivo">
+                                                    <input class="form-control" name="ffin" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                                </div>
+                                            </div>
+
+                                             <div class="form-group row">
+                                                <label for="example-search-input" class="col-2 col-form-label">Tareas</label>
+                                                <div class="col-10">
+                                                    <textarea class="form-control" name="descripcion" placeholer="Asigna unas cuantas tareas">
                                                     </textarea>
                                                 </div>
                                             </div>
-	
+
                                             <div class="col-lg-12 text-center">
-                                                <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">Crear</a>
-                                                <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
+                                                <a href="pm.jsp" class="btn btn-primary btn-xl page-scroll">Crear</a>
+                                                <a href="pm.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
                                             </div>
                                         </form>
                                     </div>					

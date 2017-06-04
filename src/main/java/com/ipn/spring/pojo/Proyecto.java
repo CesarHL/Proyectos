@@ -5,48 +5,27 @@ import java.util.Date;
 
 public class Proyecto implements Serializable {
 
-    private Integer idProyecto;
     private Integer idAdmin;
     private Integer idPm;
     private String nombrePr;
     private Date fIni;
     private Date fFin;
-    private String presup;
+    private String costo;
     private String estado;
     private String especific;
 
     public Proyecto() {
     }
 
-    public Proyecto(Integer idProyecto, Integer idAdmin, Integer idPm, String nombrePr, Date fIni, Date fFin, String presup, String estado, String especific) {
-        this.idProyecto = idProyecto;
+    public Proyecto(Integer idAdmin, Integer idPm, String nombrePr, Date fIni, Date fFin, String costo, String estado, String especific) {
         this.idAdmin = idAdmin;
         this.idPm = idPm;
         this.nombrePr = nombrePr;
         this.fIni = fIni;
         this.fFin = fFin;
-        this.presup = presup;
+        this.costo = costo;
         this.estado = estado;
         this.especific = especific;
-    }
-
-    public Proyecto(Integer idAdmin, Integer idPm, String nombrePr, Date fIni, Date fFin, String presup, String estado, String especific) {
-        this.idAdmin = idAdmin;
-        this.idPm = idPm;
-        this.nombrePr = nombrePr;
-        this.fIni = fIni;
-        this.fFin = fFin;
-        this.presup = presup;
-        this.estado = estado;
-        this.especific = especific;
-    }
-
-    public Integer getIdProyecto() {
-        return idProyecto;
-    }
-
-    public void setIdProyecto(Integer idProyecto) {
-        this.idProyecto = idProyecto;
     }
 
     public Integer getIdAdmin() {
@@ -89,12 +68,12 @@ public class Proyecto implements Serializable {
         this.fFin = fFin;
     }
 
-    public String getPresup() {
-        return presup;
+    public String getCosto() {
+        return costo;
     }
 
-    public void setPresup(String presup) {
-        this.presup = presup;
+    public void setCosto(String costo) {
+        this.costo = costo;
     }
 
     public String getEstado() {
@@ -115,7 +94,7 @@ public class Proyecto implements Serializable {
 
     @Override
     public String toString() {
-        return "Proyecto{" + "idProyecto=" + idProyecto + ", idAdmin=" + idAdmin + ", idPm=" + idPm + ", nombrePr=" + nombrePr + ", fIni=" + fIni + ", fFin=" + fFin + ", presup=" + presup + ", estado=" + estado + ", especific=" + especific + '}';
+        return "Proyecto{" + "idAdmin=" + idAdmin + ", idPm=" + idPm + ", nombrePr=" + nombrePr + ", fIni=" + fIni + ", fFin=" + fFin + ", costo=" + costo + ", estado=" + estado + ", especific=" + especific + '}';
     }
 
 }

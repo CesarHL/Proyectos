@@ -45,14 +45,7 @@
 
                 <h2 class="section-heading">Estos son tus empleados</h2>
                 <hr>
-                <div class="row">
-                    <div class="col-md-6">
-                        <form action="Busquedas" method="post"class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" name="busqueda" type="text" placeholder="Ingresa nombre">
-                            <input type="submit" value="Buscar" class="btn btn-primary btn-sm page-scroll">
-                        </form>
-                    </div>
-                </div>
+               
                 <jsp:useBean id="obj" class="com.ipn.spring.dao.UserDAO" scope="page"/> 
                 <div class="container">
                     <table class="table">
@@ -60,8 +53,8 @@
                             <tr scope="row">
                                 <td>Director</td>
                                 <td>Cargo</td>
-                                <td>Competencia</td>
                                 <td>Nombre</td>
+                                <td>Password</td>
                                 <td>Apellido Paterno</td>
                                 <td>Apellido Materno</td>
                                 <td>Email</td>
@@ -74,7 +67,7 @@
                             <tbody>
                                 <tr scope="row">
                                     <td> ${usermail}</td>
-                                    <td> ${deve.competencia}</td>
+                                    <td> ${deve.cargo}</td>
                                     <td> ${deve.nom}</td>
                                     <td> ${deve.pass}</td>
                                     <td> ${deve.ap}</td>
@@ -126,7 +119,7 @@
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="pass" class="form-control"  placeholder="Asignale permisos" required>
+                                    <input type="text" name="pass" class="form-control"  placeholder="Asignale contraseña" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">

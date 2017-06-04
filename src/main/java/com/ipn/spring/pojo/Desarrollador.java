@@ -2,48 +2,49 @@ package com.ipn.spring.pojo;
 
 public class Desarrollador {
 
-    private Integer idDesarrollador;
+    private Integer idPM;
+    private Integer idAdmin;
     private String cargo;
     private String competencia;
     private String nombre;
+    private String pass;
     private String ap;
     private String am;
-    private String email;
+    private String mail;
     private String tel;
     private String salario;
 
     public Desarrollador() {
     }
 
-    public Desarrollador(Integer idDesarrollador, String cargo, String competencia, String nombre, String ap, String am, String email, String tel, String salario) {
-        this.idDesarrollador = idDesarrollador;
+    public Desarrollador(Integer idPM, Integer idAdmin, String cargo, String competencia, String nombre, String pass, String ap, String am, String mail, String tel, String salario) {
+        this.idPM = idPM;
+        this.idAdmin = idAdmin;
         this.cargo = cargo;
         this.competencia = competencia;
         this.nombre = nombre;
+        this.pass = pass;
         this.ap = ap;
         this.am = am;
-        this.email = email;
+        this.mail = mail;
         this.tel = tel;
         this.salario = salario;
     }
 
-    public Desarrollador(String cargo, String competencia, String nombre, String ap, String am, String email, String tel, String salario) {
-        this.cargo = cargo;
-        this.competencia = competencia;
-        this.nombre = nombre;
-        this.ap = ap;
-        this.am = am;
-        this.email = email;
-        this.tel = tel;
-        this.salario = salario;
+    public Integer getIdPM() {
+        return idPM;
     }
 
-    public Integer getIdDesarrollador() {
-        return idDesarrollador;
+    public void setIdPM(Integer idPM) {
+        this.idPM = idPM;
     }
 
-    public void setIdDesarrollador(Integer idDesarrollador) {
-        this.idDesarrollador = idDesarrollador;
+    public Integer getIdAdmin() {
+        return idAdmin;
+    }
+
+    public void setIdAdmin(Integer idAdmin) {
+        this.idAdmin = idAdmin;
     }
 
     public String getCargo() {
@@ -70,6 +71,14 @@ public class Desarrollador {
         this.nombre = nombre;
     }
 
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
+    }
+
     public String getAp() {
         return ap;
     }
@@ -86,12 +95,12 @@ public class Desarrollador {
         this.am = am;
     }
 
-    public String getEmail() {
-        return email;
+    public String getMail() {
+        return mail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getTel() {
@@ -112,7 +121,7 @@ public class Desarrollador {
 
     @Override
     public String toString() {
-        return "Desarrollador{" + "idDesarrollador=" + idDesarrollador + ", cargo=" + cargo + ", competencia=" + competencia + ", nombre=" + nombre + ", ap=" + ap + ", am=" + am + ", email=" + email + ", tel=" + tel + ", salario=" + salario + '}';
+        return "Desarrollador{" + "idPM=" + idPM + ", idAdmin=" + idAdmin + ", cargo=" + cargo + ", competencia=" + competencia + ", nombre=" + nombre + ", pass=" + pass + ", ap=" + ap + ", am=" + am + ", mail=" + mail + ", tel=" + tel + ", salario=" + salario + '}';
     }
 
 }

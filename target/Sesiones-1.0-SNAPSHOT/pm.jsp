@@ -28,16 +28,10 @@
                     <ul class="nav navbar-nav navbar-right">
 
                         <li>
-                            <a class="page-scroll" href="#services">Administrar Personal</a>
+                            <a class="page-scroll" href="#tablaProyecto">Proyectos Asignados</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#services">Crear Proyecto</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#services">Administrar Proyectos</a>
-                        </li>
-                        <li>
-                            <a class="page-scroll" href="#services">Servicios</a>
+                            <a class="page-scroll" href="#segundoPaso">Servicios</a>
                         </li>
                         <li>
                             <a href="Login">Logout</a>
@@ -57,7 +51,7 @@
                         <table class ="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                   
                                     <th>Dueño</th>
                                     <th>Lider</th>
                                     <th>Nombre</th>
@@ -66,45 +60,30 @@
                                     <th>Presupuesto</th>
                                     <th>Estado</th>
                                     <th>Objetivo</th>
-                                    <th>Action</th>
+                                    <th>Modifica estado</th>
+                                    <th>Acerca</th>
+                                    <th>Nuevo Modulo</th>
                                 </tr>
                             </thead>
-
+                  
                             <c:forEach items="${obj.leerProyectos(userId)}" var="pr">
                                 <tbody>
                                     <tr>
-                                        <td>${pr.idProyecto}</td>
                                         <td>${obj.leerAdmin(userId)}</td>
                                         <td>${obj.leerPm(pr.idPm)}</td>
                                         <td>${pr.nombrePr}</td>
                                         <td>${pr.fIni}</td>
                                         <td>${pr.fFin}</td>
-                                        <td>${pr.presup}</td>
+                                        <td>${pr.costo}</td>
                                         <td>${pr.estado}</td>
                                         <td>${pr.especific}</td>
-                                        <td><a href="actualizarPr.jsp"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-envelope"></span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-tasks">Nuevo modulo</span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-tasks">Modificar Est</span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-tasks">Acerca</span></a></td>
+                                        <td><a href="actualizarPr.jsp"><span class="glyphicon glyphicon-pencil"></span></a></td>                                       
+                                        <td><a href=""><span class="glyphicon glyphicon-tasks"></span></a></td>
+                                        <td><a href="nuevoModulo.jsp"><span class="glyphicon glyphicon-tasks"></span></a></td>
                                     </tr>
                                 </tbody>
                             </c:forEach>
                         </table>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="segundoPaso">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Asigna tareas a tus Desarrolladores!</h2>
-                        <hr>
-                        <p>Para continuar asigna tareas presionando el botón</p>
-                        <a href="asignarTareasPM.jsp" class="btn btn-primary btn-xl page-scroll">Asignar Tareas!</a>
                     </div>
                 </div>
             </div>

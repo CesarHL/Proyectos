@@ -38,14 +38,14 @@ public class AltaEquipo extends HttpServlet {
         String tel = request.getParameter("tel");
         String salario = request.getParameter("sal");
 
-        
+
         if (cargo.equals("pm")) {
-            pm = new PM(Integer.SIZE, cargo, competencia, nombre, pass, mail, ap, am, mail, tel);
+            pm = new PM(1, cargo, competencia, nombre, pass, ap, am, mail, tel, salario);
             System.out.println(pm);
             pmd.crearPM(pm);
             System.out.println(pm);
         } else if (cargo.equals("dev")){
-            desarrollador = new Desarrollador(cargo, competencia, nombre, ap, am, mail, tel, salario);
+            desarrollador = new Desarrollador(1, 1, cargo, competencia, nombre, pass, ap, am, mail, tel, salario);
             dd.crearDesarrollador(desarrollador);
             System.out.println(desarrollador);
         }

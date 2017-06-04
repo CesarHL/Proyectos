@@ -13,9 +13,8 @@ import java.util.logging.Logger;
 
 public class PMDAO implements IPMDAO {
 
-    public static final String LEER_PM_DIRI_AD = "SELECT nomPm FROM pm where idAdmin=?";
+    public static final String LEER_PM_DIRI_AD = "SELECT nom FROM pm where idAdmin=?";
     public static final String CREAR_PM = "insert into pm(idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal) values (?, ?, ?, ?, ?, ?, ?, ?, ? ,?)";
-
     @Override
     public boolean crearPM(PM pm) {
         boolean creado = false;
@@ -78,7 +77,7 @@ public class PMDAO implements IPMDAO {
 
             while (resultSet.next()) {
 
-                nomPm = resultSet.getString("nomPm");
+                nomPm = resultSet.getString("nom");
                 
                 pm = new PM(nomPm);
                 nombres.add(pm);

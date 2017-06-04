@@ -107,14 +107,7 @@
                                                     </textarea>
                                                 </div>
                                             </div>
-
-                                            <div class="form-group row">
-                                                <div class="form-group">
-                                                    <label for="exampleInputFile">Archivo requerimientos</label>
-                                                    <input type="file" name="archivoReq" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
-                                                    <small id="fileHelp" class="form-text text-muted">Ingrese un archivo de requerimientos para que el equipo pueda visualizarlo.</small>
-                                                </div>
-                                            </div>	
+	
                                             <div class="col-lg-12 text-center">
                                                 <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">Crear</a>
                                                 <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>

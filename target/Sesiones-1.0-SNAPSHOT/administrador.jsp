@@ -36,9 +36,6 @@
                             <a class="page-scroll" href="#tercerPaso">Crear Proyecto</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#adminManagers">Administrar Managers</a>
-                        </li>
-                        <li>
                             <a href="Login">Cerrar Sesión</a>
                         </li>
                     </ul>
@@ -57,7 +54,6 @@
                         <table class ="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
                                     <th>Dueño</th>
                                     <th>Lider</th>
                                     <th>Nombre</th>
@@ -68,7 +64,6 @@
                                     <th>Objetivo</th>
                                     <th>Edita</th>
                                     <th>Borra</th>
-                                    <th>Crea Módulo</th>
                                     <th>Visualiza</th>
                                 </tr>
                             </thead>
@@ -76,18 +71,17 @@
                             <c:forEach items="${obj.leerProyectos(userId)}" var="pr">
                                 <tbody>
                                     <tr>
-                                        <td>${pr.idProyecto}</td>
+                                       
                                         <td>${obj.leerAdmin(userId)}</td>
                                         <td>${obj.leerPm(pr.idPm)}</td>
                                         <td>${pr.nombrePr}</td>
                                         <td>${pr.fIni}</td>
                                         <td>${pr.fFin}</td>
-                                        <td>${pr.presup}</td>
+                                        <td>${pr.costo}</td>
                                         <td>${pr.estado}</td>
                                         <td>${pr.especific}</td>
                                         <td><a href="actualizarPr.jsp"><span class="glyphicon glyphicon-pencil"></span></a></td>
                                         <td><a href=""><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-plus-sign"></span></a></td>
                                         <td><a href=""><span class="glyphicon glyphicon-eye-open"></span></a></td>
                                     </tr>
                                 </tbody>
@@ -121,19 +115,6 @@
                         <hr>
                         <p>En esta sección puedes crear un proyecto nuevo y asignarles un lider presionando el botón</p>
                         <a href="crearProyecto.jsp" class="btn btn-primary btn-xl page-scroll">Crear proyecto!</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-primary" id="adminManagers">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h2 class="section-heading">Administra a tus Managers!</h2>
-                        <hr class="light">
-                        <p class="text-faded">En esta sección puedes asignarles tareas a tus project managers presionando el botón</p>
-                        <a href="crearEquipo.jsp" class="page-scroll btn btn-default btn-xl sr-button">Administrar PM!</a>
                     </div>
                 </div>
             </div>
