@@ -26,10 +26,6 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-
-                        <li>
-                            <a class="page-scroll" href="#services">Enviar mensaje</a>
-                        </li>
                         <li>
                             <a href="Login">Cerrar Sesión</a>
                         </li>
@@ -38,50 +34,45 @@
             </div>
         </nav>
 
-        <section id="primerPaso">
+        <jsp:useBean id="obj" class="com.ipn.spring.dao.ProyectoDAO" scope="page"/>
+        <section  id="tablaProyecto">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <div class="container">
-                            <div class="row">
-                                <div class="text-center">
-                                    <h2 class="section-heading">Estas Son Tus Asignaciones!</h2>
-                                    <hr>
-                                    <table class ="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>Id</th>
-                                                <th>Dueño</th>
-                                                <th>Lider</th>
-                                                <th>Nombre</th>
-                                                <th>Fecha Inicio</th>
-                                                <th>Fecha Limite</th>
-                                                <th>Presupuesto</th>
-                                                <th>Estado</th>
-                                                <th>Objetivo</th>
-
-                                            </tr>
-                                        </thead>
-
-                                        <c:forEach items="${obj.leerProyectos(userId)}" var="pr">
-                                            <tbody>
-                                                <tr>
-                                                    <td>${pr.idProyecto}</td>
-                                                    <td>${obj.leerAdmin(userId)}</td>
-                                                    <td>${obj.leerPm(pr.idPm)}</td>
-                                                    <td>${pr.nombrePr}</td>
-                                                    <td>${pr.fIni}</td>
-                                                    <td>${pr.fFin}</td>
-                                                    <td>${pr.presup}</td>
-                                                    <td>${pr.estado}</td>
-                                                    <td>${pr.especific}</td>
-                                                </tr>
-                                            </tbody>
-                                        </c:forEach>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="text-center">
+                        <h2 class="section-heading">Estos son tus proyectos!</h2>
+                        <hr>
+                        <table class ="table table-striped">
+                            <thead>
+                                <tr>
+                                   
+                                    <th>Dueño</th>
+                                    <th>Lider</th>
+                                    <th>Nombre</th>
+                                    <th>Fecha Inicio</th>
+                                    <th>Fecha Limite</th>
+                                    <th>Presupuesto</th>
+                                    <th>Estado</th>
+                                    <th>Objetivo</th>
+                                    <th>Modifica estado</th>
+                                </tr>
+                            </thead>
+                  
+                            <c:forEach items="${obj.leerProyectos(userId)}" var="pr">
+                                <tbody>
+                                    <tr>
+                                        <td>${obj.leerAdmin(userId)}</td>
+                                        <td>${obj.leerPm(pr.idPm)}</td>
+                                        <td>${pr.nombrePr}</td>
+                                        <td>${pr.fIni}</td>
+                                        <td>${pr.fFin}</td>
+                                        <td>${pr.costo}</td>
+                                        <td>${pr.estado}</td>
+                                        <td>${pr.especific}</td>
+                                        <td><a href=""><span class="glyphicon glyphicon-tasks"></span></a></td>
+                                    </tr>
+                                </tbody>
+                            </c:forEach>
+                        </table>
                     </div>
                 </div>
             </div>

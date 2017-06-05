@@ -51,7 +51,6 @@
                         <table class ="table table-striped">
                             <thead>
                                 <tr>
-                                   
                                     <th>Dueño</th>
                                     <th>Lider</th>
                                     <th>Nombre</th>
@@ -61,7 +60,6 @@
                                     <th>Estado</th>
                                     <th>Objetivo</th>
                                     <th>Modifica estado</th>
-                                    <th>Acerca</th>
                                     <th>Nuevo Modulo</th>
                                 </tr>
                             </thead>
@@ -78,7 +76,6 @@
                                         <td>${pr.estado}</td>
                                         <td>${pr.especific}</td>
                                         <td><a href="actualizarPr.jsp"><span class="glyphicon glyphicon-pencil"></span></a></td>                                       
-                                        <td><a href=""><span class="glyphicon glyphicon-tasks"></span></a></td>
                                         <td><a href="nuevoModulo.jsp"><span class="glyphicon glyphicon-tasks"></span></a></td>
                                     </tr>
                                 </tbody>

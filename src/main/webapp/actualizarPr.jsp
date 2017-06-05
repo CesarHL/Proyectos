@@ -1,10 +1,9 @@
-
-<%@page import="java.util.List"%>
-<%@page import="com.ipn.spring.dao.PMDAO"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
+<%@page import="com.ipn.spring.dao.ProyectoDAO"%>
+<%@page import="com.ipn.spring.pojo.Proyecto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
-<!DOCTYPE>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
+<!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,112 +14,108 @@
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
         <link href="css/creative.min.css" rel="stylesheet">
-        <title>Crea un proyecto</title>
+        <title>Actualiza Proyecto</title>
     </head>
     <body>
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
             <div class="bg-primary" class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only"></span> Menu <i class="fa fa-bars"></i>
+                        <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll" href="administrador.jsp">Bienvenido</a>
+                    <a class="navbar-brand page-scroll" href="#page-top">Bienvenido ${usermail}</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
 
                         <li>
-                            <a class="page-scroll" href="#services">Servicios</a>
+                            <a href="Login">Cerrar Sesión</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <section class="container">
-            <article>
+        <section id="altarh">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
 
-                <div >
-                    <div class="row">
-                        <div class="col-md-6 col-md-offset-3">
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-lg-12">
+                        <div class="panel-heading">
+                            <div class="col-lg-8 col-lg-offset-2 text-center">
+                                <h2 class="section-heading">Actualizar</h2>
+                                <hr>
+                            </div>
 
-                                        <h2 class="section-heading">Aquí puedes crear tu proyecto!</h2>
-                                        <hr>
-                                        <form id="login-form" action="CrearProyecto" method="post" role="form" style="display: block;">
-                                            <div class="form-group row">
-                                                <label for="example-search-input" class="col-2 col-form-label">Nombre</label>
-                                                <div class="col-10">
-                                                    <input class="form-control" name="nombreProyecto" type="search" placeholder="ingrese nombre" value="" id="example-search-input">
-                                                </div>
-                                            </div>
-                                            <jsp:useBean id="obj" class="com.ipn.spring.dao.PMDAO" scope="page"/>
-                                            <div class="form-group row">
-                                                <label for="example-search-input" class="col-2 col-form-label">Lider</label>	
-                                                <select class="form-control">
-                                                    <c:forEach var="dev" items="${obj.leerPms(userId)}">
-                                                        
-                                                            <option>${dev.nombre}</option>
-                                                      
-                                                    </c:forEach>
-                                                </select>
-                                            </div>
+                        </div>
+                        <form action="ActualizarProyecto" method="post">
+                            <div class="form-group row">
 
-                                            <div class="form-group row">
-                                                <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha Inicial</label>
-                                                <div class="col-10">
-                                                    <input class="form-control" name="fechaInicialProyecto" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha final</label>
-                                                <div class="col-10">
-                                                    <input class="form-control" name="fechaFinalProyecto" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="example-search-input" class="col-2 col-form-label">Presupuesto</label>
-                                                <div class="col-10">
-                                                    <input class="form-control" name="presupuestoProyecto" type="search" placeholder="$ ingrese presupuesto" value="" id="example-search-input">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="example-search-input" class="col-2 col-form-label">Estado</label>	
-                                                <select class="form-control">
-                                                    <option value="">Selecciona una opción</option>
-                                                    <option value="">En proceso</option>
-                                                    <option value="">Pospuesto</option>
-                                                    <option value="">Terminado</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="example-search-input" class="col-2 col-form-label">Objetivo</label>
-                                                <div class="col-10">
-                                                    <textarea class="form-control" name="objetivoProyecto" placeholer="ingrese objetivo">
-                                                    </textarea>
-                                                </div>
-                                            </div>
-	
-                                            <div class="col-lg-12 text-center">
-                                                <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">Crear</a>
-                                                <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
-                                            </div>
-                                        </form>
-                                    </div>					
-
+                                <div class="col-10">
+                                    <input class="form-control" name="nombre" type="search" placeholder="ingrese nombre" value="" id="example-search-input" required>
                                 </div>
                             </div>
-                        </div>
+                            <jsp:useBean id="obj" class="com.ipn.spring.dao.PMDAO" scope="page"/>
+
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-2 col-form-label">Lider</label>	
+                                <select  name="soption" class="form-control">
+                                    <option>Selecciona un lider</option>
+                                    <c:forEach var="dev" items="${obj.leerPms(userId)}">
+                                        <c:set var="idPm" value="${dev.idPm}" scope="session" /> 
+                                        <option>${dev.nombre}</option>
+
+                                    </c:forEach>
+                                </select>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha Inicial</label>
+                                <div class="col-10">
+                                    <input class="form-control" name="fini" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha final</label>
+                                <div class="col-10">
+                                    <input class="form-control" name="ffin" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-2 col-form-label">Presupuesto</label>
+                                <div class="col-10">
+                                    <input class="form-control" name="costo" type="search" placeholder="$ ingrese presupuesto" value="" id="example-search-input" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-2 col-form-label">Estado</label>	
+                                <select name="nuevo" class="form-control">
+                                    <option selected="selected">Nuevo</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="example-search-input" class="col-2 col-form-label">Objetivo</label>
+                                <div class="col-10">
+                                    <textarea class="form-control" name="objetivo" placeholer="ingrese objetivo" required>
+                                    </textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8 col-lg-offset-2 text-center">
+                                <div class="form-group">
+                                    <input href="administrador.jsp" type="submit" value="Actualizar" class="btn btn-primary btn-xl page-scroll">
+                                    <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </article>
+            </div>
         </section>
 
         <script src="vendor/jquery/jquery.min.js"></script>

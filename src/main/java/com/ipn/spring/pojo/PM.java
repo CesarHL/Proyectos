@@ -2,6 +2,7 @@ package com.ipn.spring.pojo;
 
 public class PM {
 
+    private Integer idPm;
     private Integer idAdmin;
     private String cargo;
     private String competencia;
@@ -16,7 +17,8 @@ public class PM {
     public PM() {
     }
 
-    public PM(String nombre) {
+    public PM(Integer idPm ,String nombre) {
+        this.idPm = idPm;
         this.nombre = nombre;
     }
 
@@ -43,6 +45,28 @@ public class PM {
         this.mail = mail;
         this.tel = tel;
         this.sal = sal;
+    }
+
+    public PM(Integer idPm, Integer idAdmin, String cargo, String competencia, String nombre, String pass, String ap, String am, String mail, String tel, String sal) {
+        this.idPm = idPm;
+        this.idAdmin = idAdmin;
+        this.cargo = cargo;
+        this.competencia = competencia;
+        this.nombre = nombre;
+        this.pass = pass;
+        this.ap = ap;
+        this.am = am;
+        this.mail = mail;
+        this.tel = tel;
+        this.sal = sal;
+    }
+
+    public Integer getIdPm() {
+        return idPm;
+    }
+
+    public void setIdPm(Integer idPm) {
+        this.idPm = idPm;
     }
 
     public Integer getIdAdmin() {
@@ -127,7 +151,7 @@ public class PM {
 
     @Override
     public String toString() {
-        return "PM{" + "idAdmin=" + idAdmin + ", cargo=" + cargo + ", competencia=" + competencia + ", nombre=" + nombre + ", pass=" + pass + ", ap=" + ap + ", am=" + am + ", mail=" + mail + ", tel=" + tel + ", sal=" + sal + '}';
+        return "PM{" + "idPm=" + idPm + ", idAdmin=" + idAdmin + ", cargo=" + cargo + ", competencia=" + competencia + ", nombre=" + nombre + ", pass=" + pass + ", ap=" + ap + ", am=" + am + ", mail=" + mail + ", tel=" + tel + ", sal=" + sal + '}';
     }
 
 }

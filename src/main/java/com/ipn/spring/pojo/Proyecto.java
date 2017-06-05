@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Proyecto implements Serializable {
 
+    private Integer idPr;
     private Integer idAdmin;
     private Integer idPm;
     private String nombrePr;
@@ -17,6 +18,18 @@ public class Proyecto implements Serializable {
     public Proyecto() {
     }
 
+    public Proyecto(Integer idPr, Integer idAdmin, Integer idPm, String nombrePr, Date fIni, Date fFin, String costo, String estado, String especific) {
+        this.idPr = idPr;
+        this.idAdmin = idAdmin;
+        this.idPm = idPm;
+        this.nombrePr = nombrePr;
+        this.fIni = fIni;
+        this.fFin = fFin;
+        this.costo = costo;
+        this.estado = estado;
+        this.especific = especific;
+    }
+
     public Proyecto(Integer idAdmin, Integer idPm, String nombrePr, Date fIni, Date fFin, String costo, String estado, String especific) {
         this.idAdmin = idAdmin;
         this.idPm = idPm;
@@ -26,6 +39,14 @@ public class Proyecto implements Serializable {
         this.costo = costo;
         this.estado = estado;
         this.especific = especific;
+    }
+
+    public Integer getIdPr() {
+        return idPr;
+    }
+
+    public void setIdPr(Integer idPr) {
+        this.idPr = idPr;
     }
 
     public Integer getIdAdmin() {
@@ -94,7 +115,7 @@ public class Proyecto implements Serializable {
 
     @Override
     public String toString() {
-        return "Proyecto{" + "idAdmin=" + idAdmin + ", idPm=" + idPm + ", nombrePr=" + nombrePr + ", fIni=" + fIni + ", fFin=" + fFin + ", costo=" + costo + ", estado=" + estado + ", especific=" + especific + '}';
+        return "Proyecto{" + "idPr=" + idPr + ", idAdmin=" + idAdmin + ", idPm=" + idPm + ", nombrePr=" + nombrePr + ", fIni=" + fIni + ", fFin=" + fFin + ", costo=" + costo + ", estado=" + estado + ", especific=" + especific + '}';
     }
 
 }

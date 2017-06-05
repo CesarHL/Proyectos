@@ -51,7 +51,6 @@
                     <table class="table">
                         <thead>
                             <tr scope="row">
-                                <td>Id</td>
                                 <td>Director</td>
                                 <td>Cargo</td>
                                 <td>Nombre</td>
@@ -61,14 +60,12 @@
                                 <td>Email</td>
                                 <td>Telefono</td>
                                 <td>Salario</td>
-                                <td>Actualiza</td>
-                                <td>Despide</td>
+                                <td>Acciones</td>
                             </tr>
                         </thead>
                         <c:forEach items="${obj.leerEmpleados(userId)}" var="deve">
                             <tbody>
                                 <tr scope="row">
-                                    <td> ${deve.idEmp}</td>
                                     <td> ${usermail}</td>
                                     <td> ${deve.cargo}</td>
                                     <td> ${deve.nom}</td>
@@ -78,9 +75,8 @@
                                     <td> ${deve.mail}</td>
                                     <td> ${deve.tel}</td>
                                     <td> ${deve.sal}</td>
-                                    <td><a href="AltaEquipo?action=edit&idxx=<c:out value="${deve.getIdEmp()}"/>&idAdmin=${userId}"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                    <td><a href="AltaEquipo?action=delete&idxx=<c:out value="${deve.getIdEmp()}"/>"><span class="glyphicon glyphicon-remove"></span></a></td>
-
+                                    
+                                    <td><a href="borrarEmpleado"> <span href="" class="glyphicon glyphicon-remove"></span></a></td>
                                 </tr>
                             </tbody>
                         </c:forEach>
@@ -100,7 +96,7 @@
                             </div>
 
                         </div>
-                        <form action="AltaEquipo" method="POST">
+                        <form action="EditarEmpleado" method="POST">
 
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">

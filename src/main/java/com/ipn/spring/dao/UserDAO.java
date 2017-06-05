@@ -40,11 +40,11 @@ public class UserDAO implements IUserDAO {
                 statement.setString(7, admin.getMail());
                 statement.setString(8, admin.getTel());
                 statement.setString(9, admin.getSal());
-                
+
                 statement.executeUpdate();
                 statement.close();
                 conexion.close();
-            } 
+            }
             return true;
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
@@ -98,6 +98,7 @@ public class UserDAO implements IUserDAO {
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
+                Integer idEmp = resultSet.getInt("idEmp");
                 Integer idAdmin = resultSet.getInt("idAdmin");
                 String cargo = resultSet.getString("cargo");
                 String competencia = resultSet.getString("competencia");
@@ -109,7 +110,7 @@ public class UserDAO implements IUserDAO {
                 String tel = resultSet.getString("tel");
                 String sal = resultSet.getString("sal");
 
-                user = new Empleado(idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal);
+                user = new Empleado(idEmp, idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal);
             }
 
             resultSet.close();
@@ -121,9 +122,9 @@ public class UserDAO implements IUserDAO {
 
         return user;
     }
-    
+
     public List<Empleado> leerEmpleados(Integer idAdm) {
-      List<Empleado> listaEmpleados = new ArrayList<>();
+        List<Empleado> listaEmpleados = new ArrayList<>();
 
         try {
             Connection conexion = conectar();
@@ -132,7 +133,7 @@ public class UserDAO implements IUserDAO {
             ResultSet resultSet = ps.executeQuery();
 
             while (resultSet.next()) {
-
+                Integer idEmp = resultSet.getInt("idEmp");
                 Integer idAdmin = resultSet.getInt("idAdmin");
                 String cargo = resultSet.getString("cargo");
                 String competencia = resultSet.getString("competencia");
@@ -144,7 +145,7 @@ public class UserDAO implements IUserDAO {
                 String tel = resultSet.getString("tel");
                 String sal = resultSet.getString("sal");
 
-                Empleado emp = new Empleado(idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal);
+                Empleado emp = new Empleado(idEmp, idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal);
                 listaEmpleados.add(emp);
             }
 

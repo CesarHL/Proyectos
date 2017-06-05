@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +12,7 @@
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
         <link href="css/creative.min.css" rel="stylesheet">
-        <title>Inicia sesión</title>
+        <title>Administra personal</title>
     </head>
     <body>
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -19,33 +21,48 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll" href="index.jsp">Bienvenido</a>
+                    <a class="navbar-brand page-scroll" href="#page-top">Bienvenido ${usermail}</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a class="page-scroll" href="login.jsp">Login</a>
-                        </li>                        
+                            <a class="page-scroll" href="#emp">Empleados</a>
+                        </li>
+                        <li>
+                            <a href="Login">Cerrar Sesión</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <section id="registrate">
+
+        <section id="altarh">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
+
                         <div class="panel-heading">
                             <div class="col-lg-8 col-lg-offset-2 text-center">
-                                <h2 class="section-heading">Registrate</h2>
-                                <hr class="primary">
+                                <h2 class="section-heading">Actualiza</h2>
+                                <hr>
                             </div>
+
                         </div>
-                        <form action="CrearUsuario" method="POST">
-                            ${message2}
+                        <form action="AltaEquipo" method="POST">
+
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="competencia" class="form-control"  placeholder="Competencia" required>
+                                    <select class="form-control" name="cargo">
+                                        <option value="defatult">Selecciona una opción</option>
+                                        <option value="pm">Project Mannager</option>
+                                        <option value="dev">Desarrollador</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" name="competencia" class="form-control"  placeholder="Competencia: Android developer, Java developer..." required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
@@ -55,43 +72,39 @@
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="ap" class="form-control"  placeholder="Apellido paterno" required>
+                                    <input type="text" name="pass" class="form-control"  placeholder="Asignale contraseña" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="am" class="form-control"  placeholder="Apellido materno" required>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input type="email" name="mail" class="form-control"  placeholder="Correo" autocomplete="off" required>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input type="password" name="pass" class="form-control"  placeholder="Contraseña" autocomplete="off" required>
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <input type="text" name="tel" class="form-control"  placeholder="Teléfono" required>
+                                    <input type="text" name="ap" class="form-control"  placeholder="Apellido Paterno" required>
                                 </div>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="text" name="sal" class="form-control"  placeholder="Asignate un salario" required>
+                                    <input type="text" name="am" class="form-control"  placeholder="Apellido Materno" required>
                                 </div>
                             </div>
-                            
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <input type="email" name="mail" class="form-control"  placeholder="Correo" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <input type="tel" name="tel" class="form-control"  placeholder="Telefono" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" name="sal" class="form-control"  placeholder="Salario" required>
+                                </div>
+                            </div>
 
                             <div class="col-lg-8 col-lg-offset-2 text-center">
                                 <div class="form-group">
-                                    <input type="submit" value="Registrarse" class="btn btn-primary btn-xl page-scroll">
-                                    <a href="index.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
+                                    <input type="submit" value="Registrar" class="btn btn-primary btn-xl page-scroll">
+                                    <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
                                 </div>
                             </div>
                         </form>

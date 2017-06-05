@@ -11,7 +11,7 @@ public interface IPMDAO {
 
     public List<PM> leerPMs();
 
-    public boolean actualizarModulo(PM pm);
+    public boolean actualizarPm(PM pm);
 
     public boolean borrarPM(Integer idPM);
 }

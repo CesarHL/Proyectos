@@ -54,6 +54,7 @@
                         <table class ="table table-striped">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Dueño</th>
                                     <th>Lider</th>
                                     <th>Nombre</th>
@@ -64,14 +65,14 @@
                                     <th>Objetivo</th>
                                     <th>Edita</th>
                                     <th>Borra</th>
-                                    <th>Visualiza</th>
+
                                 </tr>
                             </thead>
 
                             <c:forEach items="${obj.leerProyectos(userId)}" var="pr">
                                 <tbody>
                                     <tr>
-                                       
+                                        <td>${pr.idPr}</td>
                                         <td>${obj.leerAdmin(userId)}</td>
                                         <td>${obj.leerPm(pr.idPm)}</td>
                                         <td>${pr.nombrePr}</td>
@@ -80,9 +81,8 @@
                                         <td>${pr.costo}</td>
                                         <td>${pr.estado}</td>
                                         <td>${pr.especific}</td>
-                                        <td><a href="actualizarPr.jsp"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-remove"></span></a></td>
-                                        <td><a href=""><span class="glyphicon glyphicon-eye-open"></span></a></td>
+                                        <td><a href="ActualizarProyecto?action=edit&idxx=<c:out value="${pr.getIdPr()}"/>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                                        <td><a href="ActualizarProyecto?action=delete&idxx=<c:out value="${pr.getIdPr()}"/>"><span class="glyphicon glyphicon-remove"></span></a></td>
                                     </tr>
                                 </tbody>
                             </c:forEach>

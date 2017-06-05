@@ -7,11 +7,8 @@ public interface IProyectoDAO {
 
     public void crearProyecto(Proyecto proyecto);
 
-    public Proyecto leerProyectoId(Integer idProyecto);
-
     public List<Proyecto> leerProyectos(Integer idAdm);
 
     public boolean actualizarProyectos(Proyecto proyecto);
 
-    public boolean borrarProyectos(Proyecto proyecto);
 }

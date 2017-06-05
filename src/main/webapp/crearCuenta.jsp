@@ -66,13 +66,13 @@
                             
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="email" name="mail" class="form-control"  placeholder="Correo" autocomplete="false" required>
+                                    <input type="email" name="mail" class="form-control"  placeholder="Correo" autocomplete="off" required>
                                 </div>
                             </div>
                             
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
-                                    <input type="password" name="pass" class="form-control"  placeholder="Contraseña" autocomplete="false" required>
+                                    <input type="password" name="pass" class="form-control"  placeholder="Contraseña" autocomplete="off" required>
                                 </div>
                             </div>
                             

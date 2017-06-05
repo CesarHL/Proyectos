@@ -2,6 +2,7 @@ package com.ipn.spring.pojo;
 
 public class Empleado {
 
+    private Integer idEmp;
     private Integer idAdmin;
     private String cargo;
     private String competencia;
@@ -13,7 +14,11 @@ public class Empleado {
     private String tel;
     private String sal;
 
-    public Empleado(Integer idAdmin, String cargo, String competencia, String nom, String pass, String ap, String am, String mail, String tel, String sal) {
+    public Empleado() {
+    }
+
+    public Empleado(Integer idEmp, Integer idAdmin, String cargo, String competencia, String nom, String pass, String ap, String am, String mail, String tel, String sal) {
+        this.idEmp = idEmp;
         this.idAdmin = idAdmin;
         this.cargo = cargo;
         this.competencia = competencia;
@@ -36,6 +41,14 @@ public class Empleado {
         this.mail = mail;
         this.tel = tel;
         this.sal = sal;
+    }
+
+    public Integer getIdEmp() {
+        return idEmp;
+    }
+
+    public void setIdEmp(Integer idEmp) {
+        this.idEmp = idEmp;
     }
 
     public Integer getIdAdmin() {
@@ -120,7 +133,7 @@ public class Empleado {
 
     @Override
     public String toString() {
-        return "Empleado{" + "idAdmin=" + idAdmin + ", cargo=" + cargo + ", competencia=" + competencia + ", nom=" + nom + ", pass=" + pass + ", ap=" + ap + ", am=" + am + ", mail=" + mail + ", tel=" + tel + ", sal=" + sal + '}';
+        return "Empleado{" + "idEmp=" + idEmp + ", idAdmin=" + idAdmin + ", cargo=" + cargo + ", competencia=" + competencia + ", nom=" + nom + ", pass=" + pass + ", ap=" + ap + ", am=" + am + ", mail=" + mail + ", tel=" + tel + ", sal=" + sal + '}';
     }
 
 }

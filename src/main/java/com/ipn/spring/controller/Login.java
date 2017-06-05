@@ -45,8 +45,8 @@ public class Login extends HttpServlet {
                 case "dev":
                     session = request.getSession();
                     session.setAttribute("usermail", usuario.getNom());
-                    response.sendRedirect("desarrollador.jsp");
                     session.setAttribute("userId", usuario.getIdAdmin());
+                    response.sendRedirect("desarrollador.jsp");                   
                     break;
                 case "admin":
                     session = request.getSession();
