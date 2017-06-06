@@ -40,12 +40,12 @@
             </div>
         </nav>
 
+        
         <section id="emp">          
             <div class="container">
 
                 <h2 class="section-heading">Estos son tus empleados</h2>
                 <hr>
-               
                 <jsp:useBean id="obj" class="com.ipn.spring.dao.UserDAO" scope="page"/> 
                 <div class="container">
                     <table class="table">
@@ -65,6 +65,7 @@
                                 <td>Despide</td>
                             </tr>
                         </thead>
+                       
                         <c:forEach items="${obj.leerEmpleados(userId)}" var="deve">
                             <tbody>
                                 <tr scope="row">
@@ -80,7 +81,6 @@
                                     <td> ${deve.sal}</td>
                                     <td><a href="AltaEquipo?action=edit&idxx=<c:out value="${deve.getIdEmp()}"/>&idAdmin=${userId}"><span class="glyphicon glyphicon-pencil"></span></a></td>
                                     <td><a href="AltaEquipo?action=delete&idxx=<c:out value="${deve.getIdEmp()}"/>"><span class="glyphicon glyphicon-remove"></span></a></td>
-
                                 </tr>
                             </tbody>
                         </c:forEach>
@@ -88,6 +88,7 @@
                 </div>
             </div>
         </section>
+                
         <section id="altarh">
             <div class="container">
                 <div class="row">
@@ -100,8 +101,8 @@
                             </div>
 
                         </div>
-                        <form action="AltaEquipo" method="POST">
-
+                        <form action="Cont" method="POST">
+                            ${userId}
                             <div class="col-md-12 col-sm-12">
                                 <div class="form-group">
                                     <select class="form-control" name="cargo">
@@ -151,10 +152,10 @@
                                     <input type="text" name="sal" class="form-control"  placeholder="Salario" required>
                                 </div>
                             </div>
-
+                         
                             <div class="col-lg-8 col-lg-offset-2 text-center">
                                 <div class="form-group">
-                                    <input type="submit" value="Registrar" class="btn btn-primary btn-xl page-scroll">
+                                    <input href="crearEquipo.jsp" type="submit" value="Crear" class="btn btn-primary btn-xl page-scroll">
                                     <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
                                 </div>
                             </div>

@@ -21,7 +21,7 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                         <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand page-scroll" href="#page-top">Bienvenido ${usermail}</a>
+                    <a class="navbar-brand page-scroll" href="#page-top">Bienvenido</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -39,7 +39,6 @@
                 </div>
             </div>
         </nav>
-
         <section id="altarh">
             <div class="container">
                 <div class="row">
@@ -47,14 +46,14 @@
 
                         <div class="panel-heading">
                             <div class="col-lg-8 col-lg-offset-2 text-center">
-                                <h2 class="section-heading">Contratar</h2>
+                                <h2 class="section-heading ">Crear Proyecto Nuevo</h2>
                                 <hr>
                             </div>
 
                         </div>
                         <form action="CrearProyecto" method="POST">
                             <div class="form-group row">
-                                
+
                                 <div class="col-10">
                                     <input class="form-control" name="nombre" type="search" placeholder="ingrese nombre" value="" id="example-search-input" required>
                                 </div>
@@ -65,7 +64,7 @@
                                 <select  name="soption" class="form-control">
                                     <option>Selecciona un lider</option>
                                     <c:forEach var="dev" items="${obj.leerPms(userId)}">
-                                         <c:set var="idPm" value="${dev.idPm}" scope="session" /> 
+                                        <c:set var="idPm" value="${dev.idPm}" scope="session" /> 
                                         <option>${dev.nombre}</option>
 
                                     </c:forEach>
@@ -107,10 +106,10 @@
                                     </textarea>
                                 </div>
                             </div>
-                            
+
                             <div class="col-lg-8 col-lg-offset-2 text-center">
                                 <div class="form-group">
-                                    <input href="administrador.jsp" type="submit" value="Registrar" class="btn btn-primary btn-xl page-scroll">
+                                    <input href="administrador.jsp" type="submit" value="Crear" class="btn btn-primary btn-xl page-scroll">
                                     <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
                                 </div>
                             </div>

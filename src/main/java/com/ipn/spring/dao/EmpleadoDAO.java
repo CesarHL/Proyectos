@@ -15,6 +15,33 @@ public class EmpleadoDAO {
     public static final String ACTUALIZAR_EMPLEADO = "UPDATE emp "
             + "SET idEmp=?, idAdmin=?, cargo=?, competencia=?, nom=?, pass=?, ap=?, am=?, mail=?, tel=?, sal=? WHERE idEmp=?";
     public static final String LEER_IDEMPLEADO = "SELECT * FROM emp WHERE idEmp=?";
+    public static final String CREAR_EMPLEADO = "INSERT INTO emp (idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal)"
+            + " values (?,?,?,?,?,?,?,?,?,?)";
+
+    public static void crearEmpleado(Empleado empleado) {
+        try {
+            Connection conexion = conectar();
+            PreparedStatement statement = conexion.prepareStatement(CREAR_EMPLEADO);
+
+            statement.setInt(1, empleado.getIdAdmin());
+            statement.setString(2, empleado.getCargo());
+            statement.setString(3, empleado.getCompetencia());
+            statement.setString(4, empleado.getNom());
+            statement.setString(5, empleado.getPass());
+            statement.setString(6, empleado.getAp());
+            statement.setString(7, empleado.getAm());
+            statement.setString(8, empleado.getMail());
+            statement.setString(9, empleado.getTel());
+            statement.setString(10, empleado.getSal());
+
+            statement.executeUpdate();
+            statement.close();
+            conexion.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     public static Empleado leerProyectoId(Integer idEmpleado) {
 

@@ -45,7 +45,7 @@ public class ActualizarProyecto extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-            Integer idAdmin, idPm;
+            Integer idAdmin, idPm,idPr;
             String nomPm, nPr, fini, ffin, costo, edo, especific;
 
             idAdmin = (Integer) request.getSession().getAttribute("userId");
@@ -63,6 +63,7 @@ public class ActualizarProyecto extends HttpServlet {
             Date endDate = sdf.parse(ffin);
 
             Proyecto p = new Proyecto(id, idAdmin, idPm, nPr, startDate, endDate, costo, edo, especific);
+            System.out.println(p);
          
             ProyectoDAO pd = new ProyectoDAO();
             pd.actualizarProyectos(p);

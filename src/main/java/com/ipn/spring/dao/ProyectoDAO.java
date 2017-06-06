@@ -15,9 +15,9 @@ import java.util.logging.Logger;
 
 public class ProyectoDAO implements IProyectoDAO {
 
-    public static final String CREAR_PROYECTO = "INSERT INTO Proyecto(idAdmin, idPm, nPr, fini, ffin, costo, edo, especific)  VALUES (?, ?, ?, ?, ?, ?,?,?)";
+    public static final String CREAR_PROYECTO = "INSERT INTO Proyecto(idAdmin, idPm, nPr, fini, ffin, costo, edo, especific)  VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     public static final String LEER_IDPROYECTO = "SELECT * FROM Proyecto WHERE idPr=?";
-    public static final String LEER_TODOS_PROYECTO = "select * FROM pm p INNER JOIN proyecto pr ON  p.idPm = pr.idPm WHERE p.idAdmin = ?";
+    public static final String LEER_TODOS_PROYECTO = "select * FROM proyecto where idAdmin=?";
     public static final String ACTUALIZAR_PROYECTO = "UPDATE Proyecto SET idAdmin=?, idPm=?, npr=?, fini=?, ffin=?, costo=?, edo=?, especific=? WHERE idPr=?";
     public static final String BORRAR_PROYECTO = "DELETE FROM Proyecto WHERE idPr=?";
     public static final String LEER_PROYECTO_DIRI_AD = "SELECT a.nom, a.idAdmin FROM proyecto p INNER JOIN admin a ON  p.idAdmin = a.idAdmin WHERE a.idAdmin = ?";

@@ -17,6 +17,19 @@ public class Empleado {
     public Empleado() {
     }
 
+    public Empleado(Integer idAdmin, String cargo, String competencia, String nom, String pass, String ap, String am, String mail, String tel, String sal) {
+        this.idAdmin = idAdmin;
+        this.cargo = cargo;
+        this.competencia = competencia;
+        this.nom = nom;
+        this.pass = pass;
+        this.ap = ap;
+        this.am = am;
+        this.mail = mail;
+        this.tel = tel;
+        this.sal = sal;
+    }
+
     public Empleado(Integer idEmp, Integer idAdmin, String cargo, String competencia, String nom, String pass, String ap, String am, String mail, String tel, String sal) {
         this.idEmp = idEmp;
         this.idAdmin = idAdmin;

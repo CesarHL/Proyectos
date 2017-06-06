@@ -1,8 +1,6 @@
 package com.ipn.spring.controller;
 
-import com.ipn.spring.dao.DesarrolladorDAO;
 import com.ipn.spring.dao.EmpleadoDAO;
-import com.ipn.spring.dao.PMDAO;
 import com.ipn.spring.pojo.Desarrollador;
 import com.ipn.spring.pojo.Empleado;
 import com.ipn.spring.pojo.PM;
@@ -28,7 +26,7 @@ public class AltaEquipo extends HttpServlet {
         String forward = "";
         String action = request.getParameter("action");
         id = Integer.parseInt(request.getParameter("idxx"));
-     
+
         if (action.equalsIgnoreCase("edit")) {
             forward = "actualizarEmp.jsp";
             id = Integer.parseInt(request.getParameter("idxx"));
@@ -38,7 +36,7 @@ public class AltaEquipo extends HttpServlet {
             id = Integer.parseInt(request.getParameter("idxx"));
             System.out.println(EmpleadoDAO.borrarEmpleado(id));
             forward = "crearEquipo.jsp";
-        }
+        } 
 
         RequestDispatcher view = request.getRequestDispatcher(forward);
         view.forward(request, response);
@@ -49,7 +47,7 @@ public class AltaEquipo extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         EmpleadoDAO ed = new EmpleadoDAO();
-
+        Integer idAd = (Integer) request.getSession().getAttribute("userId");
         String cargo = request.getParameter("cargo");
         String competencia = request.getParameter("competencia");
         String nombre = request.getParameter("nom");
@@ -59,14 +57,15 @@ public class AltaEquipo extends HttpServlet {
         String mail = request.getParameter("mail");
         String tel = request.getParameter("tel");
         String salario = request.getParameter("sal");
-        
+
         if (cargo.equals("pm")) {
-            Empleado pm = new Empleado(id, 1, "pm", competencia, nombre, pass, ap, am, mail, tel, salario);
+            Empleado pm = new Empleado(id, idAd, "pm", competencia, nombre, pass, ap, am, mail, tel, salario);
             System.out.println(pm);
             ed.actualizarEmpleado(pm);
 
         } else if (cargo.equals("dev")) {
-            Empleado dev = new Empleado(id, 1, "dev", competencia, nombre, pass, ap, am, mail, tel, salario);
+            Empleado dev = new Empleado(id, idAd, "dev", competencia, nombre, pass, ap, am, mail, tel, salario);
+            System.out.println(dev);
             ed.actualizarEmpleado(dev);
 
         }

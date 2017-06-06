@@ -12,9 +12,11 @@
         <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
         <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
         <link href="css/creative.min.css" rel="stylesheet">
-        <title>Bienvenido</title>
+        <title>Bienvenido </title>
     </head>
+
     <body>
+
         <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
             <div class="bg-primary" class="container-fluid">
                 <div class="navbar-header">
@@ -45,11 +47,12 @@
 
         <jsp:useBean id="obj" class="com.ipn.spring.dao.ProyectoDAO" scope="page"/>
         <section  id="tablaProyecto">
-
+            ${userId}
+            <c:set var="idA" value="${userId}" scope="session" /> 
             <div class="container">
                 <div class="row">
                     <div class="text-center">
-                        <h2 class="section-heading">Estos son tus proyectos!</h2>
+                        <h2 class="section-heading">Estos son tus proyectos! ${userId}</h2>
                         <hr>
                         <table class ="table table-striped">
                             <thead>

@@ -4,9 +4,17 @@
         <servlet-name>ActualizarProyecto</servlet-name>
         <servlet-class>com.ipn.spring.controller.ActualizarProyecto</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Cont</servlet-name>
+        <servlet-class>com.ipn.spring.controller.Cont</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ActualizarProyecto</servlet-name>
         <url-pattern>/ActualizarProyecto</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Cont</servlet-name>
+        <url-pattern>/Cont</url-pattern>
     </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>

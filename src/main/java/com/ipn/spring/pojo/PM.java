@@ -21,6 +21,7 @@ public class PM {
         this.idPm = idPm;
         this.nombre = nombre;
     }
+    
 
     public PM(String cargo, String competencia, String nombre, String pass, String ap, String am, String mail, String tel, String sal) {
         this.cargo = cargo;

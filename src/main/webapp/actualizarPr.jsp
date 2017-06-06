@@ -63,7 +63,7 @@
                                 <select  name="soption" class="form-control">
                                     <option>Selecciona un lider</option>
                                     <c:forEach var="dev" items="${obj.leerPms(userId)}">
-                                        <c:set var="idPm" value="${dev.idPm}" scope="session" /> 
+                                        <c:set var="idPm" value="${dev.idPm}" scope="session"/> 
                                         <option>${dev.nombre}</option>
 
                                     </c:forEach>
@@ -108,7 +108,7 @@
 
                             <div class="col-lg-8 col-lg-offset-2 text-center">
                                 <div class="form-group">
-                                    <input href="administrador.jsp" type="submit" value="Actualizar" class="btn btn-primary btn-xl page-scroll">
+                                    <input href="administrador.jsp" type="submit" value="Crear" class="btn btn-primary btn-xl page-scroll">
                                     <a href="administrador.jsp" class="btn btn-primary btn-xl page-scroll">volver</a>
                                 </div>
                             </div>

@@ -40,11 +40,13 @@ public class Login extends HttpServlet {
                     session = request.getSession();
                     session.setAttribute("usermail", usuario.getNom());
                     session.setAttribute("userId", usuario.getIdAdmin());
+                     //falta el id dependiendo del rol idEmp, idAdmin, idPm y guardar idPm en sesion
                     response.sendRedirect("pm.jsp");
                     break;
                 case "dev":
                     session = request.getSession();
                     session.setAttribute("usermail", usuario.getNom());
+                    //falta el id dependiendo del rol idEmp, idAdmin, idDev
                     session.setAttribute("userId", usuario.getIdAdmin());
                     response.sendRedirect("desarrollador.jsp");                   
                     break;
