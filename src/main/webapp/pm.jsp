@@ -51,6 +51,7 @@
                         <table class ="table table-striped">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Dueño</th>
                                     <th>Lider</th>
                                     <th>Nombre</th>
@@ -58,15 +59,15 @@
                                     <th>Fecha Limite</th>
                                     <th>Presupuesto</th>
                                     <th>Estado</th>
-                                    <th>Objetivo</th>
-                                    <th>Modifica estado</th>
+                                    <th>Descripción</th>
                                     <th>Nuevo Modulo</th>
                                 </tr>
                             </thead>
                   
-                            <c:forEach items="${obj.leerProyectos(userId)}" var="pr">
+                            <c:forEach items="${obj.leerProyectosPm(userId)}" var="pr">
                                 <tbody>
                                     <tr>
+                                        <td>${pr.idPr}</td>
                                         <td>${obj.leerAdmin(userId)}</td>
                                         <td>${obj.leerPm(pr.idPm)}</td>
                                         <td>${pr.nombrePr}</td>
@@ -75,8 +76,7 @@
                                         <td>${pr.costo}</td>
                                         <td>${pr.estado}</td>
                                         <td>${pr.especific}</td>
-                                        <td><a href="actualizarPr.jsp"><span class="glyphicon glyphicon-pencil"></span></a></td>                                       
-                                        <td><a href="nuevoModulo.jsp"><span class="glyphicon glyphicon-tasks"></span></a></td>
+                                        <td><a href="NuevoModulo?idPr=${pr.idPr}&idss=<c:out value="${userId}"/>"><span class="glyphicon glyphicon-pencil"></span></a></td>                                       
                                     </tr>
                                 </tbody>
                             </c:forEach>

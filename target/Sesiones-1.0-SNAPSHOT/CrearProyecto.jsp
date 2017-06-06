@@ -74,14 +74,14 @@
                             <div class="form-group row">
                                 <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha Inicial</label>
                                 <div class="col-10">
-                                    <input class="form-control" name="fini" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                    <input class="form-control" name="fini" type="datetime-local" value="2017-08-08T13:45:00" id="example-datetime-local-input">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label for="example-datetime-local-input" class="col-2 col-form-label">Fecha final</label>
                                 <div class="col-10">
-                                    <input class="form-control" name="ffin" type="datetime-local" value="2011-08-19T13:45:00" id="example-datetime-local-input">
+                                    <input class="form-control" name="ffin" type="datetime-local" value="2011-08-08T13:46:00" id="example-datetime-local-input">
                                 </div>
                             </div>
 
@@ -95,7 +95,9 @@
                             <div class="form-group row">
                                 <label for="example-search-input" class="col-2 col-form-label">Estado</label>	
                                 <select name="nuevo" class="form-control">
-                                    <option selected="selected">Nuevo</option>
+                                   <option selected="selected">En proceso</option>
+                                    <option>Por terminar</option>
+                                    <option>Cancelado</option>
                                 </select>
                             </div>
 

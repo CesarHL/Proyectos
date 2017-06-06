@@ -39,12 +39,13 @@ public class EditarEmpleado extends HttpServlet {
         String tel = request.getParameter("tel");
         String salario = request.getParameter("sal");
 
+        //TODO debe hacer match los ids 
         if (cargo.equals("pm")) {
             pm = new PM(1, cargo, competencia, nombre, pass, ap, am, mail, tel, salario);
             System.out.println(pm);
             pmd.actualizarPm(pm);
         } else if (cargo.equals("dev")) {
-            desarrollador = new Desarrollador(1, 1, cargo, competencia, nombre, pass, ap, am, mail, tel, salario);
+            desarrollador = new Desarrollador(1, 1, 1, cargo, competencia, nombre, pass, ap, am, mail, tel, salario);
             dd.crearDesarrollador(desarrollador);
         }
 

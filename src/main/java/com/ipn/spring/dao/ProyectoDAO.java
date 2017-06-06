@@ -22,7 +22,8 @@ public class ProyectoDAO implements IProyectoDAO {
     public static final String BORRAR_PROYECTO = "DELETE FROM Proyecto WHERE idPr=?";
     public static final String LEER_PROYECTO_DIRI_AD = "SELECT a.nom, a.idAdmin FROM proyecto p INNER JOIN admin a ON  p.idAdmin = a.idAdmin WHERE a.idAdmin = ?";
     public static final String LEER_PROYECTO_DIRI_PM = "select p.nom  FROM pm p INNER JOIN proyecto pr ON  p.idPm = pr.idPm WHERE p.idPm = ?";
-
+    public static final String LEER_PROYECTOS_PM = "SELECT * FROM proyecto where idPm = ?";
+            
     @Override
     public void crearProyecto(Proyecto proyecto) {
         try {
@@ -83,6 +84,39 @@ public class ProyectoDAO implements IProyectoDAO {
         try {
             Connection conexion = conectar();
             PreparedStatement ps = conexion.prepareStatement(LEER_TODOS_PROYECTO);
+            ps.setInt(1, idAdm);
+            ResultSet resultSet = ps.executeQuery();
+
+            while (resultSet.next()) {
+                Integer idPr = resultSet.getInt("idPr");
+                Integer idAdmin = resultSet.getInt("idAdmin");
+                Integer idPm = resultSet.getInt("idPm");
+                String npr = resultSet.getString("nPr");
+                Date fini = resultSet.getDate("fini");
+                Date ffin = resultSet.getDate("ffin");
+                String costo = resultSet.getString("costo");
+                String edo = resultSet.getString("edo");
+                String especific = resultSet.getString("especific");
+
+                Proyecto pr = new Proyecto(idPr, idAdmin, idPm, npr, fini, ffin, costo, edo, especific);
+                listaProyectos.add(pr);
+            }
+
+            resultSet.close();
+            ps.close();
+            conexion.close();
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listaProyectos;
+    }
+
+    public  List<Proyecto> leerProyectosPm(Integer idAdm) {
+        List<Proyecto> listaProyectos = new ArrayList<>();
+
+        try {
+            Connection conexion = conectar();
+            PreparedStatement ps = conexion.prepareStatement(LEER_PROYECTOS_PM);
             ps.setInt(1, idAdm);
             ResultSet resultSet = ps.executeQuery();
 

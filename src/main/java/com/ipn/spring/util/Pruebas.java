@@ -12,5 +12,8 @@ public class Pruebas {
         EmpleadoDAO ed = new EmpleadoDAO();
         Empleado empleado = new Empleado(1, "X", "x", "x", "x", "x", "x", "x", "x", "x");
        // ed.crearProyecto(empleado);
+        ProyectoDAO pd = new ProyectoDAO();
+        System.out.println(pd.leerProyectosPm(1));
+        
     }
 }

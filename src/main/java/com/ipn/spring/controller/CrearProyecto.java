@@ -50,9 +50,8 @@ public class CrearProyecto extends HttpServlet {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             Date startDate = sdf.parse(fini);
             Date endDate = sdf.parse(ffin);
-            System.out.println("======" + idww);
+            
             Proyecto proyecto = new Proyecto(idAdmin, 1, nPr, startDate, endDate, costo, edo, especific);
-            System.out.println("======" + proyecto);
             ProyectoDAO pd = new ProyectoDAO();
             pd.crearProyecto(proyecto);
 

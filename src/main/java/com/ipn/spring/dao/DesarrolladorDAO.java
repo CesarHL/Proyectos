@@ -13,10 +13,10 @@ import java.util.logging.Logger;
 public class DesarrolladorDAO implements IDesarrolladorDAO {
 
     public static final String CREAR_DESARROLLADOR = "insert into dev(idPm, idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal) values (?,?,?,?, ?, ?, ?, ?, ?, ?, ?)";
-    public static final String LEER_ID_DESARROLLADOR = "SELECT * FROM desarrollador WHERE idDev = ?";
-    public static final String LEER_TODOS_DESARROLLADOR = "SELECT * FROM desarrollador";
-    public static final String ACTUALIZAR_DESARROLLADOR = "UPDATE desarrollador SET cargoDev = ?, competencia = ?, nomDev = ?, apDev = ?, amDev = ?, mailDev = ?, tel = ?, salDev = ? WHERE idDev = ?";
-    public static final String BORRAR_DESARROLLADOR = "DELETE FROM desarrollador WHERE idDev = ?";
+    public static final String LEER_ID_DESARROLLADOR = "SELECT * FROM dev WHERE idDev = ?";
+    public static final String LEER_TODOS_DESARROLLADOR = "SELECT * FROM dev";
+    public static final String ACTUALIZAR_DESARROLLADOR = "UPDATE dev SET cargoDev = ?, competencia = ?, nomDev = ?, apDev = ?, amDev = ?, mailDev = ?, tel = ?, salDev = ? WHERE idDev = ?";
+    public static final String BORRAR_DESARROLLADOR = "DELETE FROM dev WHERE idDev = ?";
 
     @Override
     public boolean crearDesarrollador(Desarrollador desarrollador) {
@@ -50,26 +50,30 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
     }
 
     @Override
-    public Desarrollador leerDesarrolladorId(Integer idDesarrollador) {
+    public Desarrollador leerDesarrolladorId(Integer idDev) {
         Desarrollador dev = null;
         try {
             Connection conexion = conectar();
             PreparedStatement ps = conexion.prepareStatement(LEER_ID_DESARROLLADOR);
-            ps.setInt(1, idDesarrollador);
+            ps.setInt(1, idDev);
             ResultSet resultSet = ps.executeQuery();
-            System.out.println(resultSet.toString());
-            if (resultSet.next()) {
-                Integer idDev = resultSet.getInt("idDev");
-                String cargo = resultSet.getString("cargoDev");
-                String comp = resultSet.getString("competencia");
-                String nom = resultSet.getString("nomDev");
-                String ap = resultSet.getString("apDev");
-                String am = resultSet.getString("amDev");
-                String mail = resultSet.getString("mailDev");
-                String tel = resultSet.getString("tel");
-                String sal = resultSet.getString("salDev");
 
-                dev = new Desarrollador(idDev, idDev, cargo, comp, nom, sal, ap, am, mail, tel, sal);
+            if (resultSet.next()) {
+                Integer idDevs = resultSet.getInt("idDev");
+                Integer idPms = resultSet.getInt("idPm");
+                Integer idAdmin = resultSet.getInt("idAdmin");
+                
+                String cargo = resultSet.getString("cargo");
+                String comp = resultSet.getString("competencia");
+                String nom = resultSet.getString("nom");
+                String pass = resultSet.getString("pass");
+                String ap = resultSet.getString("ap");
+                String am = resultSet.getString("am");
+                String mail = resultSet.getString("mail");
+                String tel = resultSet.getString("tel");
+                String sal = resultSet.getString("sal");
+                //corregir essto
+                dev = new Desarrollador(idDevs, idPms, idAdmin, cargo, comp, nom, sal, ap, am, mail, tel, sal);
             }
 
             resultSet.close();

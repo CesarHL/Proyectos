@@ -2,6 +2,7 @@ package com.ipn.spring.pojo;
 
 public class Desarrollador {
 
+    private Integer idDev;
     private Integer idPM;
     private Integer idAdmin;
     private String cargo;
@@ -17,7 +18,8 @@ public class Desarrollador {
     public Desarrollador() {
     }
 
-    public Desarrollador(Integer idPM, Integer idAdmin, String cargo, String competencia, String nombre, String pass, String ap, String am, String mail, String tel, String salario) {
+    public Desarrollador(Integer idDev, Integer idPM, Integer idAdmin, String cargo, String competencia, String nombre, String pass, String ap, String am, String mail, String tel, String salario) {
+        this.idDev = idDev;
         this.idPM = idPM;
         this.idAdmin = idAdmin;
         this.cargo = cargo;
@@ -29,6 +31,14 @@ public class Desarrollador {
         this.mail = mail;
         this.tel = tel;
         this.salario = salario;
+    }
+
+    public Integer getIdDev() {
+        return idDev;
+    }
+
+    public void setIdDev(Integer idDev) {
+        this.idDev = idDev;
     }
 
     public Integer getIdPM() {
@@ -121,7 +131,7 @@ public class Desarrollador {
 
     @Override
     public String toString() {
-        return "Desarrollador{" + "idPM=" + idPM + ", idAdmin=" + idAdmin + ", cargo=" + cargo + ", competencia=" + competencia + ", nombre=" + nombre + ", pass=" + pass + ", ap=" + ap + ", am=" + am + ", mail=" + mail + ", tel=" + tel + ", salario=" + salario + '}';
+        return "Desarrollador{" + "idDev=" + idDev + ", idPM=" + idPM + ", idAdmin=" + idAdmin + ", cargo=" + cargo + ", competencia=" + competencia + ", nombre=" + nombre + ", pass=" + pass + ", ap=" + ap + ", am=" + am + ", mail=" + mail + ", tel=" + tel + ", salario=" + salario + '}';
     }
 
 }

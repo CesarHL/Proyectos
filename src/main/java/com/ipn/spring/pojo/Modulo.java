@@ -2,29 +2,40 @@ package com.ipn.spring.pojo;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 public class Modulo implements Serializable {
 
     private Integer idModulo;
+    private Integer idPr;
+    private Integer idPm;
+    private Integer idDev;
     private String estado;
     private Date fechaInicio;
     private Date fechaFin;
     private String descripcion;
-    private List<Actividad> hasActividades;
-    private List<Desarrollador> hasDesarrolladores;
 
     public Modulo() {
     }
 
-    public Modulo(Integer idModulo, String estado, Date fechaInicio, Date fechaFin, String descripcion, List<Actividad> hasActividades, List<Desarrollador> hasDesarrolladores) {
+    public Modulo(Integer idModulo, Integer idPr, Integer idPm, Integer idDev, String estado, Date fechaInicio, Date fechaFin, String descripcion) {
         this.idModulo = idModulo;
+        this.idPr = idPr;
+        this.idPm = idPm;
+        this.idDev = idDev;
         this.estado = estado;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.descripcion = descripcion;
-        this.hasActividades = hasActividades;
-        this.hasDesarrolladores = hasDesarrolladores;
+    }
+
+    public Modulo(Integer idPr, Integer idPm, Integer idDev, String estado, Date fechaInicio, Date fechaFin, String descripcion) {
+        this.idPr = idPr;
+        this.idPm = idPm;
+        this.idDev = idDev;
+        this.estado = estado;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+        this.descripcion = descripcion;
     }
 
     public Integer getIdModulo() {
@@ -33,6 +44,30 @@ public class Modulo implements Serializable {
 
     public void setIdModulo(Integer idModulo) {
         this.idModulo = idModulo;
+    }
+
+    public Integer getIdPr() {
+        return idPr;
+    }
+
+    public void setIdPr(Integer idPr) {
+        this.idPr = idPr;
+    }
+
+    public Integer getIdPm() {
+        return idPm;
+    }
+
+    public void setIdPm(Integer idPm) {
+        this.idPm = idPm;
+    }
+
+    public Integer getIdDev() {
+        return idDev;
+    }
+
+    public void setIdDev(Integer idDev) {
+        this.idDev = idDev;
     }
 
     public String getEstado() {
@@ -67,25 +102,9 @@ public class Modulo implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public List<Actividad> getHasActividades() {
-        return hasActividades;
-    }
-
-    public void setHasActividades(List<Actividad> hasActividades) {
-        this.hasActividades = hasActividades;
-    }
-
-    public List<Desarrollador> getHasDesarrolladores() {
-        return hasDesarrolladores;
-    }
-
-    public void setHasDesarrolladores(List<Desarrollador> hasDesarrolladores) {
-        this.hasDesarrolladores = hasDesarrolladores;
-    }
-
     @Override
     public String toString() {
-        return "Modulo{" + "idModulo=" + idModulo + ", estado=" + estado + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", descripcion=" + descripcion + ", hasActividades=" + hasActividades + ", hasDesarrolladores=" + hasDesarrolladores + '}';
+        return "Modulo{" + "idModulo=" + idModulo + ", idPr=" + idPr + ", idPm=" + idPm + ", idDev=" + idDev + ", estado=" + estado + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", descripcion=" + descripcion + '}';
     }
 
 }
