@@ -53,7 +53,7 @@
                                     <th>Presupuesto</th>
                                     <th>Estado</th>
                                     <th>Objetivo</th>
-                                    <th>Modifica estado</th>
+                                 
                                 </tr>
                             </thead>
                   

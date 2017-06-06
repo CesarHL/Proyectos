@@ -47,12 +47,11 @@
 
         <jsp:useBean id="obj" class="com.ipn.spring.dao.ProyectoDAO" scope="page"/>
         <section  id="tablaProyecto">
-            ${userId}
             <c:set var="idA" value="${userId}" scope="session" /> 
             <div class="container">
                 <div class="row">
                     <div class="text-center">
-                        <h2 class="section-heading">Estos son tus proyectos! ${userId}</h2>
+                        <h2 class="section-heading">Estos son tus proyectos!</h2>
                         <hr>
                         <table class ="table table-striped">
                             <thead>
