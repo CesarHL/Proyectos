@@ -52,7 +52,12 @@
 
                         </div>
                         <form action="NuevoModulo" method="POST">
-
+                            
+                            <div class="form-group row">
+                                <div class="col-10">
+                                    <input class="form-control" name="nombre" type="text" placeholder="Ingrese nombre tarea" value="" id="example-search-input" required>
+                                </div>
+                            </div>
                             <jsp:useBean id="obj" class="com.ipn.spring.dao.DesarrolladorDAO" scope="page"/>
                             <div class="form-group row">
                                 <select  name="soption" class="form-control">
@@ -63,7 +68,7 @@
                                     </c:forEach>
                                 </select>
                             </div>
-                            
+
                             <div class="form-group row">
                                 <label for="example-search-input" class="col-2 col-form-label">Estado</label>	
                                 <select name="estado" class="form-control">

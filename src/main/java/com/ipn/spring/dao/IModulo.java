@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface IModulo {
 
-    public boolean crearModulo(Modulo modulo);
+    public void crearModulo(Modulo modulo);
 
     public Modulo leerModuloId(Integer idModulo);
 

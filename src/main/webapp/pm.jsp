@@ -26,7 +26,6 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-
                         <li>
                             <a class="page-scroll" href="#tablaProyecto">Proyectos Asignados</a>
                         </li>
@@ -46,7 +45,7 @@
             <div class="container">
                 <div class="row">
                     <div class="text-center">
-                        <h2 class="section-heading">Estos son tus proyectos!</h2>
+                        <h2 class="section-heading">Estos son tus proyectos asignados!</h2>
                         <hr>
                         <table class ="table table-striped">
                             <thead>
@@ -63,7 +62,7 @@
                                     <th>Nuevo Modulo</th>
                                 </tr>
                             </thead>
-                  
+
                             <c:forEach items="${obj.leerProyectosPm(userId)}" var="pr">
                                 <tbody>
                                     <tr>
@@ -76,7 +75,51 @@
                                         <td>${pr.costo}</td>
                                         <td>${pr.estado}</td>
                                         <td>${pr.especific}</td>
-                                        <td><a href="NuevoModulo?idPr=${pr.idPr}&idss=<c:out value="${userId}"/>"><span class="glyphicon glyphicon-pencil"></span></a></td>                                       
+                                        <td><a href="NuevoModulo?idPr=${pr.idPr}&userid=<c:out value="${userId}"/>"><span class="glyphicon glyphicon-pencil"></span></a></td>                                       
+                                    </tr>
+                                </tbody>
+                            </c:forEach>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <jsp:useBean id="obj1" class="com.ipn.spring.dao.ModuloDAO" scope="page"/>
+        <section  id="tablaProyecto">
+            <div class="container">
+                <div class="row">
+                    <div class="text-center">
+                        <h2 class="section-heading">Estos son tus modulos</h2>
+                        <hr>
+                        <table class ="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>IdMod</th>
+                                    <th>IdPr</th>
+                                    <th>IdPm</th>
+                                    <th>IdDev</th>
+                                    <th>Nombre</th>
+                                    <th>Estado</th>
+                                    <th>Fecha Inicio</th>
+                                    <th>Fecha Limite</th>
+                                    <th>Descripción</th>
+                                </tr>
+                            </thead>
+
+
+                            <c:forEach items="${obj1.leerModulosIdPm(userId)}" var="pr">
+                                <tbody>
+                                    <tr>
+                                        <td>${pr.idModulo}</td>
+                                        <td>${pr.idPr}</td>
+                                        <td>${pr.idPm}</td>
+                                        <td>${pr.idDev}</td>
+                                        <td>${pr.nombre}</td>
+                                        <td>${pr.estadoMod}</td>
+                                        <td>${pr.fechaInicio}</td>
+                                        <td>${pr.fechaFin}</td>
+                                        <td>${pr.descripcion}</td>
                                     </tr>
                                 </tbody>
                             </c:forEach>

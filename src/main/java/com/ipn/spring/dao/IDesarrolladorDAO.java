@@ -7,8 +7,6 @@ public interface IDesarrolladorDAO {
 
     public boolean crearDesarrollador(Desarrollador desarrollador);
 
-    public Desarrollador leerDesarrolladorId(Integer idDesarrollador);
-
     public List<Desarrollador> leerDesarrolladores();
 
     public boolean actualizarDesarrollador(Desarrollador desarrollador);

@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,7 +14,7 @@ import java.util.logging.Logger;
 public class DesarrolladorDAO implements IDesarrolladorDAO {
 
     public static final String CREAR_DESARROLLADOR = "insert into dev(idPm, idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal) values (?,?,?,?, ?, ?, ?, ?, ?, ?, ?)";
-    public static final String LEER_ID_DESARROLLADOR = "SELECT * FROM dev WHERE idDev = ?";
+    public static final String LEER_ID_DESARROLLADOR = "SELECT * FROM dev WHERE idPm = ?";
     public static final String LEER_TODOS_DESARROLLADOR = "SELECT * FROM dev";
     public static final String ACTUALIZAR_DESARROLLADOR = "UPDATE dev SET cargoDev = ?, competencia = ?, nomDev = ?, apDev = ?, amDev = ?, mailDev = ?, tel = ?, salDev = ? WHERE idDev = ?";
     public static final String BORRAR_DESARROLLADOR = "DELETE FROM dev WHERE idDev = ?";
@@ -49,20 +50,20 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
         return creado;
     }
 
-    @Override
-    public Desarrollador leerDesarrolladorId(Integer idDev) {
+    public List<Desarrollador> leerDesarrolladorId(Integer idPm) {
         Desarrollador dev = null;
+         List<Desarrollador> ld = null;
         try {
             Connection conexion = conectar();
             PreparedStatement ps = conexion.prepareStatement(LEER_ID_DESARROLLADOR);
-            ps.setInt(1, idDev);
+            ps.setInt(1, idPm);
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
                 Integer idDevs = resultSet.getInt("idDev");
                 Integer idPms = resultSet.getInt("idPm");
                 Integer idAdmin = resultSet.getInt("idAdmin");
-                
+
                 String cargo = resultSet.getString("cargo");
                 String comp = resultSet.getString("competencia");
                 String nom = resultSet.getString("nom");
@@ -74,6 +75,9 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
                 String sal = resultSet.getString("sal");
                 //corregir essto
                 dev = new Desarrollador(idDevs, idPms, idAdmin, cargo, comp, nom, sal, ap, am, mail, tel, sal);
+                System.out.println(dev);
+                ld = new ArrayList<>();
+                ld.add(dev);
             }
 
             resultSet.close();
@@ -83,7 +87,7 @@ public class DesarrolladorDAO implements IDesarrolladorDAO {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return dev;
+        return ld;
     }
 
     @Override

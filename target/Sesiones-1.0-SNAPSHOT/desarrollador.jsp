@@ -68,7 +68,6 @@
                                         <td>${pr.costo}</td>
                                         <td>${pr.estado}</td>
                                         <td>${pr.especific}</td>
-                                        <td><a href=""><span class="glyphicon glyphicon-tasks"></span></a></td>
                                     </tr>
                                 </tbody>
                             </c:forEach>

@@ -1,5 +1,6 @@
 package com.ipn.spring.controller;
 
+import com.ipn.spring.dao.ModuloDAO;
 import com.ipn.spring.pojo.Modulo;
 import java.io.IOException;
 import java.text.ParseException;
@@ -15,13 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 
 public class NuevoModulo extends HttpServlet {
 
-    int idss;
+    int idPms,idProy;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        idss = Integer.parseInt(request.getParameter("idss"));
-        System.out.println(idss);
+        idPms = Integer.parseInt(request.getParameter("userid"));
+        idProy = Integer.parseInt(request.getParameter("idPr"));
         RequestDispatcher view = request.getRequestDispatcher("crearModulo.jsp");
         view.forward(request, response);
     }
@@ -34,8 +35,6 @@ public class NuevoModulo extends HttpServlet {
             Integer idMod, idPr, idPm, idDev;
             String nombre, estado, fini, ffin, desc;
             idMod = (Integer) request.getSession().getAttribute("userId");
-            idPr = (Integer) request.getSession().getAttribute("idPr");//ya
-            idPm = (Integer) request.getSession().getAttribute("idss");//att sesión iniciada
             idDev = (Integer) request.getSession().getAttribute("idDev");//lista dev obtener id seleccionado
             nombre = request.getParameter("nombre");
             estado = request.getParameter("estado");
@@ -48,8 +47,12 @@ public class NuevoModulo extends HttpServlet {
             Date startDate = sdf.parse(fini);
             Date endDate = sdf.parse(ffin);
             
-            Modulo mod = new Modulo(idPr, idPm, idDev, estado, endDate, endDate, desc);
-
+            Modulo mod = new Modulo(idProy, idPms, idDev, nombre, estado, startDate, endDate, desc);
+            System.out.println(mod);
+            ModuloDAO md = new ModuloDAO();
+            md.crearModulo(mod);
+            
+            request.getRequestDispatcher("pm.jsp").forward(request, response);
         } catch (ParseException ex) {
             Logger.getLogger(NuevoModulo.class.getName()).log(Level.SEVERE, null, ex);
         }

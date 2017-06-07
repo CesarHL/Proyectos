@@ -9,7 +9,8 @@ public class Modulo implements Serializable {
     private Integer idPr;
     private Integer idPm;
     private Integer idDev;
-    private String estado;
+    private String nombre;
+    private String estadoMod;
     private Date fechaInicio;
     private Date fechaFin;
     private String descripcion;
@@ -17,22 +18,24 @@ public class Modulo implements Serializable {
     public Modulo() {
     }
 
-    public Modulo(Integer idModulo, Integer idPr, Integer idPm, Integer idDev, String estado, Date fechaInicio, Date fechaFin, String descripcion) {
-        this.idModulo = idModulo;
+    public Modulo(Integer idPr, Integer idPm, Integer idDev, String nombre, String estadoMod, Date fechaInicio, Date fechaFin, String descripcion) {
         this.idPr = idPr;
         this.idPm = idPm;
         this.idDev = idDev;
-        this.estado = estado;
+        this.nombre = nombre;
+        this.estadoMod = estadoMod;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.descripcion = descripcion;
     }
 
-    public Modulo(Integer idPr, Integer idPm, Integer idDev, String estado, Date fechaInicio, Date fechaFin, String descripcion) {
+    public Modulo(Integer idModulo, Integer idPr, Integer idPm, Integer idDev, String nombre, String estadoMod, Date fechaInicio, Date fechaFin, String descripcion) {
+        this.idModulo = idModulo;
         this.idPr = idPr;
         this.idPm = idPm;
         this.idDev = idDev;
-        this.estado = estado;
+        this.nombre = nombre;
+        this.estadoMod = estadoMod;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.descripcion = descripcion;
@@ -70,12 +73,20 @@ public class Modulo implements Serializable {
         this.idDev = idDev;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getEstadoMod() {
+        return estadoMod;
+    }
+
+    public void setEstadoMod(String estadoMod) {
+        this.estadoMod = estadoMod;
     }
 
     public Date getFechaInicio() {
@@ -104,7 +115,7 @@ public class Modulo implements Serializable {
 
     @Override
     public String toString() {
-        return "Modulo{" + "idModulo=" + idModulo + ", idPr=" + idPr + ", idPm=" + idPm + ", idDev=" + idDev + ", estado=" + estado + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", descripcion=" + descripcion + '}';
+        return "Modulo{" + "idModulo=" + idModulo + ", idPr=" + idPr + ", idPm=" + idPm + ", idDev=" + idDev + ", nombre=" + nombre + ", estadoMod=" + estadoMod + ", fechaInicio=" + fechaInicio + ", fechaFin=" + fechaFin + ", descripcion=" + descripcion + '}';
     }
 
 }
