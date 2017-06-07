@@ -26,11 +26,12 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
+                        
                         <li>
-                            <a class="page-scroll" href="#tablaProyecto">Proyectos Asignados</a>
+                            <a class="page-scroll" href="#pra">Proyectos asignados</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="#segundoPaso">Servicios</a>
+                            <a class="page-scroll" href="#mod">Modulos</a>
                         </li>
                         <li>
                             <a href="Login">Logout</a>
@@ -41,7 +42,7 @@
         </nav>
 
         <jsp:useBean id="obj" class="com.ipn.spring.dao.ProyectoDAO" scope="page"/>
-        <section  id="tablaProyecto">
+        <section  id="pra">
             <div class="container">
                 <div class="row">
                     <div class="text-center">
@@ -86,7 +87,7 @@
         </section>
 
         <jsp:useBean id="obj1" class="com.ipn.spring.dao.ModuloDAO" scope="page"/>
-        <section  id="tablaProyecto">
+        <section  id="mod">
             <div class="container">
                 <div class="row">
                     <div class="text-center">
@@ -99,14 +100,13 @@
                                     <th>IdPr</th>
                                     <th>IdPm</th>
                                     <th>IdDev</th>
-                                    <th>Nombre</th>
                                     <th>Estado</th>
+                                    <th>Nombre</th>
                                     <th>Fecha Inicio</th>
                                     <th>Fecha Limite</th>
                                     <th>Descripción</th>
                                 </tr>
                             </thead>
-
 
                             <c:forEach items="${obj1.leerModulosIdPm(userId)}" var="pr">
                                 <tbody>

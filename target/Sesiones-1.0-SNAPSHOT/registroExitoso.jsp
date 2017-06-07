@@ -17,7 +17,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
 
-                    <a class="navbar-brand page-scroll" href="index.jsp">Home</a>
+                    <a class="navbar-brand page-scroll" href="index.jsp">APSI</a>
                 </div>
             </div>
         </nav>

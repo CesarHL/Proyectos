@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 
 public class PMDAO implements IPMDAO {
 
-    public static final String LEER_PM_DIRI_AD = "SELECT p.idPm, p.nom FROM admin a INNER JOIN pm p ON  a.idAdmin = p.idAdmin WHERE p.idAdmin = ?";
+    public static final String LEER_PM_DIRI_AD = "SELECT * FROM pm WHERE idAdmin = ?";
     public static final String LEER_PM_ASC_AD = "select * from proyecto where idAdmin=? and idPm=?";
     public static final String CREAR_PM = "insert into pm(idAdmin, cargo, competencia, nom, pass, ap, am, mail, tel, sal) values (?, ?, ?, ?, ?, ?, ?, ?, ? ,?)";
     public static final String ACTUALIZAR_PM = "UPDATE pm"

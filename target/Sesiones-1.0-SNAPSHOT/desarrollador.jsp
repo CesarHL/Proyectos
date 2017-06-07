@@ -34,40 +34,40 @@
             </div>
         </nav>
 
-        <jsp:useBean id="obj" class="com.ipn.spring.dao.ProyectoDAO" scope="page"/>
+        <jsp:useBean id="obj" class="com.ipn.spring.dao.ModuloDAO" scope="page"/>
         <section  id="tablaProyecto">
             <div class="container">
                 <div class="row">
                     <div class="text-center">
-                        <h2 class="section-heading">Estos son tus proyectos!</h2>
+                        <h2 class="section-heading">Estas son tus asignaciones!</h2>
                         <hr>
                         <table class ="table table-striped">
                             <thead>
                                 <tr>
-                                   
-                                    <th>Dueño</th>
-                                    <th>Lider</th>
+                                    <th>IdMod</th>
+                                    <th>IdPr</th>
+                                    <th>IdPm</th>
+                                    <th>IdDev</th>
+                                    <th>Estado</th>
                                     <th>Nombre</th>
                                     <th>Fecha Inicio</th>
                                     <th>Fecha Limite</th>
-                                    <th>Presupuesto</th>
-                                    <th>Estado</th>
-                                    <th>Objetivo</th>
-                                 
+                                    <th>Descripción</th>
                                 </tr>
                             </thead>
-                  
-                            <c:forEach items="${obj.leerProyectos(userId)}" var="pr">
+
+                            <c:forEach items="${obj.leerModulosIdDev(userId)}" var="pr">
                                 <tbody>
                                     <tr>
-                                        <td>${obj.leerAdmin(userId)}</td>
-                                        <td>${obj.leerPm(pr.idPm)}</td>
-                                        <td>${pr.nombrePr}</td>
-                                        <td>${pr.fIni}</td>
-                                        <td>${pr.fFin}</td>
-                                        <td>${pr.costo}</td>
-                                        <td>${pr.estado}</td>
-                                        <td>${pr.especific}</td>
+                                        <td>${pr.idModulo}</td>
+                                        <td>${pr.idPr}</td>
+                                        <td>${pr.idPm}</td>
+                                        <td>${pr.idDev}</td>
+                                        <td>${pr.nombre}</td>
+                                        <td>${pr.estadoMod}</td>
+                                        <td>${pr.fechaInicio}</td>
+                                        <td>${pr.fechaFin}</td>
+                                        <td>${pr.descripcion}</td>
                                     </tr>
                                 </tbody>
                             </c:forEach>

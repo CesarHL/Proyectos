@@ -2,6 +2,7 @@ package com.ipn.spring.util;
 
 import com.ipn.spring.dao.DesarrolladorDAO;
 import com.ipn.spring.dao.EmpleadoDAO;
+import com.ipn.spring.dao.ModuloDAO;
 import com.ipn.spring.pojo.Desarrollador;
 import com.ipn.spring.pojo.Empleado;
 
@@ -17,9 +18,9 @@ public class Pruebas {
 //        Date y = new Date();
 //        Modulo m = new Modulo(1, 1, 1, "s", "s", x, y, "s");
 //        md.crearModulo(m);
-        Desarrollador d = new Desarrollador();
-        DesarrolladorDAO dd = new DesarrolladorDAO();
-        System.out.println(dd.leerDesarrolladorId(1));
+        ModuloDAO m = new ModuloDAO();
+        System.out.println(m.leerModulosIdPm(1));
+        
 
     }
 }
